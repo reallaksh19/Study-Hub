@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Number System MCQ Practice</title>
+  <style>
+    :root{
+      --ink:#263238; --muted:#607d8b; --bg:#fff8e7; --card:#ffffff; --accent:#ff8a00; --accent2:#00a6a6; --good:#2e7d32; --bad:#c62828; --line:#e7dcc7;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:"Trebuchet MS", Arial, sans-serif;background:linear-gradient(135deg,#fff8e7,#e9fbff);color:var(--ink);}
+    header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:4px solid var(--accent);padding:14px 22px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+    header h1{margin:0;font-size:clamp(22px,3vw,38px);letter-spacing:.3px} header p{margin:5px 0 0;color:var(--muted);font-size:15px}
+    main{max-width:1100px;margin:auto;padding:20px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center;background:#fff;border-radius:26px;padding:20px;margin-bottom:18px;border:2px solid var(--line);box-shadow:0 12px 25px rgba(0,0,0,.08)}
+    .hero h2{font-size:clamp(24px,3vw,42px);margin:0;color:#6a3d00}.hero p{font-size:18px;line-height:1.45}.badge{display:inline-block;background:#ffe5b6;color:#7a4300;border:1px dashed #cc7a00;border-radius:999px;padding:6px 12px;font-weight:700;margin:4px 5px 4px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+    button{border:0;border-radius:14px;padding:11px 16px;font-weight:800;cursor:pointer;font-size:15px;background:var(--accent);color:#fff;box-shadow:0 3px 0 #b35c00} button.secondary{background:var(--accent2);box-shadow:0 3px 0 #006b6b} button.ghost{background:#fff;color:#6a3d00;border:2px solid #ffd28a;box-shadow:none}.score{font-size:18px;font-weight:800;background:#f2fffb;border:2px solid #b8eee7;border-radius:16px;padding:10px 14px;display:inline-block}.section{margin:22px 0}.section-title{display:flex;align-items:center;gap:10px;background:#263238;color:#fff;border-radius:18px;padding:12px 16px;margin:26px 0 14px}.section-title span{background:#ffcc4d;color:#263238;border-radius:999px;padding:5px 10px;font-weight:900}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.qcard{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 8px 18px rgba(0,0,0,.06);position:relative;overflow:hidden}.qcard:before{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;background:#fff1cf;border-radius:50%}.qno{font-weight:900;color:#9b5600;margin-bottom:8px}.question{font-size:18px;line-height:1.35;margin:8px 0 12px}.options{display:grid;gap:8px}.option{display:flex;align-items:flex-start;gap:8px;border:2px solid #eee2ca;border-radius:14px;padding:9px 10px;background:#fffdf8;cursor:pointer;transition:.12s}.option:hover{transform:translateY(-1px);border-color:#ffbc57}.option input{margin-top:4px}.option.correct{border-color:#8bd08d;background:#effff0}.option.wrong{border-color:#f5a2a2;background:#fff0f0}.feedback{margin-top:10px;font-weight:800;display:none}.feedback.good{color:var(--good)}.feedback.bad{color:var(--bad)}
+    .visual{background:#fef7e9;border:2px dashed #f0b35e;border-radius:18px;padding:12px;margin:8px 0 12px;display:flex;align-items:center;justify-content:center;min-height:130px}.visual svg{max-width:100%;height:auto}.mini-note{font-size:13px;color:var(--muted);margin-top:6px}.answer-key{display:none;background:#fff;border:2px solid #b8eee7;border-radius:22px;padding:16px;margin-top:18px}.answer-key ol{columns:2}.pill{display:inline-block;background:#e8f5e9;color:#1b5e20;border-radius:999px;padding:4px 9px;font-weight:800}.print-tip{background:#fff3cd;border:1px solid #ffe08a;border-radius:18px;padding:12px;margin:18px 0;color:#6a4a00}@media (max-width:800px){.hero,.grid{grid-template-columns:1fr}.answer-key ol{columns:1}}@media print{header{position:static}.actions,.score,.feedback,.answer-key{display:none!important}body{background:#fff}.qcard,.hero{box-shadow:none;break-inside:avoid}.grid{grid-template-columns:1fr 1fr}button{display:none}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Number System MCQ Practice</h1>
+  <p>Expanded form • Place value • Number names • Indian & International systems • Comparing numbers</p>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <span class="badge">Grade 4 style</span><span class="badge">All MCQ</span><span class="badge">Visual practice</span>
+      <h2>Help the Number Bugs choose the right answer!</h2>
+      <p>Read each question carefully. Click one option. Use the pictures, abacus, caterpillar place-value blocks, number cards, and comparison chart to help you think.</p>
+      <div class="actions"><button onclick="checkAll()">Check My Answers</button><button class="secondary" onclick="resetQuiz()">Try Again</button><button class="ghost" onclick="toggleKey()">Show / Hide Answer Key</button><button class="ghost" onclick="window.print()">Print</button></div>
+      <div class="score" id="scoreBox">Score: Not checked yet</div>
+    </div>
+    <div class="visual" aria-label="cartoon number caterpillar">
+      <svg viewBox="0 0 520 280" role="img" aria-label="A smiling caterpillar carrying place value groups">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ffb74d"/><stop offset="1" stop-color="#ff7043"/></linearGradient></defs>
+        <circle cx="80" cy="135" r="48" fill="#ff5252"/><circle cx="62" cy="122" r="8"/><circle cx="99" cy="122" r="8"/><path d="M65 152 Q80 168 98 152" stroke="#4e342e" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M55 87 Q35 45 20 70" stroke="#4e342e" stroke-width="5" fill="none"/><path d="M103 88 Q128 45 145 70" stroke="#4e342e" stroke-width="5" fill="none"/>
+        <g font-size="25" font-weight="800" fill="#4e342e" text-anchor="middle"><ellipse cx="190" cy="135" rx="65" ry="48" fill="url(#g)"/><text x="190" y="130">Lakhs</text><text x="190" y="162">__ __</text><ellipse cx="320" cy="135" rx="65" ry="48" fill="#ffd54f"/><text x="320" y="130">Thousands</text><text x="320" y="162">__ __ __</text><ellipse cx="450" cy="135" rx="65" ry="48" fill="#81d4fa"/><text x="450" y="130">Ones</text><text x="450" y="162">__ __ __</text></g>
+        <g stroke="#4e342e" stroke-width="6" stroke-linecap="round"><path d="M168 183 l-18 48"/><path d="M212 183 l18 48"/><path d="M298 183 l-18 48"/><path d="M342 183 l18 48"/><path d="M428 183 l-18 48"/><path d="M472 183 l18 48"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="print-tip"><strong>Teacher tip:</strong> This page is self-contained. It can be used on a screen or printed as a worksheet. The questions are modeled on workbook-style number-system tasks but converted fully into MCQ format.</div>
+
+  <section class="section">
+    <div class="section-title"><span>A</span><h2>Expanded Form and Short Form</h2></div>
+    <div class="grid" id="quiz"></div>
+  </section>
+
+  <section class="answer-key" id="answerKey"><h2>Answer Key</h2><ol id="keyList"></ol></section>
+</main>
+<script>
+const questions = [
+{sec:'Expanded Form and Short Form', visual:'abacus82765', q:'Which expanded form matches 82,765?', opts:['80,000 + 2,000 + 700 + 60 + 5','8,000 + 2,000 + 700 + 60 + 5','80,000 + 20,000 + 700 + 60 + 5','80,000 + 2,000 + 70 + 6 + 5'], a:0},
+{visual:'abacus50980', q:'Which expanded form matches 50,980?', opts:['50,000 + 900 + 80','50,000 + 9,000 + 80','5,000 + 900 + 80','50,000 + 900 + 8'], a:0},
+{q:'40,000 + 5,000 + 90 + 3 is written in standard form as:', opts:['45,093','40,593','45,903','4,593'], a:0},
+{q:'Which short form matches 90,000 + 3,000 + 100 + 70 + 5?', opts:['93,175','93,715','90,375','9,317'], a:0},
+{q:'Which expanded form is correct for 7,30,027?', opts:['7,00,000 + 30,000 + 20 + 7','70,000 + 30,000 + 20 + 7','7,00,000 + 3,000 + 20 + 7','7,00,000 + 30,000 + 200 + 7'], a:0},
+{q:'Which short form matches 60,000 + 4,000 + 400 + 20 + 7?', opts:['64,427','60,427','64,247','6,442'], a:0},
+{visual:'placevalue', q:'The number has 5 ten-thousands, 8 thousands, 0 hundreds, 6 tens, and 3 ones. What is the number?', opts:['58,063','50,863','58,603','5,863'], a:0},
+{q:'Eight ten-thousands, six hundreds, nine tens, and one one make:', opts:['80,691','8,691','86,091','80,619'], a:0},
+{q:'Which is the numeral for “eight thousand four hundred sixty-nine”?', opts:['8,469','84,609','8,649','80,469'], a:0},
+{q:'What is the successor of 5,529?', opts:['5,530','5,528','5,539','5,620'], a:0},
+{q:'What is the predecessor of 7,570?', opts:['7,569','7,571','7,560','7,470'], a:0},
+{q:'Which two numbers come next after 8,474; 8,574; ___; ___ ?', opts:['8,674 and 8,774','8,584 and 8,594','8,575 and 8,576','8,774 and 8,974'], a:0},
+{q:'How many hundreds are there in 4,792?', opts:['47 hundreds','4 hundreds','479 hundreds','7 hundreds'], a:0},
+{q:'The number with 6 in thousands place, 2 in hundreds place, 8 in tens place, and 4 in ones place is:', opts:['6,284','6,824','2,684','8,264'], a:0},
+{q:'How many 4-digit numbers are there in all?', opts:['9,000','10,000','8,999','9,999'], a:0},
+{visual:'cheque', q:'A cheque amount is ₹18,960. Which words are correct?', opts:['Eighteen thousand nine hundred sixty only','One lakh eighty-nine sixty only','Eight thousand nine hundred sixty only','Eighteen lakh nine hundred sixty only'], a:0},
+{visual:'caterpillar', q:'On a place-value caterpillar, 345,098 should be split as:', opts:['3 lakhs | 45 thousands | 098 ones','34 lakhs | 5 thousands | 098 ones','3 lakhs | 450 thousands | 98 ones','0 lakhs | 345 thousands | 98 ones'], a:0},
+{visual:'caterpillar2', q:'On an international caterpillar, 112,560,324 should be split as:', opts:['112 millions | 560 thousands | 324 ones','11 millions | 256 thousands | 324 ones','112 thousands | 560 ones | 324 millions','1 million | 125 thousands | 603 ones'], a:0},
+{q:'Which is the correct Indian number name for 3,45,098?', opts:['Three lakh forty-five thousand ninety-eight','Three million forty-five thousand ninety-eight','Thirty-four lakh five thousand ninety-eight','Three lakh four hundred fifty thousand ninety-eight'], a:0},
+{q:'Which is the correct international number name for 120,980?', opts:['One hundred twenty thousand nine hundred eighty','Twelve lakh ninety-eight','One million twenty thousand nine hundred eighty','One hundred twenty million nine hundred eighty'], a:0},
+{q:'Which number matches “fifty-four lakhs five thousand five hundred four”?', opts:['54,05,504','5,40,550','54,50,504','5,405,054'], a:0},
+{q:'Which number matches “eighty lakhs twenty-seven thousand fifty-one”?', opts:['80,27,051','8,27,051','80,72,051','8,027,501'], a:0},
+{q:'Which is the correct number name for 6,84,327 in the Indian system?', opts:['Six lakh eighty-four thousand three hundred twenty-seven','Six million eighty-four thousand three hundred twenty-seven','Sixty-eight lakh four thousand three hundred twenty-seven','Six lakh eight thousand four hundred twenty-seven'], a:0},
+{visual:'compare', q:'Which comparison is correct?', opts:['5,42,478 < 5,42,748','5,42,478 > 5,42,748','5,42,478 = 5,42,748','5,42,478 < 54,274'], a:0},
+{q:'Compare: 912,890 and 9,12,890. Which statement is correct?', opts:['They are equal','912,890 is smaller','9,12,890 is smaller','They cannot be compared'], a:0},
+{visual:'systemtable', q:'Which statement is true?', opts:['1 million = 10 lakhs','1 million = 1 lakh','10 million = 1 lakh','1 lakh = 10 thousands'], a:0},
+{q:'In the international system, 1,000,000 is called:', opts:['one million','ten lakh only','one crore','one hundred million'], a:0},
+{q:'In the Indian system, 1,00,000 is called:', opts:['one lakh','one million','one hundred lakh','one crore'], a:0},
+{q:'5-digit numbers are read the same way in both Indian and International systems. Which example supports this?', opts:['45,678 = forty-five thousand six hundred seventy-eight','4,56,780 = four million fifty-six thousand','45,67,800 = forty-five thousand','1,00,000 = one million'], a:0},
+{q:'Which number is greatest?', opts:['90,90,009','9,09,009','909,009','90,009'], a:0},
+{q:'Mind bender: I have 9s in my millions compartment, 8s in my thousands compartment, and 7s in my ones compartment. Who am I?', opts:['999,888,777','999,777,888','888,999,777','99,88,77'], a:0},
+{q:'Mind bender: biggest single digit in lakhs place, smallest single digit in ones place, smallest even number in crores place. Best answer:', opts:['2,09,00,001','2,90,00,000','20,09,001','2,09,00,010'], a:0}
+];
+function visual(kind){
+ if(kind==='abacus82765') return `<div class="visual"><svg viewBox="0 0 400 150" aria-label="Abacus showing 82765"><text x="20" y="25" font-weight="800">Abacus: TTh Th H T O</text>${abacus([8,2,7,6,5])}</svg></div>`;
+ if(kind==='abacus50980') return `<div class="visual"><svg viewBox="0 0 400 150" aria-label="Abacus showing 50980"><text x="20" y="25" font-weight="800">Abacus: TTh Th H T O</text>${abacus([5,0,9,8,0])}</svg></div>`;
+ if(kind==='placevalue') return `<div class="visual"><svg viewBox="0 0 500 140"><g font-weight="800" text-anchor="middle"><text x="70" y="30">TTh</text><text x="160" y="30">Th</text><text x="250" y="30">H</text><text x="340" y="30">T</text><text x="430" y="30">O</text><g fill="#fff3cd" stroke="#f5b041" stroke-width="3"><circle cx="70" cy="80" r="32"/><circle cx="160" cy="80" r="32"/><circle cx="250" cy="80" r="32"/><circle cx="340" cy="80" r="32"/><circle cx="430" cy="80" r="32"/></g><text x="70" y="90">5</text><text x="160" y="90">8</text><text x="250" y="90">0</text><text x="340" y="90">6</text><text x="430" y="90">3</text></g></svg></div>`;
+ if(kind==='cheque') return `<div class="visual"><svg viewBox="0 0 520 180"><rect x="20" y="30" width="480" height="120" rx="15" fill="#d7f5dc" stroke="#2e7d32" stroke-width="4"/><text x="45" y="65" font-size="22" font-weight="900">Happy Bank</text><line x1="90" y1="95" x2="430" y2="95" stroke="#2e7d32" stroke-width="3" stroke-dasharray="8 6"/><text x="45" y="100" font-size="18">Rupees</text><rect x="390" y="112" width="80" height="28" fill="#fff" stroke="#2e7d32"/><text x="399" y="133" font-weight="900">₹18,960</text></svg></div>`;
+ if(kind==='caterpillar'||kind==='caterpillar2') return `<div class="visual"><svg viewBox="0 0 520 170"><circle cx="55" cy="80" r="34" fill="#ff5252"/><circle cx="45" cy="72" r="5"/><circle cx="67" cy="72" r="5"/><path d="M43 92 Q56 104 70 92" stroke="#4e342e" stroke-width="4" fill="none"/><g font-size="17" font-weight="900" fill="#4e342e" text-anchor="middle"><ellipse cx="155" cy="80" rx="62" ry="42" fill="#ffcc80"/><text x="155" y="75">${kind==='caterpillar'?'Lakhs':'Millions'}</text><text x="155" y="102">__ __ __</text><ellipse cx="290" cy="80" rx="72" ry="42" fill="#ffe082"/><text x="290" y="75">Thousands</text><text x="290" y="102">__ __ __</text><ellipse cx="440" cy="80" rx="62" ry="42" fill="#90caf9"/><text x="440" y="75">Ones</text><text x="440" y="102">__ __ __</text></g></svg></div>`;
+ if(kind==='compare') return `<div class="visual"><svg viewBox="0 0 480 120"><rect x="25" y="25" width="180" height="55" rx="12" fill="#e3f2fd" stroke="#42a5f5"/><rect x="275" y="25" width="180" height="55" rx="12" fill="#fff3e0" stroke="#ff9800"/><text x="115" y="60" font-size="24" font-weight="900" text-anchor="middle">5,42,478</text><text x="240" y="62" font-size="36" font-weight="900">?</text><text x="365" y="60" font-size="24" font-weight="900" text-anchor="middle">5,42,748</text></svg></div>`;
+ if(kind==='systemtable') return `<div class="visual"><svg viewBox="0 0 520 160"><rect x="25" y="25" width="470" height="95" fill="#fff" stroke="#6d4c41" stroke-width="3"/><g font-size="16" font-weight="800" text-anchor="middle"><rect x="25" y="25" width="470" height="32" fill="#f8bbd0"/><text x="115" y="47">Indian</text><text x="360" y="47">International</text><text x="115" y="88">10 lakhs</text><text x="360" y="88">1 million</text><line x1="260" y1="25" x2="260" y2="120" stroke="#6d4c41" stroke-width="3"/><line x1="25" y1="57" x2="495" y2="57" stroke="#6d4c41" stroke-width="3"/></g></svg></div>`;
+ return '';
+}
+function abacus(vals){let s=''; for(let i=0;i<5;i++){let x=70+i*65; s+=`<line x1="${x}" y1="35" x2="${x}" y2="125" stroke="#8d5524" stroke-width="6"/>`; for(let j=0;j<vals[i];j++){let y=118-j*9; s+=`<circle cx="${x}" cy="${y}" r="7" fill="#ffe0b2" stroke="#6d4c41"/>`; } s+=`<text x="${x}" y="145" font-size="14" text-anchor="middle" font-weight="800">${['TTh','Th','H','T','O'][i]}</text>`;} return s+`<rect x="45" y="126" width="290" height="8" fill="#8d5524"/>`;}
+function render(){const quiz=document.getElementById('quiz'); const key=document.getElementById('keyList'); quiz.innerHTML=''; key.innerHTML=''; questions.forEach((item,i)=>{let card=document.createElement('article');card.className='qcard';card.innerHTML=`<div class="qno">Question ${i+1}</div>${visual(item.visual)}<div class="question">${item.q}</div><div class="options">${item.opts.map((op,idx)=>`<label class="option"><input type="radio" name="q${i}" value="${idx}"><span><strong>${String.fromCharCode(65+idx)}.</strong> ${op}</span></label>`).join('')}</div><div class="feedback" id="fb${i}"></div>`;quiz.appendChild(card); let li=document.createElement('li'); li.innerHTML=`Q${i+1}: <span class="pill">${String.fromCharCode(65+item.a)}</span> ${item.opts[item.a]}`; key.appendChild(li);});}
+function checkAll(){let score=0; questions.forEach((item,i)=>{let chosen=document.querySelector(`input[name=q${i}]:checked`); let fb=document.getElementById(`fb${i}`); document.querySelectorAll(`input[name=q${i}]`).forEach(inp=>{let lab=inp.closest('.option'); lab.classList.remove('correct','wrong'); if(+inp.value===item.a) lab.classList.add('correct'); if(chosen && inp===chosen && +inp.value!==item.a) lab.classList.add('wrong');}); fb.style.display='block'; if(chosen && +chosen.value===item.a){score++; fb.className='feedback good'; fb.textContent='Correct!';} else {fb.className='feedback bad'; fb.textContent=`Not yet. Correct answer: ${String.fromCharCode(65+item.a)}.`;}}); document.getElementById('scoreBox').textContent=`Score: ${score} / ${questions.length}`; window.scrollTo({top:0,behavior:'smooth'});}
+function resetQuiz(){document.querySelectorAll('input[type=radio]').forEach(i=>i.checked=false);document.querySelectorAll('.option').forEach(l=>l.classList.remove('correct','wrong'));document.querySelectorAll('.feedback').forEach(f=>{f.style.display='none';f.textContent='';});document.getElementById('scoreBox').textContent='Score: Not checked yet';}
+function toggleKey(){let k=document.getElementById('answerKey');k.style.display=k.style.display==='block'?'none':'block';}
+render();
+</script>
+</body>
+</html>

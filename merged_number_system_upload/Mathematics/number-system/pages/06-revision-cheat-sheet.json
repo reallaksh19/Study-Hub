@@ -1,0 +1,222 @@
+{
+  "id": "math-9-number-system-06-revision-cheat-sheet",
+  "slug": "06-revision-cheat-sheet",
+  "title": "Revision Cheat Sheet",
+  "order": 6,
+  "estimatedMinutes": 6,
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "Revision Cheat Sheet",
+        "level": 2
+      }
+    },
+    {
+      "type": "bullets",
+      "data": {
+        "items": [
+          "Natural numbers: 1, 2, 3, \u2026",
+          "Whole numbers: 0, 1, 2, 3, \u2026",
+          "Integers: \u2026, -2, -1, 0, 1, 2, \u2026",
+          "Rational numbers: can be written as p/q, q \u2260 0",
+          "Irrational numbers: non-terminating, non-recurring decimals",
+          "Real numbers: rational + irrational"
+        ]
+      }
+    },
+    {
+      "type": "callout",
+      "data": {
+        "title": "Memory helper",
+        "body": "N \u2282 W \u2282 Z \u2282 Q \u2282 R. Irrational numbers sit inside R but outside Q."
+      }
+    },
+    {
+      "type": "image",
+      "data": {
+        "src": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+        "alt": "Hierarchy recap visual",
+        "caption": "Use this image as a quick revision card for set nesting."
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-rev-1",
+      "type": "tip",
+      "title": "Exam tip",
+      "body": "If you freeze in an exam, write the subset chain first. Then place the number in the smallest suitable set."
+    }
+  ],
+  "attachments": [],
+  "topicId": "math-9-number-system",
+  "questions": [
+    {
+      "id": "math-9-ns-a1-q22",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "medium",
+      "category": "diagram-based",
+      "prompt": "In a Venn diagram representing number systems, which set forms the innermost, smallest circle?",
+      "answer": "Natural Numbers",
+      "explanation": "The natural numbers (counting numbers) form the most basic, restrictive set, which is contained within all other larger sets.",
+      "supportHint": "Which set has the fewest types of numbers?",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-22",
+      "usage": "concept-strengthening",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q24",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "hard",
+      "category": "reasoning",
+      "prompt": "Why is it impossible for a number to be both rational and irrational at the same time?",
+      "answer": "The definitions are mutually exclusive.",
+      "explanation": "A number either CAN be written as p/q (rational) or CANNOT be written as p/q (irrational). It cannot be both.",
+      "supportHint": "Look at the definition of irrational.",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-24",
+      "usage": "concept-strengthening",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q25",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "medium",
+      "category": "real-life/application",
+      "prompt": "Classify the number of days in a standard non-leap year (365) into as many number sets as possible.",
+      "answer": "Natural, Whole, Integer, Rational, Real",
+      "explanation": "365 is a positive counting number, which automatically makes it part of all the larger encompassing sets in the hierarchy.",
+      "supportHint": "Start from the smallest set it belongs to.",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-25",
+      "usage": "oral review",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q45",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-5",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "medium",
+      "category": "assertion-reason",
+      "prompt": "Assertion: All terminating decimals are real numbers. Reason: All terminating decimals are rational numbers, and all rational numbers are real numbers.",
+      "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+      "explanation": "This traces the subset relationship perfectly.",
+      "supportHint": "Follow the logical chain.",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-45",
+      "usage": "concept-repair",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q49",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-5",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "medium",
+      "category": "MCQ",
+      "prompt": "Which set is exactly equivalent to the union of negative integers and whole numbers?",
+      "answer": "Integers",
+      "explanation": "Whole numbers contain 0 and positives. Adding negatives completes the set of integers.",
+      "supportHint": "What do you get when you combine positives, zero, and negatives?",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-49",
+      "usage": "quick check",
+      "options": [
+        "Rational Numbers",
+        "Integers",
+        "Natural Numbers",
+        "Real Numbers"
+      ],
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "mcq"
+    },
+    {
+      "id": "math-9-ns-a2-q45",
+      "assetType": "Asset 2",
+      "questionSetId": "qs-2-5",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "hard",
+      "category": "true/false",
+      "prompt": "The intersection of the set of Rational numbers and the set of Irrational numbers is the empty set.",
+      "answer": "True",
+      "explanation": "A number cannot be both rational (can be a fraction) and irrational (cannot be a fraction) simultaneously.",
+      "supportHint": "Can you be in two opposite places at once?",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-2-45",
+      "usage": "exam drill",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "true_false"
+    },
+    {
+      "id": "math-9-ns-a1-q35",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-4",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "hard",
+      "category": "reasoning",
+      "prompt": "A number is classified as a Real number and an Integer, but NOT a Natural number. What are the possible values for this number?",
+      "answer": "Zero, or any negative integer.",
+      "explanation": "The only integers that are not natural numbers are 0, -1, -2, -3...",
+      "supportHint": "What is excluded from the natural set?",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-35",
+      "usage": "concept-strengthening",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q41",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-5",
+      "pageRef": "page-hierarchy",
+      "conceptTags": [
+        "hierarchy"
+      ],
+      "difficulty": "medium",
+      "category": "diagram-based",
+      "prompt": "If a number is placed in the 'Rational' section of a Venn diagram, does it have to be inside the 'Integer' section too?",
+      "answer": "No.",
+      "explanation": "Numbers like 1/2 are rational but sit outside the integer circle.",
+      "supportHint": "Think of a fraction.",
+      "supportPageRef": "page-hierarchy",
+      "supportClarifierRef": "clarifier-1-41",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-06-revision-cheat-sheet",
+      "type": "short_answer"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "math-9-number-system-05-decimal-classification",
+  "slug": "05-decimal-classification",
+  "title": "Decimal Classification",
+  "order": 5,
+  "estimatedMinutes": 10,
+  "prerequisitePageIds": [
+    "math-9-number-system-03-irrational-numbers"
+  ],
+  "relatedPageIds": [
+    "math-9-number-system-02-integers-and-rational-numbers",
+    "math-9-number-system-03-irrational-numbers"
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "Decimal Classification",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "Decimals tell us a lot about the kind of number we have. A decimal that **stops** is rational. A decimal that **repeats a fixed block** forever is also rational. A decimal that continues forever **without repeating** is irrational."
+      }
+    },
+    {
+      "type": "bullets",
+      "data": {
+        "items": [
+          "0.36 terminates \u2192 rational",
+          "0.090909\u2026 repeats 09 \u2192 rational",
+          "1.41421356\u2026 has no repeating block \u2192 irrational"
+        ]
+      }
+    },
+    {
+      "type": "example",
+      "data": {
+        "title": "Exercise-style examples",
+        "scenario": "Classify \\(\frac{36}{100}\\), \\(\frac{1}{11}\\), and \\(\frac{33}{8}\\).",
+        "solution": "\\(\frac{36}{100}=0.36\\) terminates, so it is rational. \\(\frac{1}{11}=0.090909\\ldots\\) repeats, so it is rational. \\(\frac{33}{8}=4.125\\) terminates, so it is rational."
+      }
+    },
+    {
+      "type": "warning",
+      "data": {
+        "title": "Common mistake",
+        "body": "Students often think \u201cinfinite decimal\u201d automatically means irrational. Repeating decimals are rational."
+      }
+    },
+    {
+      "type": "link_card",
+      "data": {
+        "title": "Optional external practice",
+        "description": "Use a trusted external lesson or worksheet to practise more decimal-classification problems.",
+        "url": "https://ncert.nic.in/",
+        "linkType": "external"
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-dec-1",
+      "type": "tip",
+      "title": "Quick test",
+      "body": "Ask two questions: Does it stop? Does it repeat? If yes to either, it is rational."
+    },
+    {
+      "id": "clarifier-dec-2",
+      "type": "did_you_know",
+      "title": "Interesting fact",
+      "body": "The recurring decimal 0.999\u2026 is exactly equal to 1."
+    }
+  ],
+  "attachments": [],
+  "topicId": "math-9-number-system",
+  "questions": []
+}

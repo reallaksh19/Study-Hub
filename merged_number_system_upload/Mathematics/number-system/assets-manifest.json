@@ -1,0 +1,22 @@
+{
+  "images": [
+    "asset_math_9_number_system_img_01.png",
+    "asset_math_9_number_system_img_02.png"
+  ],
+  "svgs": [
+    "asset_math_9_number_system_svg_01.svg",
+    "asset_math_9_number_system_svg_02.svg"
+  ],
+  "pdfs": [
+    "asset_math_9_number_system_pdf_01.pdf"
+  ],
+  "links": [
+    {
+      "id": "link-ncert-number-system",
+      "title": "NCERT Number Systems chapter reference",
+      "url": "https://ncert.nic.in/",
+      "kind": "external",
+      "note": "Replace with the exact chapter link before publishing externally if needed."
+    }
+  ]
+}

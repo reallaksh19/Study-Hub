@@ -1,0 +1,21 @@
+{
+  "id": "grade4english-nouns",
+  "subjectId": "grade4english",
+  "title": "Nouns",
+  "difficulty": "medium",
+  "estimatedMinutes": 30,
+  "pages": [
+    {
+      "id": "grade4english-nouns-imported-html-page",
+      "file": "pages/imported-html-page.json",
+      "title": "Imported HTML Page",
+      "order": 1,
+      "estimatedMinutes": 10,
+      "difficulty": "medium",
+      "conceptTags": [
+        "imported-html-page"
+      ],
+      "pageKind": "interactive"
+    }
+  ]
+}

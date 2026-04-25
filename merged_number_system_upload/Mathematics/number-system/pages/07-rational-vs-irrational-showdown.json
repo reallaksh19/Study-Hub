@@ -1,0 +1,60 @@
+{
+  "id": "math-9-number-system-07-rational-vs-irrational-showdown",
+  "slug": "07-rational-vs-irrational-showdown",
+  "title": "Rational vs Irrational Showdown",
+  "order": 7,
+  "estimatedMinutes": 8,
+  "relatedPageIds": [
+    "math-9-number-system-05-decimal-classification"
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "Rational vs Irrational Showdown",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "This page is meant for fast comparison and exam rescue. If you can write the number as a fraction of integers, it is rational. If its decimal is endless and non-repeating, it is irrational."
+      }
+    },
+    {
+      "type": "bullets",
+      "data": {
+        "items": [
+          "\\(\frac{7}{5}\\), 0.25, 0.333\u2026, -8 \u2192 rational",
+          "\\(\\sqrt{2}\\), \\(\\sqrt{3}\\), \u03c0 \u2192 irrational"
+        ]
+      }
+    },
+    {
+      "type": "example",
+      "data": {
+        "title": "One-minute check",
+        "scenario": "Classify 0.121121112\u2026",
+        "solution": "It does not repeat a fixed block, so it is irrational."
+      }
+    },
+    {
+      "type": "callout",
+      "data": {
+        "title": "Parent support note",
+        "body": "Ask the child to explain *why* a decimal is rational or irrational, not just name the set."
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-show-1",
+      "type": "common_mistake",
+      "title": "Common mistake",
+      "body": "Seeing a pattern like 121121112 and assuming it repeats. A repeating decimal must repeat the exact same block."
+    }
+  ],
+  "attachments": [],
+  "topicId": "math-9-number-system",
+  "questions": []
+}
