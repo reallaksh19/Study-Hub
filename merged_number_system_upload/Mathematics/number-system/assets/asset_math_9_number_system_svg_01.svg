@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+  <rect width="100%" height="100%" fill="#E3F2FD" rx="15" />
+  <text x="20" y="30" font-family="Arial" font-weight="bold" font-size="20" fill="#0D47A1">Real Numbers (R)</text>
+
+  <!-- Rational Group -->
+  <rect x="20" y="50" width="380" height="330" fill="#BBDEFB" rx="10" stroke="#1976D2" stroke-width="2"/>
+  <text x="30" y="80" font-family="Arial" font-weight="bold" font-size="16" fill="#1565C0">Rational Numbers (Q)</text>
+
+  <!-- Integer Group -->
+  <rect x="40" y="100" width="340" height="260" fill="#90CAF9" rx="10" stroke="#1565C0" stroke-width="2"/>
+  <text x="50" y="130" font-family="Arial" font-weight="bold" font-size="16" fill="#0D47A1">Integers (Z)</text>
+
+  <!-- Whole Group -->
+  <rect x="60" y="150" width="300" height="190" fill="#64B5F6" rx="10" stroke="#0D47A1" stroke-width="2"/>
+  <text x="70" y="180" font-family="Arial" font-weight="bold" font-size="16" fill="#000">Whole Numbers (W)</text>
+
+  <!-- Natural Group -->
+  <rect x="80" y="200" width="260" height="120" fill="#42A5F5" rx="10" stroke="#000" stroke-width="2"/>
+  <text x="90" y="230" font-family="Arial" font-weight="bold" font-size="16" fill="#FFF">Natural Numbers (N)</text>
+  
+  <text x="100" y="260" font-family="Arial" font-size="14" fill="#FFF">1, 2, 3...</text>
+  <text x="70" y="310" font-family="Arial" font-size="14" fill="#000">0</text>
+  <text x="50" y="340" font-family="Arial" font-size="14" fill="#0D47A1">-1, -2...</text>
+  <text x="30" y="360" font-family="Arial" font-size="14" fill="#1565C0">1/2, -3/4...</text>
+
+  <!-- Irrational Group -->
+  <rect x="420" y="50" width="160" height="330" fill="#C8E6C9" rx="10" stroke="#388E3C" stroke-width="2"/>
+  <text x="430" y="80" font-family="Arial" font-weight="bold" font-size="16" fill="#1B5E20">Irrationals</text>
+  <text x="440" y="150" font-family="Arial" font-size="14" fill="#1B5E20">π, √2, √3...</text>
+</svg>

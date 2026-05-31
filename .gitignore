@@ -1,0 +1,16 @@
+node_modules
+public/dist/
+dist/
+public/Physics/
+public/chemistry/
+public/uploads/
+*.local
+.env
+*.log
+*.err.log
+*.out.log
+.apiserver.*
+.devserver.*
+.webserver.*
+.server_start_ms.txt
+.claude/

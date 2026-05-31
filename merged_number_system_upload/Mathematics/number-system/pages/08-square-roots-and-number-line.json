@@ -1,0 +1,73 @@
+{
+  "id": "math-9-number-system-08-square-roots-and-number-line",
+  "slug": "08-square-roots-and-number-line",
+  "title": "Square Roots and the Number Line",
+  "order": 8,
+  "estimatedMinutes": 8,
+  "relatedPageIds": [
+    "math-9-number-system-03-irrational-numbers",
+    "math-9-number-system-04-the-real-number-line"
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "Square Roots and the Number Line",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "Some square roots, such as \\(\\sqrt{4}\\) or \\(\\sqrt{9}\\), simplify to integers. Others, such as \\(\\sqrt{2}\\) and \\(\\sqrt{5}\\), are irrational. Even when the decimal never ends, these values can still be placed exactly on the number line."
+      }
+    },
+    {
+      "type": "example",
+      "data": {
+        "title": "Worked example",
+        "scenario": "Is \\(\\sqrt{25}\\) irrational? What about \\(\\sqrt{5}\\)?",
+        "solution": "\\(\\sqrt{25}=5\\), so it is rational. \\(\\sqrt{5}\\) does not simplify to an integer and is irrational."
+      }
+    },
+    {
+      "type": "callout",
+      "data": {
+        "title": "Extension note",
+        "body": "This is a useful bridge to later lessons on square-root representation and square-root spirals."
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-root-1",
+      "type": "tip",
+      "title": "Quick rule",
+      "body": "Perfect square under the root \u2192 rational result. Non-perfect square under the root \u2192 usually irrational in this chapter."
+    }
+  ],
+  "attachments": [],
+  "topicId": "math-9-number-system",
+  "questions": [
+    {
+      "id": "math-9-ns-a2-q27",
+      "assetType": "Asset 2",
+      "questionSetId": "qs-2-3",
+      "pageRef": "page-square-roots",
+      "conceptTags": [
+        "square-roots"
+      ],
+      "difficulty": "hard",
+      "category": "reasoning",
+      "prompt": "Why is the square root of 25 rational, but the square root of 26 irrational?",
+      "answer": "25 is a perfect square (5x5), yielding an integer. 26 is not, yielding an infinite non-repeating decimal.",
+      "explanation": "Perfect squares have integer roots. Other numbers do not.",
+      "supportHint": "What is 5 times 5?",
+      "supportPageRef": "page-square-roots",
+      "supportClarifierRef": "clarifier-2-27",
+      "usage": "remediation",
+      "pageId": "math-9-number-system-08-square-roots-and-number-line",
+      "type": "short_answer"
+    }
+  ]
+}

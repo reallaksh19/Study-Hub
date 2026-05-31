@@ -1,0 +1,40 @@
+{
+  "id": "grade4english-nouns-imported-html-page",
+  "topicId": "grade4english-nouns",
+  "title": "Imported HTML Page",
+  "pageKind": "interactive",
+  "blocks": [
+    {
+      "id": "grade4english-nouns-imported-html-page-b0",
+      "type": "interactive_html",
+      "data": {
+        "assetPath": "/grade4english/nouns/assets/imported-html-page.html",
+        "mode": "iframe",
+        "trackResults": true,
+        "messagingContract": "studyhub:v1",
+        "pageId": "grade4english-nouns-imported-html-page",
+        "topicId": "grade4english-nouns"
+      }
+    }
+  ],
+  "clarifiers": [],
+  "questions": [],
+  "attachments": [
+    {
+      "id": "grade4english-nouns-imported-html-page-att0",
+      "title": "Original HTML",
+      "kind": "html",
+      "assetPath": "/grade4english/nouns/assets/imported-html-page.html",
+      "previewMode": "iframe",
+      "downloadable": true,
+      "studentVisible": false
+    }
+  ],
+  "resources": [],
+  "difficulty": "medium",
+  "estimatedMinutes": 10,
+  "conceptTags": [
+    "imported-html-page"
+  ],
+  "importedFrom": "html-importer"
+}

@@ -1,0 +1,1545 @@
+{
+  "version": 1,
+  "topics": [
+    {
+      "id": "math-9-number-system",
+      "subjectId": "mathematics",
+      "title": "Number System",
+      "description": "A merged, Study-Hub-ready Class 9 topic pack covering natural numbers, whole numbers, integers, rational numbers, irrational numbers, real numbers, decimal classification, and revision support.",
+      "order": 1,
+      "difficulty": "beginner",
+      "tags": [
+        "math",
+        "class-9",
+        "number-system",
+        "rational-numbers",
+        "irrational-numbers",
+        "real-numbers"
+      ],
+      "coverAssetPath": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+      "helperText": "Start with page 1 and move in order. If you struggle with decimal questions, jump to Decimal Classification and then the Showdown page.",
+      "pages": [
+        {
+          "id": "math-9-number-system-01-natural-and-whole-numbers",
+          "file": "pages/01-natural-and-whole-numbers.json",
+          "title": "Natural and Whole Numbers",
+          "order": 1,
+          "estimatedMinutes": 8,
+          "prerequisitePageIds": [],
+          "relatedPageIds": []
+        },
+        {
+          "id": "math-9-number-system-02-integers-and-rational-numbers",
+          "file": "pages/02-integers-and-rational-numbers.json",
+          "title": "Integers and Rational Numbers",
+          "order": 2,
+          "estimatedMinutes": 10,
+          "prerequisitePageIds": [
+            "math-9-number-system-01-natural-and-whole-numbers"
+          ],
+          "relatedPageIds": []
+        },
+        {
+          "id": "math-9-number-system-03-irrational-numbers",
+          "file": "pages/03-irrational-numbers.json",
+          "title": "Irrational Numbers",
+          "order": 3,
+          "estimatedMinutes": 10,
+          "prerequisitePageIds": [
+            "math-9-number-system-02-integers-and-rational-numbers"
+          ],
+          "relatedPageIds": []
+        },
+        {
+          "id": "math-9-number-system-04-the-real-number-line",
+          "file": "pages/04-the-real-number-line.json",
+          "title": "The Real Number Line",
+          "order": 4,
+          "estimatedMinutes": 8,
+          "prerequisitePageIds": [
+            "math-9-number-system-03-irrational-numbers"
+          ],
+          "relatedPageIds": []
+        },
+        {
+          "id": "math-9-number-system-05-decimal-classification",
+          "file": "pages/05-decimal-classification.json",
+          "title": "Decimal Classification",
+          "order": 5,
+          "estimatedMinutes": 10,
+          "prerequisitePageIds": [
+            "math-9-number-system-03-irrational-numbers"
+          ],
+          "relatedPageIds": [
+            "math-9-number-system-02-integers-and-rational-numbers",
+            "math-9-number-system-03-irrational-numbers"
+          ]
+        },
+        {
+          "id": "math-9-number-system-06-revision-cheat-sheet",
+          "file": "pages/06-revision-cheat-sheet.json",
+          "title": "Revision Cheat Sheet",
+          "order": 6,
+          "estimatedMinutes": 6,
+          "prerequisitePageIds": [],
+          "relatedPageIds": []
+        },
+        {
+          "id": "math-9-number-system-07-rational-vs-irrational-showdown",
+          "file": "pages/07-rational-vs-irrational-showdown.json",
+          "title": "Rational vs Irrational Showdown",
+          "order": 7,
+          "estimatedMinutes": 8,
+          "prerequisitePageIds": [],
+          "relatedPageIds": [
+            "math-9-number-system-05-decimal-classification"
+          ]
+        },
+        {
+          "id": "math-9-number-system-08-square-roots-and-number-line",
+          "file": "pages/08-square-roots-and-number-line.json",
+          "title": "Square Roots and the Number Line",
+          "order": 8,
+          "estimatedMinutes": 8,
+          "prerequisitePageIds": [],
+          "relatedPageIds": [
+            "math-9-number-system-03-irrational-numbers",
+            "math-9-number-system-04-the-real-number-line"
+          ]
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "math-9-number-system-01-natural-and-whole-numbers": {
+      "id": "math-9-number-system-01-natural-and-whole-numbers",
+      "slug": "01-natural-and-whole-numbers",
+      "title": "Natural and Whole Numbers",
+      "order": 1,
+      "estimatedMinutes": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Natural and Whole Numbers",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Humans first needed numbers for counting objects: 1, 2, 3, 4, \u2026 . These are called **natural numbers**. Later, we needed a number for \u201cnothing left\u201d, so **0** was introduced. Natural numbers together with 0 are called **whole numbers**."
+          }
+        },
+        {
+          "type": "bullets",
+          "data": {
+            "items": [
+              "Natural numbers: 1, 2, 3, 4, \u2026",
+              "Whole numbers: 0, 1, 2, 3, 4, \u2026",
+              "Zero is the key difference between the two sets."
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "src": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+            "alt": "Number-system hierarchy illustration",
+            "caption": "Use this visual to remember that whole numbers extend natural numbers by adding 0."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Worked example",
+            "scenario": "Is 0 a natural number? Is 500 a whole number?",
+            "solution": "0 is **not** taken as a natural number in the NCERT Class 9 framing, but it **is** a whole number. 500 is a whole number and also a natural number."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "If you are confused",
+            "body": "Think: Natural = counting actual objects. Whole = counting plus the empty case (0)."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-nw-1",
+          "type": "key_fact",
+          "title": "Remember the start points",
+          "body": "Natural numbers usually start at 1. Whole numbers start at 0."
+        },
+        {
+          "id": "clarifier-nw-2",
+          "type": "common_mistake",
+          "title": "Common mistake",
+          "body": "Students often write 0 as a natural number in this chapter. For school work here, treat 0 as the smallest whole number."
+        },
+        {
+          "id": "clarifier-nw-3",
+          "type": "tip",
+          "title": "Parent tip",
+          "body": "Use fingers for counting, then ask \u201cHow many are left if all are removed?\u201d to introduce 0."
+        }
+      ],
+      "attachments": [
+        {
+          "id": "att-ns-pdf",
+          "title": "Printable worksheet",
+          "description": "A quick classification worksheet from the merged asset pack.",
+          "path": "/Mathematics/number-system/assets/asset_math_9_number_system_pdf_01.pdf",
+          "kind": "pdf",
+          "openMode": "new_tab"
+        }
+      ],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a1-q1",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-natural-numbers",
+          "conceptTags": [
+            "natural-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "MCQ",
+          "prompt": "Which set of numbers is used strictly for counting distinct objects like apples or chairs?",
+          "answer": "Natural Numbers",
+          "explanation": "Natural numbers (1, 2, 3...) are the counting numbers. They exclude 0 because we don't start counting at 0.",
+          "supportHint": "Think about how a child first learns to count.",
+          "supportPageRef": "page-natural-numbers",
+          "supportClarifierRef": "clarifier-1-1",
+          "usage": "quick check",
+          "options": [
+            "Whole Numbers",
+            "Natural Numbers",
+            "Integers",
+            "Rational Numbers"
+          ],
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q2",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-whole-numbers",
+          "conceptTags": [
+            "whole-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "true/false",
+          "prompt": "The number 0 is considered the smallest natural number.",
+          "answer": "False",
+          "explanation": "Zero is not a natural number; it is the smallest whole number. Natural numbers begin at 1.",
+          "supportHint": "Which number set 'adds nothing' to the natural numbers?",
+          "supportPageRef": "page-whole-numbers",
+          "supportClarifierRef": "clarifier-1-2",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q3",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-whole-numbers",
+          "conceptTags": [
+            "whole-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "reasoning",
+          "prompt": "Why did mathematicians need to invent whole numbers if natural numbers already existed?",
+          "answer": "To represent the absence of quantity or a zero value.",
+          "explanation": "Natural numbers represent items that are present. To describe an empty basket or a score of nothing, the number 0 was added to create whole numbers.",
+          "supportHint": "What happens when you subtract a number from itself?",
+          "supportPageRef": "page-whole-numbers",
+          "supportClarifierRef": "clarifier-1-3",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q4",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-natural-numbers",
+          "conceptTags": [
+            "natural-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "real-life/application",
+          "prompt": "A teacher asks students to number the pages of a notebook starting from the first page. What set of numbers are they generating?",
+          "answer": "Natural Numbers",
+          "explanation": "Page numbers start at 1 and go up in increments of 1, which perfectly models the set of natural numbers.",
+          "supportHint": "Is there a page zero in a book?",
+          "supportPageRef": "page-natural-numbers",
+          "supportClarifierRef": "clarifier-1-4",
+          "usage": "oral review",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q5",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-whole-numbers",
+          "conceptTags": [
+            "whole-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "assertion-reason",
+          "prompt": "Assertion: Every natural number is also a whole number. Reason: The set of whole numbers is formed by adding 0 to the set of natural numbers.",
+          "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+          "explanation": "Since W = {0} U N, all elements of N are contained within W.",
+          "supportHint": "Look at the definitions of both sets.",
+          "supportPageRef": "page-whole-numbers",
+          "supportClarifierRef": "clarifier-1-5",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q27",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-whole-numbers",
+          "conceptTags": [
+            "whole-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "short answer",
+          "prompt": "What is the additive identity in the set of whole numbers?",
+          "answer": "0",
+          "explanation": "Adding 0 to any number leaves it unchanged.",
+          "supportHint": "What number leaves another unchanged when added?",
+          "supportPageRef": "page-whole-numbers",
+          "supportClarifierRef": "clarifier-1-27",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q26",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-natural-numbers",
+          "conceptTags": [
+            "natural-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "MCQ",
+          "prompt": "Which number is the multiplicative identity for natural numbers?",
+          "answer": "1",
+          "explanation": "Multiplying any natural number by 1 leaves it unchanged.",
+          "supportHint": "What number leaves another unchanged when multiplied?",
+          "supportPageRef": "page-natural-numbers",
+          "supportClarifierRef": "clarifier-1-26",
+          "usage": "quick check",
+          "options": [
+            "0",
+            "1",
+            "-1",
+            "It doesn't exist"
+          ],
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q36",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-4",
+          "pageRef": "page-natural-numbers",
+          "conceptTags": [
+            "natural-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "short answer",
+          "prompt": "What is the smallest natural number?",
+          "answer": "1",
+          "explanation": "The counting numbers start at 1.",
+          "supportHint": "Where do you start counting?",
+          "supportPageRef": "page-natural-numbers",
+          "supportClarifierRef": "clarifier-1-36",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+          "type": "short_answer"
+        }
+      ]
+    },
+    "math-9-number-system-02-integers-and-rational-numbers": {
+      "id": "math-9-number-system-02-integers-and-rational-numbers",
+      "slug": "02-integers-and-rational-numbers",
+      "title": "Integers and Rational Numbers",
+      "order": 2,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-01-natural-and-whole-numbers"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Integers and Rational Numbers",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "To represent loss, debt, temperatures below zero, or floors below ground, we use **negative numbers**. Together with zero and the positive numbers, these form the set of **integers**."
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "To represent parts of a whole, such as half a pizza or three quarters of a litre, we use **fractions**. Any number that can be written in the form \\(\frac{p}{q}\\) with integers \\(p\\) and \\(q\\), where \\(q \neq 0\\), is called a **rational number**."
+          }
+        },
+        {
+          "type": "equation",
+          "data": {
+            "latex": "\\text{Rational number} = \\frac{p}{q},\\; p,q \\in \\mathbb{Z},\\; q\\neq 0",
+            "displayMode": true
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "src": "/Mathematics/number-system/assets/asset_math_9_number_system_img_02.png",
+            "alt": "Pizza fraction illustration",
+            "caption": "A picture-based reminder that fractions describe equal parts of a whole."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Worked example",
+            "scenario": "Is -5 a rational number?",
+            "solution": "Yes. Every integer is rational because it can be written over 1: \\(-5 = \frac{-5}{1}\\)."
+          }
+        },
+        {
+          "type": "warning",
+          "data": {
+            "title": "Common mistake",
+            "body": "Integers and rational numbers are not separate \u201cislands\u201d. All integers are rational numbers."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-ir-1",
+          "type": "key_fact",
+          "title": "Integers include negatives",
+          "body": "\u2026, -3, -2, -1, 0, 1, 2, 3, \u2026 are all integers."
+        },
+        {
+          "id": "clarifier-ir-2",
+          "type": "tip",
+          "title": "Shortcut",
+          "body": "If you can write a number as a clean fraction of integers, it is rational."
+        },
+        {
+          "id": "clarifier-ir-3",
+          "type": "did_you_know",
+          "title": "Why q cannot be 0",
+          "body": "Division by zero is undefined, so a rational number can never have denominator 0."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a1-q6",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-integers",
+          "conceptTags": [
+            "integers"
+          ],
+          "difficulty": "easy",
+          "category": "MCQ",
+          "prompt": "Which of the following numbers belongs to the set of integers but not to the set of whole numbers?",
+          "answer": "-7",
+          "explanation": "Integers include negative numbers, zero, and positive numbers. -7 is negative, so it is an integer but not a whole number.",
+          "supportHint": "Look for a value that represents a deficit.",
+          "supportPageRef": "page-integers",
+          "supportClarifierRef": "clarifier-1-6",
+          "usage": "quick check",
+          "options": [
+            "0",
+            "15",
+            "-7",
+            "3/4"
+          ],
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q7",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-integers",
+          "conceptTags": [
+            "integers"
+          ],
+          "difficulty": "medium",
+          "category": "real-life/application",
+          "prompt": "A submarine dives to a depth of 450 meters below sea level. Which number set is best suited to mathematically represent this position relative to the surface?",
+          "answer": "Integers",
+          "explanation": "Sea level is typically represented as 0. A depth below sea level is represented as a negative integer (-450).",
+          "supportHint": "How do we represent 'below zero'?",
+          "supportPageRef": "page-integers",
+          "supportClarifierRef": "clarifier-1-7",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q8",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-integers",
+          "conceptTags": [
+            "integers"
+          ],
+          "difficulty": "easy",
+          "category": "true/false",
+          "prompt": "The sum of any two negative integers is always a negative integer.",
+          "answer": "True",
+          "explanation": "Adding a deficit to another deficit results in a larger deficit, which is still a negative integer.",
+          "supportHint": "What happens when you owe money and then borrow more?",
+          "supportPageRef": "page-integers",
+          "supportClarifierRef": "clarifier-1-8",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q9",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-integers",
+          "conceptTags": [
+            "integers"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "Explain why the set of integers is closed under subtraction, but the set of natural numbers is not.",
+          "answer": "Subtracting a larger natural number from a smaller one yields a negative number, which is not in the natural set, but is in the integer set.",
+          "explanation": "For example, 3 - 5 = -2. -2 is an integer, so integers handle this. Natural numbers do not have -2.",
+          "supportHint": "Think of a case where subtracting gives a number below zero.",
+          "supportPageRef": "page-integers",
+          "supportClarifierRef": "clarifier-1-9",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q10",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-1",
+          "pageRef": "page-integers",
+          "conceptTags": [
+            "integers"
+          ],
+          "difficulty": "medium",
+          "category": "diagram-based",
+          "prompt": "If you start at -3 on a number line and move 5 units to the right, what integer do you land on?",
+          "answer": "2",
+          "explanation": "Moving right on the number line means addition. -3 + 5 = 2.",
+          "supportHint": "Draw the jumps on a line.",
+          "supportPageRef": "page-integers",
+          "supportClarifierRef": "clarifier-1-10",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q12",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-rational-numbers",
+          "conceptTags": [
+            "rational-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "short answer",
+          "prompt": "Convert the integer 42 into the formal p/q structure to prove it is a rational number.",
+          "answer": "42/1",
+          "explanation": "Any integer can be expressed as a fraction by using 1 as the denominator. Here, p=42 and q=1.",
+          "supportHint": "How can you turn a whole number into a fraction without changing its value?",
+          "supportPageRef": "page-rational-numbers",
+          "supportClarifierRef": "clarifier-1-12",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q11",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-rational-numbers",
+          "conceptTags": [
+            "rational-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "MCQ",
+          "prompt": "By definition, a rational number can be written as p/q. What is the crucial condition for q?",
+          "answer": "q must not be zero",
+          "explanation": "Division by zero is undefined in mathematics, so the denominator q can never be 0.",
+          "supportHint": "What happens if you divide a pizza among zero people?",
+          "supportPageRef": "page-rational-numbers",
+          "supportClarifierRef": "clarifier-1-11",
+          "usage": "quick check",
+          "options": [
+            "q must be a prime number",
+            "q must not be zero",
+            "q must be greater than p",
+            "q must be an integer"
+          ],
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q13",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-rational-numbers",
+          "conceptTags": [
+            "rational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "assertion-reason",
+          "prompt": "Assertion: 0.333... is a rational number. Reason: It is a non-terminating decimal.",
+          "answer": "Assertion is true, but Reason is not the correct explanation.",
+          "explanation": "While 0.333... is non-terminating, that is not WHY it is rational. It is rational because it is REPEATING, which allows it to be written as 1/3.",
+          "supportHint": "Does being non-terminating automatically make a number rational?",
+          "supportPageRef": "page-rational-numbers",
+          "supportClarifierRef": "clarifier-1-13",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-02-integers-and-rational-numbers",
+          "type": "short_answer"
+        }
+      ]
+    },
+    "math-9-number-system-03-irrational-numbers": {
+      "id": "math-9-number-system-03-irrational-numbers",
+      "slug": "03-irrational-numbers",
+      "title": "Irrational Numbers",
+      "order": 3,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-02-integers-and-rational-numbers"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Irrational Numbers",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Not every number can be written as a fraction \\(\frac{p}{q}\\). Numbers such as \\(\\sqrt{2}\\), \\(\\sqrt{3}\\), and \\(\\pi\\) have decimal expansions that never end and never settle into a repeating block. Such numbers are called **irrational numbers**."
+          }
+        },
+        {
+          "type": "bullets",
+          "data": {
+            "items": [
+              "Terminating decimal \u2192 rational",
+              "Non-terminating recurring decimal \u2192 rational",
+              "Non-terminating non-recurring decimal \u2192 irrational"
+            ]
+          }
+        },
+        {
+          "type": "svg",
+          "data": {
+            "src": "/Mathematics/number-system/assets/asset_math_9_number_system_svg_01.svg",
+            "caption": "Use this set diagram to see where irrational numbers sit relative to rational and real numbers."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Worked example",
+            "scenario": "Is \\(\\sqrt{16}\\) irrational?",
+            "solution": "No. \\(\\sqrt{16} = 4\\), which is an integer and therefore rational. Always simplify the root first."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "Kid likely doubt",
+            "body": "\u201cBut 22/7 is close to \u03c0, so is \u03c0 rational?\u201d No. 22/7 is only an approximation. \u03c0 itself is irrational."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-irr-1",
+          "type": "key_fact",
+          "title": "The two tests together matter",
+          "body": "A decimal must be both non-terminating and non-recurring to be irrational."
+        },
+        {
+          "id": "clarifier-irr-2",
+          "type": "common_mistake",
+          "title": "Common mistake",
+          "body": "Many students think every square root is irrational. Perfect squares simplify to rational numbers."
+        },
+        {
+          "id": "clarifier-irr-3",
+          "type": "tip",
+          "title": "Exam tip",
+          "body": "If you see a surd, simplify it first before naming the set."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a1-q16",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "MCQ",
+          "prompt": "Which of the following is the defining characteristic of the decimal expansion of an irrational number?",
+          "answer": "It is non-terminating and non-repeating",
+          "explanation": "Irrational numbers cannot be written as fractions, which causes their decimals to go on forever chaotically.",
+          "supportHint": "Think about what happens when a number CANNOT be a neat fraction.",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-16",
+          "usage": "quick check",
+          "options": [
+            "It terminates after a few digits",
+            "It repeats a specific block of digits",
+            "It is non-terminating and non-repeating",
+            "It always contains the number Pi"
+          ],
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q17",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "true/false",
+          "prompt": "The square root of 16 is an irrational number because it involves a radical sign.",
+          "answer": "False",
+          "explanation": "The square root of 16 evaluates to exactly 4, which is an integer and therefore a rational number.",
+          "supportHint": "Can you simplify the square root?",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-17",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q18",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "short answer",
+          "prompt": "Give an example of a real-world geometric measurement that results in an irrational number.",
+          "answer": "The diagonal of a square with side lengths of 1 unit.",
+          "explanation": "Using Pythagoras theorem (1^2 + 1^2 = c^2), the diagonal is sqrt(2), which is irrational.",
+          "supportHint": "Think of a square and the Pythagoras theorem.",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-18",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q19",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "A student uses a calculator and sees that Pi equals 3.141592654. They claim Pi terminates and is therefore rational. Correct their reasoning.",
+          "answer": "The calculator screen simply ran out of space.",
+          "explanation": "Pi is an infinite, non-repeating decimal. A calculator only shows an approximation up to its display limit.",
+          "supportHint": "Can a machine show an infinite number of digits?",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-19",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q20",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-2",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "assertion-reason",
+          "prompt": "Assertion: 22/7 is an irrational number. Reason: It is the value of Pi.",
+          "answer": "Both Assertion and Reason are false.",
+          "explanation": "22/7 is a rational fraction (p/q). It is only a rough APPROXIMATION of Pi, not the exact value.",
+          "supportHint": "Look at the fraction 22/7 itself.",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-20",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a2-q32",
+          "assetType": "Asset 2",
+          "questionSetId": "qs-2-4",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "real-life/application",
+          "prompt": "If you are calculating the exact area of a circle with a radius of 1 meter, what kind of number must you use?",
+          "answer": "Irrational Number",
+          "explanation": "The area is Pi * r^2. Since r=1, the area is exactly Pi, which is irrational.",
+          "supportHint": "What is the formula for area of a circle?",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-2-32",
+          "usage": "exam drill",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q30",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "assertion-reason",
+          "prompt": "Assertion: The sum of sqrt(2) and -sqrt(2) is an irrational number. Reason: They are both irrational numbers.",
+          "answer": "Assertion is false, Reason is true.",
+          "explanation": "The sum is 0, which is a rational number. Adding two irrationals does not always yield an irrational.",
+          "supportHint": "What happens when they cancel out?",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-30",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q40",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-4",
+          "pageRef": "page-irrational-numbers",
+          "conceptTags": [
+            "irrational-numbers"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "Is it possible for the product of two irrational numbers to be rational? Give an example.",
+          "answer": "Yes. For example, sqrt(2) * sqrt(2) = 2.",
+          "explanation": "While multiplying an irrational by a rational yields an irrational, multiplying two specific irrationals can cancel the radical.",
+          "supportHint": "What happens when you square a square root?",
+          "supportPageRef": "page-irrational-numbers",
+          "supportClarifierRef": "clarifier-1-40",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-03-irrational-numbers",
+          "type": "short_answer"
+        }
+      ]
+    },
+    "math-9-number-system-04-the-real-number-line": {
+      "id": "math-9-number-system-04-the-real-number-line",
+      "slug": "04-the-real-number-line",
+      "title": "The Real Number Line",
+      "order": 4,
+      "estimatedMinutes": 8,
+      "prerequisitePageIds": [
+        "math-9-number-system-03-irrational-numbers"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "The Real Number Line",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "All rational numbers and all irrational numbers together form the set of **real numbers**. Every point on the number line represents a real number. There are no \u201cgaps\u201d. Fractions, integers and irrationals all have exact positions."
+          }
+        },
+        {
+          "type": "svg",
+          "data": {
+            "src": "/Mathematics/number-system/assets/asset_math_9_number_system_svg_02.svg",
+            "caption": "Number line representation with integers, fractions and an irrational point."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Worked example",
+            "scenario": "Where is \\(\\sqrt{2}\\) on the number line?",
+            "solution": "It lies between 1 and 2, closer to 1.4. Although its decimal never ends, its position is exact."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "If you are confused",
+            "body": "A real number line is not only the marked tick values you can write easily. It includes every exact point, including irrationals."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-real-1",
+          "type": "key_fact",
+          "title": "Real numbers = rational + irrational",
+          "body": "If a number is rational or irrational, it is automatically real."
+        },
+        {
+          "id": "clarifier-real-2",
+          "type": "warning",
+          "title": "Common trap",
+          "body": "Do not say irrational numbers are \u201capproximate points\u201d. Their position is exact even when the decimal is endless."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a1-q21",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "MCQ",
+          "prompt": "If you combine the set of all rational numbers and the set of all irrational numbers, what new set is formed?",
+          "answer": "Real Numbers",
+          "explanation": "The real numbers consist of every possible rational and irrational number combined.",
+          "supportHint": "What is the 'umbrella' term for all numbers on the number line?",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-1-21",
+          "usage": "quick check",
+          "options": [
+            "Complex Numbers",
+            "Integers",
+            "Whole Numbers",
+            "Real Numbers"
+          ],
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a1-q23",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "true/false",
+          "prompt": "Every point on a continuous number line corresponds to a unique real number.",
+          "answer": "True",
+          "explanation": "This is the principle of completeness. The real numbers perfectly fill the number line with no gaps.",
+          "supportHint": "Are there any 'empty spaces' on a number line?",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-1-23",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q32",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-4",
+          "pageRef": "page-number-line",
+          "conceptTags": [
+            "number-line"
+          ],
+          "difficulty": "medium",
+          "category": "diagram-based",
+          "prompt": "On a number line, which number is exactly halfway between -4 and 6?",
+          "answer": "1",
+          "explanation": "The average is (-4 + 6) / 2 = 2 / 2 = 1.",
+          "supportHint": "Calculate the average.",
+          "supportPageRef": "page-number-line",
+          "supportClarifierRef": "clarifier-1-32",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q50",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-5",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "short answer",
+          "prompt": "What symbol is universally used to denote the set of Real Numbers?",
+          "answer": "R",
+          "explanation": "Usually written with a double struck 'R'.",
+          "supportHint": "Think of the first letter.",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-1-50",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a2-q9",
+          "assetType": "Asset 2",
+          "questionSetId": "qs-2-1",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "reasoning",
+          "prompt": "Why is the set of real numbers considered 'complete'?",
+          "answer": "Because it leaves no empty points on the continuous number line.",
+          "explanation": "Every single geometric point corresponds to exactly one real number.",
+          "supportHint": "Are there gaps on the line?",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-2-9",
+          "usage": "revision",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a2-q24",
+          "assetType": "Asset 2",
+          "questionSetId": "qs-2-3",
+          "pageRef": "page-number-line",
+          "conceptTags": [
+            "number-line"
+          ],
+          "difficulty": "medium",
+          "category": "assertion-reason",
+          "prompt": "Assertion: The points representing 1/3 and 2/6 occupy the exact same location on the number line. Reason: They are equivalent rational numbers.",
+          "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+          "explanation": "Equivalent fractions represent the same quantity and thus the same geometric point.",
+          "supportHint": "Simplify 2/6.",
+          "supportPageRef": "page-number-line",
+          "supportClarifierRef": "clarifier-2-24",
+          "usage": "revision",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q34",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-4",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "medium",
+          "category": "true/false",
+          "prompt": "There exists a real number that is neither positive, nor negative, nor zero.",
+          "answer": "False",
+          "explanation": "Every real number falls into exactly one of those three categories (Trichotomy law).",
+          "supportHint": "Think of the number line.",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-1-34",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q42",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-5",
+          "pageRef": "page-real-numbers",
+          "conceptTags": [
+            "real-numbers"
+          ],
+          "difficulty": "easy",
+          "category": "true/false",
+          "prompt": "All numbers that can be measured in the physical world are real numbers.",
+          "answer": "True",
+          "explanation": "Real numbers cover every possible continuous measurement.",
+          "supportHint": "Are there 'gaps' in real physical measurements?",
+          "supportPageRef": "page-real-numbers",
+          "supportClarifierRef": "clarifier-1-42",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-04-the-real-number-line",
+          "type": "true_false"
+        }
+      ]
+    },
+    "math-9-number-system-05-decimal-classification": {
+      "id": "math-9-number-system-05-decimal-classification",
+      "slug": "05-decimal-classification",
+      "title": "Decimal Classification",
+      "order": 5,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-03-irrational-numbers"
+      ],
+      "relatedPageIds": [
+        "math-9-number-system-02-integers-and-rational-numbers",
+        "math-9-number-system-03-irrational-numbers"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Decimal Classification",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Decimals tell us a lot about the kind of number we have. A decimal that **stops** is rational. A decimal that **repeats a fixed block** forever is also rational. A decimal that continues forever **without repeating** is irrational."
+          }
+        },
+        {
+          "type": "bullets",
+          "data": {
+            "items": [
+              "0.36 terminates \u2192 rational",
+              "0.090909\u2026 repeats 09 \u2192 rational",
+              "1.41421356\u2026 has no repeating block \u2192 irrational"
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Exercise-style examples",
+            "scenario": "Classify \\(\frac{36}{100}\\), \\(\frac{1}{11}\\), and \\(\frac{33}{8}\\).",
+            "solution": "\\(\frac{36}{100}=0.36\\) terminates, so it is rational. \\(\frac{1}{11}=0.090909\\ldots\\) repeats, so it is rational. \\(\frac{33}{8}=4.125\\) terminates, so it is rational."
+          }
+        },
+        {
+          "type": "warning",
+          "data": {
+            "title": "Common mistake",
+            "body": "Students often think \u201cinfinite decimal\u201d automatically means irrational. Repeating decimals are rational."
+          }
+        },
+        {
+          "type": "link_card",
+          "data": {
+            "title": "Optional external practice",
+            "description": "Use a trusted external lesson or worksheet to practise more decimal-classification problems.",
+            "url": "https://ncert.nic.in/",
+            "linkType": "external"
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-dec-1",
+          "type": "tip",
+          "title": "Quick test",
+          "body": "Ask two questions: Does it stop? Does it repeat? If yes to either, it is rational."
+        },
+        {
+          "id": "clarifier-dec-2",
+          "type": "did_you_know",
+          "title": "Interesting fact",
+          "body": "The recurring decimal 0.999\u2026 is exactly equal to 1."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": []
+    },
+    "math-9-number-system-06-revision-cheat-sheet": {
+      "id": "math-9-number-system-06-revision-cheat-sheet",
+      "slug": "06-revision-cheat-sheet",
+      "title": "Revision Cheat Sheet",
+      "order": 6,
+      "estimatedMinutes": 6,
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Revision Cheat Sheet",
+            "level": 2
+          }
+        },
+        {
+          "type": "bullets",
+          "data": {
+            "items": [
+              "Natural numbers: 1, 2, 3, \u2026",
+              "Whole numbers: 0, 1, 2, 3, \u2026",
+              "Integers: \u2026, -2, -1, 0, 1, 2, \u2026",
+              "Rational numbers: can be written as p/q, q \u2260 0",
+              "Irrational numbers: non-terminating, non-recurring decimals",
+              "Real numbers: rational + irrational"
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "Memory helper",
+            "body": "N \u2282 W \u2282 Z \u2282 Q \u2282 R. Irrational numbers sit inside R but outside Q."
+          }
+        },
+        {
+          "type": "image",
+          "data": {
+            "src": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+            "alt": "Hierarchy recap visual",
+            "caption": "Use this image as a quick revision card for set nesting."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-rev-1",
+          "type": "tip",
+          "title": "Exam tip",
+          "body": "If you freeze in an exam, write the subset chain first. Then place the number in the smallest suitable set."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a1-q22",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "medium",
+          "category": "diagram-based",
+          "prompt": "In a Venn diagram representing number systems, which set forms the innermost, smallest circle?",
+          "answer": "Natural Numbers",
+          "explanation": "The natural numbers (counting numbers) form the most basic, restrictive set, which is contained within all other larger sets.",
+          "supportHint": "Which set has the fewest types of numbers?",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-22",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q24",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "Why is it impossible for a number to be both rational and irrational at the same time?",
+          "answer": "The definitions are mutually exclusive.",
+          "explanation": "A number either CAN be written as p/q (rational) or CANNOT be written as p/q (irrational). It cannot be both.",
+          "supportHint": "Look at the definition of irrational.",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-24",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q25",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-3",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "medium",
+          "category": "real-life/application",
+          "prompt": "Classify the number of days in a standard non-leap year (365) into as many number sets as possible.",
+          "answer": "Natural, Whole, Integer, Rational, Real",
+          "explanation": "365 is a positive counting number, which automatically makes it part of all the larger encompassing sets in the hierarchy.",
+          "supportHint": "Start from the smallest set it belongs to.",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-25",
+          "usage": "oral review",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q45",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-5",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "medium",
+          "category": "assertion-reason",
+          "prompt": "Assertion: All terminating decimals are real numbers. Reason: All terminating decimals are rational numbers, and all rational numbers are real numbers.",
+          "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+          "explanation": "This traces the subset relationship perfectly.",
+          "supportHint": "Follow the logical chain.",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-45",
+          "usage": "concept-repair",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q49",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-5",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "medium",
+          "category": "MCQ",
+          "prompt": "Which set is exactly equivalent to the union of negative integers and whole numbers?",
+          "answer": "Integers",
+          "explanation": "Whole numbers contain 0 and positives. Adding negatives completes the set of integers.",
+          "supportHint": "What do you get when you combine positives, zero, and negatives?",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-49",
+          "usage": "quick check",
+          "options": [
+            "Rational Numbers",
+            "Integers",
+            "Natural Numbers",
+            "Real Numbers"
+          ],
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "mcq"
+        },
+        {
+          "id": "math-9-ns-a2-q45",
+          "assetType": "Asset 2",
+          "questionSetId": "qs-2-5",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "hard",
+          "category": "true/false",
+          "prompt": "The intersection of the set of Rational numbers and the set of Irrational numbers is the empty set.",
+          "answer": "True",
+          "explanation": "A number cannot be both rational (can be a fraction) and irrational (cannot be a fraction) simultaneously.",
+          "supportHint": "Can you be in two opposite places at once?",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-2-45",
+          "usage": "exam drill",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "true_false"
+        },
+        {
+          "id": "math-9-ns-a1-q35",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-4",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "A number is classified as a Real number and an Integer, but NOT a Natural number. What are the possible values for this number?",
+          "answer": "Zero, or any negative integer.",
+          "explanation": "The only integers that are not natural numbers are 0, -1, -2, -3...",
+          "supportHint": "What is excluded from the natural set?",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-35",
+          "usage": "concept-strengthening",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        },
+        {
+          "id": "math-9-ns-a1-q41",
+          "assetType": "Asset 1",
+          "questionSetId": "qs-1-5",
+          "pageRef": "page-hierarchy",
+          "conceptTags": [
+            "hierarchy"
+          ],
+          "difficulty": "medium",
+          "category": "diagram-based",
+          "prompt": "If a number is placed in the 'Rational' section of a Venn diagram, does it have to be inside the 'Integer' section too?",
+          "answer": "No.",
+          "explanation": "Numbers like 1/2 are rational but sit outside the integer circle.",
+          "supportHint": "Think of a fraction.",
+          "supportPageRef": "page-hierarchy",
+          "supportClarifierRef": "clarifier-1-41",
+          "usage": "quick check",
+          "pageId": "math-9-number-system-06-revision-cheat-sheet",
+          "type": "short_answer"
+        }
+      ]
+    },
+    "math-9-number-system-07-rational-vs-irrational-showdown": {
+      "id": "math-9-number-system-07-rational-vs-irrational-showdown",
+      "slug": "07-rational-vs-irrational-showdown",
+      "title": "Rational vs Irrational Showdown",
+      "order": 7,
+      "estimatedMinutes": 8,
+      "relatedPageIds": [
+        "math-9-number-system-05-decimal-classification"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Rational vs Irrational Showdown",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "This page is meant for fast comparison and exam rescue. If you can write the number as a fraction of integers, it is rational. If its decimal is endless and non-repeating, it is irrational."
+          }
+        },
+        {
+          "type": "bullets",
+          "data": {
+            "items": [
+              "\\(\frac{7}{5}\\), 0.25, 0.333\u2026, -8 \u2192 rational",
+              "\\(\\sqrt{2}\\), \\(\\sqrt{3}\\), \u03c0 \u2192 irrational"
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "One-minute check",
+            "scenario": "Classify 0.121121112\u2026",
+            "solution": "It does not repeat a fixed block, so it is irrational."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "Parent support note",
+            "body": "Ask the child to explain *why* a decimal is rational or irrational, not just name the set."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-show-1",
+          "type": "common_mistake",
+          "title": "Common mistake",
+          "body": "Seeing a pattern like 121121112 and assuming it repeats. A repeating decimal must repeat the exact same block."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": []
+    },
+    "math-9-number-system-08-square-roots-and-number-line": {
+      "id": "math-9-number-system-08-square-roots-and-number-line",
+      "slug": "08-square-roots-and-number-line",
+      "title": "Square Roots and the Number Line",
+      "order": 8,
+      "estimatedMinutes": 8,
+      "relatedPageIds": [
+        "math-9-number-system-03-irrational-numbers",
+        "math-9-number-system-04-the-real-number-line"
+      ],
+      "blocks": [
+        {
+          "type": "heading",
+          "data": {
+            "text": "Square Roots and the Number Line",
+            "level": 2
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Some square roots, such as \\(\\sqrt{4}\\) or \\(\\sqrt{9}\\), simplify to integers. Others, such as \\(\\sqrt{2}\\) and \\(\\sqrt{5}\\), are irrational. Even when the decimal never ends, these values can still be placed exactly on the number line."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "title": "Worked example",
+            "scenario": "Is \\(\\sqrt{25}\\) irrational? What about \\(\\sqrt{5}\\)?",
+            "solution": "\\(\\sqrt{25}=5\\), so it is rational. \\(\\sqrt{5}\\) does not simplify to an integer and is irrational."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "title": "Extension note",
+            "body": "This is a useful bridge to later lessons on square-root representation and square-root spirals."
+          }
+        }
+      ],
+      "clarifiers": [
+        {
+          "id": "clarifier-root-1",
+          "type": "tip",
+          "title": "Quick rule",
+          "body": "Perfect square under the root \u2192 rational result. Non-perfect square under the root \u2192 usually irrational in this chapter."
+        }
+      ],
+      "attachments": [],
+      "topicId": "math-9-number-system",
+      "questions": [
+        {
+          "id": "math-9-ns-a2-q27",
+          "assetType": "Asset 2",
+          "questionSetId": "qs-2-3",
+          "pageRef": "page-square-roots",
+          "conceptTags": [
+            "square-roots"
+          ],
+          "difficulty": "hard",
+          "category": "reasoning",
+          "prompt": "Why is the square root of 25 rational, but the square root of 26 irrational?",
+          "answer": "25 is a perfect square (5x5), yielding an integer. 26 is not, yielding an infinite non-repeating decimal.",
+          "explanation": "Perfect squares have integer roots. Other numbers do not.",
+          "supportHint": "What is 5 times 5?",
+          "supportPageRef": "page-square-roots",
+          "supportClarifierRef": "clarifier-2-27",
+          "usage": "remediation",
+          "pageId": "math-9-number-system-08-square-roots-and-number-line",
+          "type": "short_answer"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "biology-trial",
+  "subjectId": "biology",
+  "title": "Trial",
+  "difficulty": "medium",
+  "estimatedMinutes": 30,
+  "pages": [
+    {
+      "id": "biology-trial-tr-page",
+      "file": "pages/tr-page.json",
+      "title": "Tr page",
+      "order": 1,
+      "estimatedMinutes": 10
+    }
+  ]
+}

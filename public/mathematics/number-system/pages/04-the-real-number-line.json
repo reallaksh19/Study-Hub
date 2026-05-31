@@ -1,0 +1,231 @@
+{
+  "id": "math-9-number-system-04-the-real-number-line",
+  "slug": "04-the-real-number-line",
+  "title": "The Real Number Line",
+  "order": 4,
+  "estimatedMinutes": 8,
+  "prerequisitePageIds": [
+    "math-9-number-system-03-irrational-numbers"
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "The Real Number Line",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "All rational numbers and all irrational numbers together form the set of **real numbers**. Every point on the number line represents a real number. There are no \u201cgaps\u201d. Fractions, integers and irrationals all have exact positions."
+      }
+    },
+    {
+      "type": "svg",
+      "data": {
+        "src": "/Mathematics/number-system/assets/asset_math_9_number_system_svg_02.svg",
+        "caption": "Number line representation with integers, fractions and an irrational point."
+      }
+    },
+    {
+      "type": "example",
+      "data": {
+        "title": "Worked example",
+        "scenario": "Where is \\(\\sqrt{2}\\) on the number line?",
+        "solution": "It lies between 1 and 2, closer to 1.4. Although its decimal never ends, its position is exact."
+      }
+    },
+    {
+      "type": "callout",
+      "data": {
+        "title": "If you are confused",
+        "body": "A real number line is not only the marked tick values you can write easily. It includes every exact point, including irrationals."
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-real-1",
+      "type": "key_fact",
+      "title": "Real numbers = rational + irrational",
+      "body": "If a number is rational or irrational, it is automatically real."
+    },
+    {
+      "id": "clarifier-real-2",
+      "type": "warning",
+      "title": "Common trap",
+      "body": "Do not say irrational numbers are \u201capproximate points\u201d. Their position is exact even when the decimal is endless."
+    }
+  ],
+  "attachments": [],
+  "topicId": "math-9-number-system",
+  "questions": [
+    {
+      "id": "math-9-ns-a1-q21",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "MCQ",
+      "prompt": "If you combine the set of all rational numbers and the set of all irrational numbers, what new set is formed?",
+      "answer": "Real Numbers",
+      "explanation": "The real numbers consist of every possible rational and irrational number combined.",
+      "supportHint": "What is the 'umbrella' term for all numbers on the number line?",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-1-21",
+      "usage": "quick check",
+      "options": [
+        "Complex Numbers",
+        "Integers",
+        "Whole Numbers",
+        "Real Numbers"
+      ],
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "mcq"
+    },
+    {
+      "id": "math-9-ns-a1-q23",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "true/false",
+      "prompt": "Every point on a continuous number line corresponds to a unique real number.",
+      "answer": "True",
+      "explanation": "This is the principle of completeness. The real numbers perfectly fill the number line with no gaps.",
+      "supportHint": "Are there any 'empty spaces' on a number line?",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-1-23",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "true_false"
+    },
+    {
+      "id": "math-9-ns-a1-q32",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-4",
+      "pageRef": "page-number-line",
+      "conceptTags": [
+        "number-line"
+      ],
+      "difficulty": "medium",
+      "category": "diagram-based",
+      "prompt": "On a number line, which number is exactly halfway between -4 and 6?",
+      "answer": "1",
+      "explanation": "The average is (-4 + 6) / 2 = 2 / 2 = 1.",
+      "supportHint": "Calculate the average.",
+      "supportPageRef": "page-number-line",
+      "supportClarifierRef": "clarifier-1-32",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q50",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-5",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "short answer",
+      "prompt": "What symbol is universally used to denote the set of Real Numbers?",
+      "answer": "R",
+      "explanation": "Usually written with a double struck 'R'.",
+      "supportHint": "Think of the first letter.",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-1-50",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a2-q9",
+      "assetType": "Asset 2",
+      "questionSetId": "qs-2-1",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "reasoning",
+      "prompt": "Why is the set of real numbers considered 'complete'?",
+      "answer": "Because it leaves no empty points on the continuous number line.",
+      "explanation": "Every single geometric point corresponds to exactly one real number.",
+      "supportHint": "Are there gaps on the line?",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-2-9",
+      "usage": "revision",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a2-q24",
+      "assetType": "Asset 2",
+      "questionSetId": "qs-2-3",
+      "pageRef": "page-number-line",
+      "conceptTags": [
+        "number-line"
+      ],
+      "difficulty": "medium",
+      "category": "assertion-reason",
+      "prompt": "Assertion: The points representing 1/3 and 2/6 occupy the exact same location on the number line. Reason: They are equivalent rational numbers.",
+      "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+      "explanation": "Equivalent fractions represent the same quantity and thus the same geometric point.",
+      "supportHint": "Simplify 2/6.",
+      "supportPageRef": "page-number-line",
+      "supportClarifierRef": "clarifier-2-24",
+      "usage": "revision",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q34",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-4",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "true/false",
+      "prompt": "There exists a real number that is neither positive, nor negative, nor zero.",
+      "answer": "False",
+      "explanation": "Every real number falls into exactly one of those three categories (Trichotomy law).",
+      "supportHint": "Think of the number line.",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-1-34",
+      "usage": "concept-repair",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "true_false"
+    },
+    {
+      "id": "math-9-ns-a1-q42",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-5",
+      "pageRef": "page-real-numbers",
+      "conceptTags": [
+        "real-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "true/false",
+      "prompt": "All numbers that can be measured in the physical world are real numbers.",
+      "answer": "True",
+      "explanation": "Real numbers cover every possible continuous measurement.",
+      "supportHint": "Are there 'gaps' in real physical measurements?",
+      "supportPageRef": "page-real-numbers",
+      "supportClarifierRef": "clarifier-1-42",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-04-the-real-number-line",
+      "type": "true_false"
+    }
+  ]
+}

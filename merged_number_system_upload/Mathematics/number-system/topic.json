@@ -1,0 +1,108 @@
+{
+  "id": "math-9-number-system",
+  "subjectId": "mathematics",
+  "title": "Number System",
+  "description": "A merged, Study-Hub-ready Class 9 topic pack covering natural numbers, whole numbers, integers, rational numbers, irrational numbers, real numbers, decimal classification, and revision support.",
+  "order": 1,
+  "difficulty": "beginner",
+  "tags": [
+    "math",
+    "class-9",
+    "number-system",
+    "rational-numbers",
+    "irrational-numbers",
+    "real-numbers"
+  ],
+  "coverAssetPath": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+  "helperText": "Start with page 1 and move in order. If you struggle with decimal questions, jump to Decimal Classification and then the Showdown page.",
+  "pages": [
+    {
+      "id": "math-9-number-system-01-natural-and-whole-numbers",
+      "file": "pages/01-natural-and-whole-numbers.json",
+      "title": "Natural and Whole Numbers",
+      "order": 1,
+      "estimatedMinutes": 8,
+      "prerequisitePageIds": [],
+      "relatedPageIds": []
+    },
+    {
+      "id": "math-9-number-system-02-integers-and-rational-numbers",
+      "file": "pages/02-integers-and-rational-numbers.json",
+      "title": "Integers and Rational Numbers",
+      "order": 2,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-01-natural-and-whole-numbers"
+      ],
+      "relatedPageIds": []
+    },
+    {
+      "id": "math-9-number-system-03-irrational-numbers",
+      "file": "pages/03-irrational-numbers.json",
+      "title": "Irrational Numbers",
+      "order": 3,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-02-integers-and-rational-numbers"
+      ],
+      "relatedPageIds": []
+    },
+    {
+      "id": "math-9-number-system-04-the-real-number-line",
+      "file": "pages/04-the-real-number-line.json",
+      "title": "The Real Number Line",
+      "order": 4,
+      "estimatedMinutes": 8,
+      "prerequisitePageIds": [
+        "math-9-number-system-03-irrational-numbers"
+      ],
+      "relatedPageIds": []
+    },
+    {
+      "id": "math-9-number-system-05-decimal-classification",
+      "file": "pages/05-decimal-classification.json",
+      "title": "Decimal Classification",
+      "order": 5,
+      "estimatedMinutes": 10,
+      "prerequisitePageIds": [
+        "math-9-number-system-03-irrational-numbers"
+      ],
+      "relatedPageIds": [
+        "math-9-number-system-02-integers-and-rational-numbers",
+        "math-9-number-system-03-irrational-numbers"
+      ]
+    },
+    {
+      "id": "math-9-number-system-06-revision-cheat-sheet",
+      "file": "pages/06-revision-cheat-sheet.json",
+      "title": "Revision Cheat Sheet",
+      "order": 6,
+      "estimatedMinutes": 6,
+      "prerequisitePageIds": [],
+      "relatedPageIds": []
+    },
+    {
+      "id": "math-9-number-system-07-rational-vs-irrational-showdown",
+      "file": "pages/07-rational-vs-irrational-showdown.json",
+      "title": "Rational vs Irrational Showdown",
+      "order": 7,
+      "estimatedMinutes": 8,
+      "prerequisitePageIds": [],
+      "relatedPageIds": [
+        "math-9-number-system-05-decimal-classification"
+      ]
+    },
+    {
+      "id": "math-9-number-system-08-square-roots-and-number-line",
+      "file": "pages/08-square-roots-and-number-line.json",
+      "title": "Square Roots and the Number Line",
+      "order": 8,
+      "estimatedMinutes": 8,
+      "prerequisitePageIds": [],
+      "relatedPageIds": [
+        "math-9-number-system-03-irrational-numbers",
+        "math-9-number-system-04-the-real-number-line"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+/* StudyHub UI upgrade — Tailwind v4 with semantic design tokens.
+   Drop-in replacement for src/index.css. */
+
+/* Google Fonts: Geist (sans) + Newsreader (display serif) */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=JetBrains+Mono:wght@500&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens — use as bg-ink, text-muted, border-line, etc. */
+  --color-ink:          #16182B;
+  --color-ink-2:        #2C2E45;
+  --color-ink-3:        #4A4D6B;
+  --color-muted:        #74778F;
+  --color-muted-2:      #9A9DAF;
+
+  --color-line:         #ECE7D8;
+  --color-line-2:       #DDD7C5;
+
+  --color-paper:        #F6F2E8;
+  --color-paper-2:      #FBF8EF;
+  --color-card:         #FFFFFF;
+
+  --color-brand:        #4F46E5;   /* indigo primary */
+  --color-brand-2:      #6366F1;
+  --color-brand-ink:    #312E81;
+  --color-brand-soft:   #EEF0FF;
+
+  --color-success:      #0E8A5F;
+  --color-success-soft: #DCF1E5;
+  --color-warn:         #B45309;
+  --color-warn-soft:    #FBEFCF;
+  --color-danger:       #B91C1C;
+  --color-danger-soft:  #FCE4E4;
+
+  --color-accent:       #C2410C;   /* terracotta — for tags/clarifiers */
+  --color-accent-soft:  #FBEADB;
+
+  --color-violet:       #7C3AED;
+  --color-violet-soft:  #EFE7FE;
+
+  --color-teal:         #0F766E;
+  --color-teal-soft:    #D6EFEC;
+
+  /* Type families */
+  --font-sans:    "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 20px;
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+  .serif { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
+  .mono  { font-family: var(--font-mono); }
+
+  /* Stat numerals: tabular + small caps where supported */
+  .stat { font-feature-settings: "tnum", "ss01"; letter-spacing: -0.02em; }
+}
+
+@layer components {
+  /* Logo mark */
+  .sh-logo { display:inline-flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-0.02em; }
+  .sh-mark { width:28px; height:28px; border-radius:8px; background:var(--color-ink); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600;
+    font-style:italic; font-size:18px; }
+
+  /* Buttons */
+  .sh-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:10px;
+    font-weight:600; font-size:14px; border:1px solid transparent; cursor:pointer; transition:all .15s; }
+  .sh-btn-primary { background:var(--color-ink); color:#fff; }
+  .sh-btn-primary:hover { background:#000; }
+  .sh-btn-secondary { background:#fff; color:var(--color-ink); border-color:var(--color-line-2); }
+  .sh-btn-secondary:hover { background:var(--color-paper-2); }
+  .sh-btn-ghost { background:transparent; color:var(--color-ink-2); }
+  .sh-btn-ghost:hover { background: color-mix(in oklab, var(--color-ink) 5%, transparent); }
+
+  /* Chip */
+  .sh-chip { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px;
+    font-size:12px; font-weight:600; background:#fff; border:1px solid var(--color-line); color:var(--color-ink-2); }
+
+  /* Card */
+  .sh-card { background:#fff; border:1px solid var(--color-line-2); border-radius:var(--radius); }
+
+  /* Caret animation used in PIN field */
+  @keyframes sh-caret { 50% { opacity: 0; } }
+  .sh-caret { animation: sh-caret 1s steps(1) infinite; }
+}

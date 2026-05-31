@@ -1,0 +1,28 @@
+{
+  "base": "Updated study hub.zip",
+  "type": "patch bundle",
+  "new_or_modified_files": [
+    "public/CANONICAL_CONTENT_LAYER.md",
+    "README_HTML_IMPORT_CANONICAL_PATCH.md",
+    "src/content/canonicalContentLayer.js",
+    "src/content/canonicalContentLayer.test.js",
+    "src/services/htmlImportService.js",
+    "src/services/interactiveResultService.js",
+    "src/components/blocks/InteractiveHtmlBlock.jsx",
+    "src/components/blocks/BlockRenderer.jsx",
+    "src/components/parent/ParentHtmlImporter.jsx",
+    "src/components/parent/ParentLayout.jsx",
+    "src/components/questions/MatchFollowingQuestion.jsx",
+    "src/components/questions/AssertionReasonQuestion.jsx",
+    "src/components/questions/FillInBlankQuestion.jsx",
+    "src/components/questions/QuestionRenderer.jsx",
+    "src/contexts/DataContext.jsx",
+    "src/content/contentPackSchema.js",
+    "src/Grade8_StudyHub_Complete.jsx"
+  ],
+  "verification": {
+    "npm_install": "pass",
+    "npm_build": "pass",
+    "canonicalContentLayer.test.js": "pass"
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "id": "math-9-number-system-01-natural-and-whole-numbers",
+  "slug": "01-natural-and-whole-numbers",
+  "title": "Natural and Whole Numbers",
+  "order": 1,
+  "estimatedMinutes": 8,
+  "blocks": [
+    {
+      "type": "heading",
+      "data": {
+        "text": "Natural and Whole Numbers",
+        "level": 2
+      }
+    },
+    {
+      "type": "paragraph",
+      "data": {
+        "text": "Humans first needed numbers for counting objects: 1, 2, 3, 4, \u2026 . These are called **natural numbers**. Later, we needed a number for \u201cnothing left\u201d, so **0** was introduced. Natural numbers together with 0 are called **whole numbers**."
+      }
+    },
+    {
+      "type": "bullets",
+      "data": {
+        "items": [
+          "Natural numbers: 1, 2, 3, 4, \u2026",
+          "Whole numbers: 0, 1, 2, 3, 4, \u2026",
+          "Zero is the key difference between the two sets."
+        ]
+      }
+    },
+    {
+      "type": "image",
+      "data": {
+        "src": "/Mathematics/number-system/assets/asset_math_9_number_system_img_01.png",
+        "alt": "Number-system hierarchy illustration",
+        "caption": "Use this visual to remember that whole numbers extend natural numbers by adding 0."
+      }
+    },
+    {
+      "type": "example",
+      "data": {
+        "title": "Worked example",
+        "scenario": "Is 0 a natural number? Is 500 a whole number?",
+        "solution": "0 is **not** taken as a natural number in the NCERT Class 9 framing, but it **is** a whole number. 500 is a whole number and also a natural number."
+      }
+    },
+    {
+      "type": "callout",
+      "data": {
+        "title": "If you are confused",
+        "body": "Think: Natural = counting actual objects. Whole = counting plus the empty case (0)."
+      }
+    }
+  ],
+  "clarifiers": [
+    {
+      "id": "clarifier-nw-1",
+      "type": "key_fact",
+      "title": "Remember the start points",
+      "body": "Natural numbers usually start at 1. Whole numbers start at 0."
+    },
+    {
+      "id": "clarifier-nw-2",
+      "type": "common_mistake",
+      "title": "Common mistake",
+      "body": "Students often write 0 as a natural number in this chapter. For school work here, treat 0 as the smallest whole number."
+    },
+    {
+      "id": "clarifier-nw-3",
+      "type": "tip",
+      "title": "Parent tip",
+      "body": "Use fingers for counting, then ask \u201cHow many are left if all are removed?\u201d to introduce 0."
+    }
+  ],
+  "attachments": [
+    {
+      "id": "att-ns-pdf",
+      "title": "Printable worksheet",
+      "description": "A quick classification worksheet from the merged asset pack.",
+      "path": "/Mathematics/number-system/assets/asset_math_9_number_system_pdf_01.pdf",
+      "kind": "pdf",
+      "openMode": "new_tab"
+    }
+  ],
+  "topicId": "math-9-number-system",
+  "questions": [
+    {
+      "id": "math-9-ns-a1-q1",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-1",
+      "pageRef": "page-natural-numbers",
+      "conceptTags": [
+        "natural-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "MCQ",
+      "prompt": "Which set of numbers is used strictly for counting distinct objects like apples or chairs?",
+      "answer": "Natural Numbers",
+      "explanation": "Natural numbers (1, 2, 3...) are the counting numbers. They exclude 0 because we don't start counting at 0.",
+      "supportHint": "Think about how a child first learns to count.",
+      "supportPageRef": "page-natural-numbers",
+      "supportClarifierRef": "clarifier-1-1",
+      "usage": "quick check",
+      "options": [
+        "Whole Numbers",
+        "Natural Numbers",
+        "Integers",
+        "Rational Numbers"
+      ],
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "mcq"
+    },
+    {
+      "id": "math-9-ns-a1-q2",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-1",
+      "pageRef": "page-whole-numbers",
+      "conceptTags": [
+        "whole-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "true/false",
+      "prompt": "The number 0 is considered the smallest natural number.",
+      "answer": "False",
+      "explanation": "Zero is not a natural number; it is the smallest whole number. Natural numbers begin at 1.",
+      "supportHint": "Which number set 'adds nothing' to the natural numbers?",
+      "supportPageRef": "page-whole-numbers",
+      "supportClarifierRef": "clarifier-1-2",
+      "usage": "concept-repair",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "true_false"
+    },
+    {
+      "id": "math-9-ns-a1-q3",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-1",
+      "pageRef": "page-whole-numbers",
+      "conceptTags": [
+        "whole-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "reasoning",
+      "prompt": "Why did mathematicians need to invent whole numbers if natural numbers already existed?",
+      "answer": "To represent the absence of quantity or a zero value.",
+      "explanation": "Natural numbers represent items that are present. To describe an empty basket or a score of nothing, the number 0 was added to create whole numbers.",
+      "supportHint": "What happens when you subtract a number from itself?",
+      "supportPageRef": "page-whole-numbers",
+      "supportClarifierRef": "clarifier-1-3",
+      "usage": "concept-strengthening",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q4",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-1",
+      "pageRef": "page-natural-numbers",
+      "conceptTags": [
+        "natural-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "real-life/application",
+      "prompt": "A teacher asks students to number the pages of a notebook starting from the first page. What set of numbers are they generating?",
+      "answer": "Natural Numbers",
+      "explanation": "Page numbers start at 1 and go up in increments of 1, which perfectly models the set of natural numbers.",
+      "supportHint": "Is there a page zero in a book?",
+      "supportPageRef": "page-natural-numbers",
+      "supportClarifierRef": "clarifier-1-4",
+      "usage": "oral review",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q5",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-1",
+      "pageRef": "page-whole-numbers",
+      "conceptTags": [
+        "whole-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "assertion-reason",
+      "prompt": "Assertion: Every natural number is also a whole number. Reason: The set of whole numbers is formed by adding 0 to the set of natural numbers.",
+      "answer": "Both Assertion and Reason are true, and Reason is the correct explanation.",
+      "explanation": "Since W = {0} U N, all elements of N are contained within W.",
+      "supportHint": "Look at the definitions of both sets.",
+      "supportPageRef": "page-whole-numbers",
+      "supportClarifierRef": "clarifier-1-5",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q27",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-whole-numbers",
+      "conceptTags": [
+        "whole-numbers"
+      ],
+      "difficulty": "medium",
+      "category": "short answer",
+      "prompt": "What is the additive identity in the set of whole numbers?",
+      "answer": "0",
+      "explanation": "Adding 0 to any number leaves it unchanged.",
+      "supportHint": "What number leaves another unchanged when added?",
+      "supportPageRef": "page-whole-numbers",
+      "supportClarifierRef": "clarifier-1-27",
+      "usage": "concept-strengthening",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "short_answer"
+    },
+    {
+      "id": "math-9-ns-a1-q26",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-3",
+      "pageRef": "page-natural-numbers",
+      "conceptTags": [
+        "natural-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "MCQ",
+      "prompt": "Which number is the multiplicative identity for natural numbers?",
+      "answer": "1",
+      "explanation": "Multiplying any natural number by 1 leaves it unchanged.",
+      "supportHint": "What number leaves another unchanged when multiplied?",
+      "supportPageRef": "page-natural-numbers",
+      "supportClarifierRef": "clarifier-1-26",
+      "usage": "quick check",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "It doesn't exist"
+      ],
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "mcq"
+    },
+    {
+      "id": "math-9-ns-a1-q36",
+      "assetType": "Asset 1",
+      "questionSetId": "qs-1-4",
+      "pageRef": "page-natural-numbers",
+      "conceptTags": [
+        "natural-numbers"
+      ],
+      "difficulty": "easy",
+      "category": "short answer",
+      "prompt": "What is the smallest natural number?",
+      "answer": "1",
+      "explanation": "The counting numbers start at 1.",
+      "supportHint": "Where do you start counting?",
+      "supportPageRef": "page-natural-numbers",
+      "supportClarifierRef": "clarifier-1-36",
+      "usage": "quick check",
+      "pageId": "math-9-number-system-01-natural-and-whole-numbers",
+      "type": "short_answer"
+    }
+  ]
+}
