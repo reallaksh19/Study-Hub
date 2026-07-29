@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/domain/bridge/skills.test.js && node src/domain/bridge/planner.test.js"
+    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/domain/bridge/skills.test.js && node src/domain/bridge/planner.test.js && node src/patterns/patternSkillCatalog.test.js && node src/patterns/patternTarget.test.js"
   },
   "repository": {
     "type": "git",
