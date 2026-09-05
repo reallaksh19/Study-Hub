@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "npm run build:kani-catalog && vite build",
     "preview": "vite preview",
-    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/integration/contracts/kaniContracts.test.js && node src/integration/catalog/buildCatalog.test.js",
+    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/integration/contracts/kaniContracts.test.js && node src/integration/catalog/buildCatalog.test.js && node src/integration/activityBridge/activityBridge.test.js && node src/integration/api/domainContentService.test.js",
     "build:kani-catalog": "node scripts/generate-kani-catalog.mjs",
     "audit:kani-content": "node scripts/audit-kani-content.mjs"
   },
