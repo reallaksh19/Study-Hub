@@ -160,6 +160,7 @@ export const KaniCatalogPageSchema = z.object({
   title: z.string().min(1),
   activityType: KaniActivityTypeSchema,
   contentUrl: z.string().min(1),
+  learnerUrl: z.string().min(1).optional(),
   grade: z.string().min(1).optional(),
   difficulty: KaniDifficultySchema.default('none'),
   skillIds: z.array(z.string().min(1)).default([]),
