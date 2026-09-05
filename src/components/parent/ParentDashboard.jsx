@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { checkBackendStatus, saveJSON, createDirectory } from '../../services/parentApiService.js';
 import { Ico } from '../../lib/Icons.jsx';
 import { useToast } from '../../lib/Toast.jsx';
+import { KaniIntegrationStatusPanel } from './KaniIntegrationStatusPanel.jsx';
 
 const SUBJECT_PALETTE = {
   physics:     { accent: 'var(--color-brand)',   glyph: '⚛' },
@@ -122,6 +123,8 @@ export function ParentDashboard({ subjects = [], topics = [] }) {
           <KpiPill label="Drill Qs" value={totals.drill} tone="violet" />
         </div>
       </div>
+
+      <KaniIntegrationStatusPanel />
 
       {/* Action bar */}
       <div className="flex flex-wrap items-center gap-2.5 mb-6">
