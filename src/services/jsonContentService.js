@@ -1,6 +1,17 @@
+function publicContentUrl(...parts) {
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const relativePath = parts
+    .flatMap((part) => String(part || '').split(/[\\/]/))
+    .filter(Boolean)
+    .map((part) => encodeURIComponent(part))
+    .join('/');
+  return `${normalizedBase}${relativePath}`;
+}
+
 export async function loadTopic(subject, topicFolder) {
   try {
-    const res = await fetch(`/${subject}/${topicFolder}/topic.json`);
+    const res = await fetch(publicContentUrl(subject, topicFolder, 'topic.json'));
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
@@ -12,7 +23,7 @@ export async function loadTopic(subject, topicFolder) {
 export async function loadPage(subject, topicFolder, pageFile) {
   try {
     // pageFile can be something like "pages/what-is-a-vector.json"
-    const res = await fetch(`/${subject}/${topicFolder}/${pageFile}`);
+    const res = await fetch(publicContentUrl(subject, topicFolder, pageFile));
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
