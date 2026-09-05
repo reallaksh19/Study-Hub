@@ -3,9 +3,11 @@ import fs from 'fs';
 import path from 'path';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
+import { createKaniRouter } from './src/integration/api/kaniRouter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const publicDir = path.resolve(__dirname, 'public');
 
 const app = express();
 const port = 3001; // Or any port you prefer
@@ -14,7 +16,6 @@ const writeApiToken = process.env.STUDY_HUB_WRITE_TOKEN || '';
 
 function getSafePath(relativePath) {
   if (typeof relativePath !== 'string' || relativePath.trim() === '') throw new Error('Missing path');
-  const publicDir = path.resolve(__dirname, 'public');
   const cleanRelative = relativePath.replace(/^[/\\]+/, '');
   const fullPath = path.resolve(publicDir, cleanRelative);
   const relativeFromPublic = path.relative(publicDir, fullPath);
@@ -63,13 +64,15 @@ async function sanitizeSvgFile(fullPath) {
   fs.writeFileSync(fullPath, content);
 }
 
-
 const upload = multer({ dest: 'public/uploads/' });
 
-// Basic health check
+// Basic health check (legacy)
 app.get('/api/health', (req, res) => {
   res.json({ success: true });
 });
+
+// Versioned Kani integration/domain API. Read routes are functional; learner write routes are reserved 501 placeholders.
+app.use('/api/v1', createKaniRouter({ publicDir }));
 
 // JSON backend endpoints
 app.post('/api/json', (req, res) => {
@@ -91,7 +94,6 @@ app.post('/api/json', (req, res) => {
 
 // Try to find a real path when exact path doesn't exist (case-insensitive subject folder match)
 function resolveCaseInsensitivePath(relativePath) {
-  const publicDir = path.resolve(__dirname, 'public');
   const parts = relativePath.replace(/^[/\\]+/, '').split(/[/\\]/);
   // Only attempt resolution for topic-scoped paths (subject/topic/...)
   if (parts.length < 2) return null;
@@ -198,7 +200,6 @@ app.delete('/api/directory', (req, res) => {
 
 app.get('/api/topics', (req, res) => {
   try {
-    const publicDir = path.resolve(__dirname, 'public');
     const topicsByKey = new Map();
 
     const subjects = fs.readdirSync(publicDir, { withFileTypes: true })
@@ -246,7 +247,6 @@ app.get('/api/topics', (req, res) => {
 
 app.get('/api/subjects', (req, res) => {
   try {
-    const publicDir = path.resolve(__dirname, 'public');
     const subjectFolders = fs.readdirSync(publicDir, { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name);
@@ -286,7 +286,7 @@ app.get('/api/subjects', (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(publicDir));
 
 app.listen(port, () => {
   console.log(`API running on http://localhost:${port}`);
