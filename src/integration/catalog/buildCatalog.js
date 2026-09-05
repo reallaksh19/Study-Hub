@@ -3,6 +3,11 @@ import path from 'node:path';
 import { KANI_SCHEMA_VERSION, KaniCatalogSchema } from '../contracts/kaniContracts.js';
 
 const ALLOWED_DIFFICULTIES = new Set(['easy', 'medium', 'hard', 'mixed', 'none']);
+const LEGACY_DIFFICULTY_ALIASES = new Map([
+  ['beginner', 'easy'],
+  ['intermediate', 'medium'],
+  ['advanced', 'hard']
+]);
 const ALLOWED_ACTIVITY_TYPES = new Set(['lesson', 'worksheet', 'quiz', 'game', 'brain', 'challenge', 'interactive']);
 
 function readJson(filePath) {
@@ -21,7 +26,8 @@ function readJson(filePath) {
 
 function normalizeDifficulty(value, sourcePath) {
   if (value == null || value === '') return 'none';
-  const normalized = String(value).trim().toLowerCase();
+  const raw = String(value).trim().toLowerCase();
+  const normalized = LEGACY_DIFFICULTY_ALIASES.get(raw) || raw;
   if (!ALLOWED_DIFFICULTIES.has(normalized)) {
     throw new Error(`Invalid difficulty "${value}" in ${sourcePath}`);
   }
