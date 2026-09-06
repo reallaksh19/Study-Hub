@@ -1,0 +1,370 @@
+{
+  "id": "grade4math-number-system-practice",
+  "topicId": "grade4math-number-system",
+  "subjectId": "grade4math",
+  "title": "Number System Practice",
+  "pageKind": "worksheet",
+  "grade": "Grade 4",
+  "difficulty": "mixed",
+  "estimatedMinutes": 20,
+  "skillIds": [
+    "skill-place-value",
+    "skill-expanded-form",
+    "skill-number-names",
+    "skill-number-systems",
+    "skill-comparing-numbers"
+  ],
+  "conceptTags": [
+    "number-system",
+    "place-value",
+    "expanded-form",
+    "number-names",
+    "comparing-numbers"
+  ],
+  "blocks": [],
+  "clarifiers": [],
+  "questions": [
+    {
+      "id": "grade4math-number-system-q01",
+      "type": "mcq",
+      "prompt": "Which expanded form matches 82,765?",
+      "options": [
+        "80,000 + 2,000 + 700 + 60 + 5",
+        "8,000 + 2,000 + 700 + 60 + 5",
+        "80,000 + 20,000 + 700 + 60 + 5",
+        "80,000 + 2,000 + 70 + 6 + 5"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form"],
+      "conceptTags": ["expanded-form"],
+      "explanation": "82,765 has 8 ten-thousands, 2 thousands, 7 hundreds, 6 tens and 5 ones."
+    },
+    {
+      "id": "grade4math-number-system-q02",
+      "type": "mcq",
+      "prompt": "Which expanded form matches 50,980?",
+      "options": [
+        "50,000 + 9,000 + 80",
+        "50,000 + 900 + 80",
+        "5,000 + 900 + 80",
+        "50,000 + 900 + 8"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form"],
+      "conceptTags": ["expanded-form"],
+      "explanation": "The digits represent 50,000 + 900 + 80; the hundreds digit is 9 and the ones digit is 0."
+    },
+    {
+      "id": "grade4math-number-system-q03",
+      "type": "mcq",
+      "prompt": "40,000 + 5,000 + 90 + 3 is written in standard form as:",
+      "options": [
+        "40,593",
+        "45,903",
+        "45,093",
+        "4,593"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form"],
+      "conceptTags": ["standard-form"],
+      "explanation": "Adding the place values gives 45,093."
+    },
+    {
+      "id": "grade4math-number-system-q04",
+      "type": "mcq",
+      "prompt": "Which short form matches 90,000 + 3,000 + 100 + 70 + 5?",
+      "options": [
+        "93,715",
+        "90,375",
+        "9,317",
+        "93,175"
+      ],
+      "answer": 3,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form"],
+      "conceptTags": ["standard-form"],
+      "explanation": "The place values combine to 93,175."
+    },
+    {
+      "id": "grade4math-number-system-q05",
+      "type": "mcq",
+      "prompt": "Which expanded form is correct for 7,30,027?",
+      "options": [
+        "7,00,000 + 30,000 + 20 + 7",
+        "70,000 + 30,000 + 20 + 7",
+        "7,00,000 + 3,000 + 20 + 7",
+        "7,00,000 + 30,000 + 200 + 7"
+      ],
+      "answer": 0,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form", "skill-number-systems"],
+      "conceptTags": ["expanded-form", "indian-number-system"],
+      "explanation": "7,30,027 means 7 lakhs, 30 thousand, 2 tens and 7 ones."
+    },
+    {
+      "id": "grade4math-number-system-q06",
+      "type": "mcq",
+      "prompt": "Which short form matches 60,000 + 4,000 + 400 + 20 + 7?",
+      "options": [
+        "60,427",
+        "64,427",
+        "64,247",
+        "6,442"
+      ],
+      "answer": 1,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-expanded-form"],
+      "conceptTags": ["standard-form"],
+      "explanation": "The place values combine to 64,427."
+    },
+    {
+      "id": "grade4math-number-system-q07",
+      "type": "mcq",
+      "prompt": "A number has 5 ten-thousands, 8 thousands, 0 hundreds, 6 tens and 3 ones. What is the number?",
+      "options": [
+        "50,863",
+        "58,603",
+        "58,063",
+        "5,863"
+      ],
+      "answer": 2,
+      "difficulty": "easy",
+      "questionCategory": "apply",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["place-value"],
+      "explanation": "Writing the digits in ten-thousands, thousands, hundreds, tens and ones order gives 58,063."
+    },
+    {
+      "id": "grade4math-number-system-q08",
+      "type": "mcq",
+      "prompt": "Eight ten-thousands, six hundreds, nine tens and one one make:",
+      "options": [
+        "8,691",
+        "86,091",
+        "80,619",
+        "80,691"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "questionCategory": "apply",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["place-value"],
+      "explanation": "There are 80,000 + 600 + 90 + 1 = 80,691."
+    },
+    {
+      "id": "grade4math-number-system-q09",
+      "type": "mcq",
+      "prompt": "Which is the numeral for ‘eight thousand four hundred sixty-nine’?",
+      "options": [
+        "8,469",
+        "84,609",
+        "8,649",
+        "80,469"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "questionCategory": "understand",
+      "skillIds": ["skill-number-names"],
+      "conceptTags": ["number-names"],
+      "explanation": "Eight thousand four hundred sixty-nine is 8,469."
+    },
+    {
+      "id": "grade4math-number-system-q10",
+      "type": "mcq",
+      "prompt": "What is the successor of 5,529?",
+      "options": [
+        "5,528",
+        "5,530",
+        "5,539",
+        "5,620"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "questionCategory": "apply",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["successor-predecessor"],
+      "explanation": "The successor is the next whole number, so add 1."
+    },
+    {
+      "id": "grade4math-number-system-q11",
+      "type": "mcq",
+      "prompt": "What is the predecessor of 7,570?",
+      "options": [
+        "7,571",
+        "7,560",
+        "7,569",
+        "7,470"
+      ],
+      "answer": 2,
+      "difficulty": "medium",
+      "questionCategory": "apply",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["successor-predecessor"],
+      "explanation": "The predecessor is the whole number immediately before 7,570, which is 7,569."
+    },
+    {
+      "id": "grade4math-number-system-q12",
+      "type": "mcq",
+      "prompt": "Which two numbers come next after 8,474; 8,574; ___; ___ ?",
+      "options": [
+        "8,584 and 8,594",
+        "8,575 and 8,576",
+        "8,774 and 8,974",
+        "8,674 and 8,774"
+      ],
+      "answer": 3,
+      "difficulty": "medium",
+      "questionCategory": "analyze",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["number-patterns"],
+      "explanation": "The pattern increases by 100 each time: 8,474, 8,574, 8,674, 8,774."
+    },
+    {
+      "id": "grade4math-number-system-q13",
+      "type": "mcq",
+      "prompt": "How many 4-digit whole numbers are there?",
+      "options": [
+        "9,000",
+        "10,000",
+        "8,999",
+        "9,999"
+      ],
+      "answer": 0,
+      "difficulty": "medium",
+      "questionCategory": "analyze",
+      "skillIds": ["skill-place-value"],
+      "conceptTags": ["digit-count"],
+      "explanation": "Four-digit numbers run from 1,000 through 9,999, giving 9,000 numbers."
+    },
+    {
+      "id": "grade4math-number-system-q14",
+      "type": "mcq",
+      "prompt": "A cheque amount is ₹18,960. Which words are correct?",
+      "options": [
+        "One lakh eighty-nine sixty only",
+        "Eighteen thousand nine hundred sixty only",
+        "Eight thousand nine hundred sixty only",
+        "Eighteen lakh nine hundred sixty only"
+      ],
+      "answer": 1,
+      "difficulty": "medium",
+      "questionCategory": "apply",
+      "skillIds": ["skill-number-names"],
+      "conceptTags": ["number-names"],
+      "explanation": "18,960 is read as eighteen thousand nine hundred sixty."
+    },
+    {
+      "id": "grade4math-number-system-q15",
+      "type": "mcq",
+      "prompt": "Which is the correct Indian number name for 3,45,098?",
+      "options": [
+        "Three million forty-five thousand ninety-eight",
+        "Thirty-four lakh five thousand ninety-eight",
+        "Three lakh forty-five thousand ninety-eight",
+        "Three lakh four hundred fifty thousand ninety-eight"
+      ],
+      "answer": 2,
+      "difficulty": "hard",
+      "questionCategory": "apply",
+      "skillIds": ["skill-number-names", "skill-number-systems"],
+      "conceptTags": ["indian-number-system", "number-names"],
+      "explanation": "In the Indian grouping system, 3,45,098 is three lakh forty-five thousand ninety-eight."
+    },
+    {
+      "id": "grade4math-number-system-q16",
+      "type": "mcq",
+      "prompt": "Which is the correct international number name for 120,980?",
+      "options": [
+        "Twelve lakh ninety-eight",
+        "One million twenty thousand nine hundred eighty",
+        "One hundred twenty million nine hundred eighty",
+        "One hundred twenty thousand nine hundred eighty"
+      ],
+      "answer": 3,
+      "difficulty": "hard",
+      "questionCategory": "apply",
+      "skillIds": ["skill-number-names", "skill-number-systems"],
+      "conceptTags": ["international-number-system", "number-names"],
+      "explanation": "120,980 is one hundred twenty thousand nine hundred eighty in the international system."
+    },
+    {
+      "id": "grade4math-number-system-q17",
+      "type": "mcq",
+      "prompt": "Which number matches ‘fifty-four lakhs five thousand five hundred four’?",
+      "options": [
+        "54,05,504",
+        "5,40,550",
+        "54,50,504",
+        "5,405,054"
+      ],
+      "answer": 0,
+      "difficulty": "hard",
+      "questionCategory": "apply",
+      "skillIds": ["skill-number-names", "skill-number-systems"],
+      "conceptTags": ["indian-number-system", "number-names"],
+      "explanation": "Fifty-four lakhs, five thousand, five hundred four is written 54,05,504."
+    },
+    {
+      "id": "grade4math-number-system-q18",
+      "type": "mcq",
+      "prompt": "Which is the correct number name for 6,84,327 in the Indian system?",
+      "options": [
+        "Six million eighty-four thousand three hundred twenty-seven",
+        "Six lakh eighty-four thousand three hundred twenty-seven",
+        "Sixty-eight lakh four thousand three hundred twenty-seven",
+        "Six lakh eight thousand four hundred twenty-seven"
+      ],
+      "answer": 1,
+      "difficulty": "hard",
+      "questionCategory": "apply",
+      "skillIds": ["skill-number-names", "skill-number-systems"],
+      "conceptTags": ["indian-number-system", "number-names"],
+      "explanation": "The grouping 6,84,327 reads as six lakh eighty-four thousand three hundred twenty-seven."
+    },
+    {
+      "id": "grade4math-number-system-q19",
+      "type": "mcq",
+      "prompt": "Which comparison is correct?",
+      "options": [
+        "5,42,478 > 5,42,748",
+        "5,42,478 = 5,42,748",
+        "5,42,478 < 5,42,748",
+        "5,42,478 < 54,274"
+      ],
+      "answer": 2,
+      "difficulty": "hard",
+      "questionCategory": "analyze",
+      "skillIds": ["skill-comparing-numbers"],
+      "conceptTags": ["comparing-numbers"],
+      "explanation": "Both numbers agree through 5,42 thousand; 478 is less than 748, so 5,42,478 is smaller."
+    },
+    {
+      "id": "grade4math-number-system-q20",
+      "type": "mcq",
+      "prompt": "Which statement about the Indian and International number systems is true?",
+      "options": [
+        "1 million = 1 lakh",
+        "10 million = 1 lakh",
+        "1 lakh = 10 thousands",
+        "1 million = 10 lakhs"
+      ],
+      "answer": 3,
+      "difficulty": "hard",
+      "questionCategory": "understand",
+      "skillIds": ["skill-number-systems"],
+      "conceptTags": ["indian-number-system", "international-number-system"],
+      "explanation": "1 million is 1,000,000, which equals 10 lakhs."
+    }
+  ],
+  "attachments": [],
+  "resources": []
+}
