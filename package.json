@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/integration/contracts/kaniContracts.test.js && node src/integration/catalog/buildCatalog.test.js && node src/integration/activityBridge/activityBridge.test.js && node src/integration/api/domainContentService.test.js && node src/integration/status/integrationStatus.test.js && node src/integration/fixtures/worksheetFixture.test.js",
     "build:kani-catalog": "node scripts/generate-kani-catalog.mjs",
-    "audit:kani-content": "node scripts/audit-kani-content.mjs"
+    "audit:kani-content": "node scripts/audit-kani-content.mjs",
+    "audit:grade4": "node scripts/audit-grade4-published-content.mjs"
   },
   "repository": {
     "type": "git",

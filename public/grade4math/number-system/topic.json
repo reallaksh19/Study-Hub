@@ -1,0 +1,43 @@
+{
+  "id": "grade4math-number-system",
+  "subjectId": "grade4math",
+  "title": "Number System",
+  "description": "Grade 4 practice for place value, expanded form, number names, number systems and comparison.",
+  "grade": "Grade 4",
+  "difficulty": "mixed",
+  "conceptTags": [
+    "number-system",
+    "place-value",
+    "expanded-form",
+    "number-names",
+    "comparing-numbers"
+  ],
+  "order": 1,
+  "estimatedMinutes": 25,
+  "pages": [
+    {
+      "id": "grade4math-number-system-practice",
+      "file": "pages/number-system-practice.json",
+      "title": "Number System Practice",
+      "pageKind": "worksheet",
+      "grade": "Grade 4",
+      "difficulty": "mixed",
+      "skillIds": [
+        "skill-place-value",
+        "skill-expanded-form",
+        "skill-number-names",
+        "skill-number-systems",
+        "skill-comparing-numbers"
+      ],
+      "conceptTags": [
+        "number-system",
+        "place-value",
+        "expanded-form",
+        "number-names",
+        "comparing-numbers"
+      ],
+      "order": 1,
+      "estimatedMinutes": 20
+    }
+  ]
+}
