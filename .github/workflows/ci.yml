@@ -30,5 +30,8 @@ jobs:
       - name: Audit Kani content
         run: npm run audit:kani-content
 
+      - name: Audit published Grade 4 content
+        run: npm run audit:grade4
+
       - name: Build production app and catalog
         run: npm run build
