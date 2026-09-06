@@ -36,6 +36,9 @@ jobs:
       - name: Audit Kani content
         run: npm run audit:kani-content
 
+      - name: Audit published Grade 4 content
+        run: npm run audit:grade4
+
       - name: Build Vite app and static Kani catalog
         env:
           VITE_BASE_PATH: /Study-Hub/
