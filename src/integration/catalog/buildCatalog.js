@@ -49,6 +49,10 @@ function encodeWebPath(parts) {
   return `/${parts.flatMap((part) => String(part).split(/[\\/]/)).filter(Boolean).map(encodeURIComponent).join('/')}`;
 }
 
+function buildLearnerUrl(topicId, pageId) {
+  return `#/topic/${String(topicId)}/page/${String(pageId)}`;
+}
+
 function listDirectories(dirPath) {
   if (!fs.existsSync(dirPath)) return [];
   return fs.readdirSync(dirPath, { withFileTypes: true })
@@ -138,6 +142,7 @@ export function buildKaniCatalog({ publicDir, publishedAt = '1970-01-01T00:00:00
           title: String(page.title || pageRef.title),
           activityType: normalizeActivityType(page.pageKind || pageRef.pageKind),
           contentUrl: encodeWebPath([subjectFolder, topicFolder, pageRef.file]),
+          learnerUrl: buildLearnerUrl(topic.id, pageId),
           ...(page.grade || pageRef.grade || topic.grade ? { grade: String(page.grade || pageRef.grade || topic.grade) } : {}),
           difficulty: normalizeDifficulty(page.difficulty ?? pageRef.difficulty ?? topic.difficulty, pagePath),
           skillIds: optionalArray(page.skillIds, pageRef.skillIds),

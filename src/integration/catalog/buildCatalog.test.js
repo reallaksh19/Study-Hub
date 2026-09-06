@@ -57,6 +57,8 @@ function makeFixture() {
     assert.equal(first.topics.length, 1);
     assert.equal(first.pages.length, 2);
     assert.deepEqual(first.topics[0].pageRefs, ['math-fractions-intro', 'math-fractions-compare']);
+    assert.equal(first.pages[0].learnerUrl, '#/topic/math-fractions/page/math-fractions-intro');
+    assert.equal(first.pages[1].learnerUrl, '#/topic/math-fractions/page/math-fractions-compare');
     assert.equal(first.pages[1].activityType, 'worksheet');
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
