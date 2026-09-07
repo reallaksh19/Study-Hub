@@ -77,10 +77,9 @@ jobs:
           git diff --check
           echo 'Status immediately after build:'
           git status --short
-          printf '%s\n' 'public/content/catalog.json' > /tmp/expected-generated.txt
-          git status --short | awk '{print $2}' | sort > /tmp/actual-generated.txt
-          diff -u /tmp/expected-generated.txt /tmp/actual-generated.txt
-          git restore -- public/content/catalog.json
-          echo 'Status after restoring the timestamped generated catalog:'
+          test "$(git status --short)" = '?? public/content/'
+          test -f public/content/catalog.json
+          rm -rf public/content
+          echo 'Status after removing the build-generated catalog directory:'
           git status --short
           test -z "$(git status --short)"
