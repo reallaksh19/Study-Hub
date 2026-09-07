@@ -46,6 +46,7 @@ jobs:
             | sort > /tmp/m001-actual.txt
           diff -u /tmp/m001-expected.txt /tmp/m001-actual.txt
           git diff --check origin/main...HEAD
+          git status --short
           test -z "$(git status --short)"
 
       - name: Certify source guards and line counts
@@ -69,9 +70,17 @@ jobs:
       - name: Build production app
         run: npm run build
 
-      - name: Certify clean worktree after validation
+      - name: Certify generated build delta and clean worktree
         shell: bash
         run: |
           set -euo pipefail
           git diff --check
+          echo 'Status immediately after build:'
+          git status --short
+          printf '%s\n' 'public/content/catalog.json' > /tmp/expected-generated.txt
+          git status --short | awk '{print $2}' | sort > /tmp/actual-generated.txt
+          diff -u /tmp/expected-generated.txt /tmp/actual-generated.txt
+          git restore -- public/content/catalog.json
+          echo 'Status after restoring the timestamped generated catalog:'
+          git status --short
           test -z "$(git status --short)"
