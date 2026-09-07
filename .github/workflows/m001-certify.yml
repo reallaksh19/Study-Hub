@@ -1,0 +1,77 @@
+name: M001 temporary certification
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'package.json'
+      - 'src/bridge/**'
+      - '.github/workflows/m001-certify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Certify exact M001 scope and clean diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          printf '%s\n' \
+            package.json \
+            src/bridge/bridgeModel.js \
+            src/bridge/bridgeModel.test.js \
+            src/bridge/bridgePlanner.js \
+            src/bridge/bridgePlanner.test.js \
+            src/bridge/bridgeValidation.js \
+            | sort > /tmp/m001-expected.txt
+          git diff --name-only origin/main...HEAD \
+            | grep -v '^.github/workflows/m001-certify.yml$' \
+            | sort > /tmp/m001-actual.txt
+          diff -u /tmp/m001-expected.txt /tmp/m001-actual.txt
+          git diff --check origin/main...HEAD
+          test -z "$(git status --short)"
+
+      - name: Certify source guards and line counts
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -R "export default" src/bridge
+          wc -l src/bridge/*.js
+          test "$(wc -l < src/bridge/bridgeModel.js)" -lt 300
+          test "$(wc -l < src/bridge/bridgeValidation.js)" -lt 300
+          test "$(wc -l < src/bridge/bridgePlanner.js)" -lt 300
+          test "$(wc -l < src/bridge/bridgeModel.test.js)" -lt 300
+          test "$(wc -l < src/bridge/bridgePlanner.test.js)" -lt 300
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run full test suite
+        run: npm test
+
+      - name: Build production app
+        run: npm run build
+
+      - name: Certify clean worktree after validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -z "$(git status --short)"
