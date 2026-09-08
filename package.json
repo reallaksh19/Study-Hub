@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:kani-catalog && vite build",
+    "build": "npm run build:kani-catalog && npm run build:pattern-diagnostic && vite build",
     "preview": "vite preview",
-    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/integration/contracts/kaniContracts.test.js && node src/integration/catalog/buildCatalog.test.js && node src/integration/activityBridge/activityBridge.test.js && node src/integration/api/domainContentService.test.js && node src/integration/status/integrationStatus.test.js && node src/integration/fixtures/worksheetFixture.test.js && node src/bridge/bridgeModel.test.js && node src/bridge/bridgePlanner.test.js && node src/patterns/patternSkillCatalog.test.js && node src/patterns/patternTarget.test.js && node src/patterns/patternDiagnosticQuestions.test.js && node src/patterns/patternDiagnosticPlacement.test.js",
+    "test": "node src/content/contentPackSchema.test.js && node src/utils/idFactory.test.js && node src/utils/markdownToBlocks.test.js && node src/utils/slugify.test.js && node src/utils/svgSanitizer.test.js && node src/integration/contracts/kaniContracts.test.js && node src/integration/catalog/buildCatalog.test.js && node src/integration/activityBridge/activityBridge.test.js && node src/integration/api/domainContentService.test.js && node src/integration/status/integrationStatus.test.js && node src/integration/fixtures/worksheetFixture.test.js && node src/bridge/bridgeModel.test.js && node src/bridge/bridgePlanner.test.js && node src/patterns/patternSkillCatalog.test.js && node src/patterns/patternTarget.test.js && node src/patterns/patternDiagnosticQuestions.test.js && node src/patterns/patternDiagnosticPlacement.test.js && node src/patterns/patternDiagnosticHandoff.test.js",
     "build:kani-catalog": "node scripts/generate-kani-catalog.mjs",
+    "build:pattern-diagnostic": "node scripts/generate-pattern-diagnostic.mjs",
     "audit:kani-content": "node scripts/audit-kani-content.mjs",
     "audit:grade4": "node scripts/audit-grade4-published-content.mjs"
   },
@@ -42,11 +43,11 @@
     "react-hook-form": "^7.72.1",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.14.1",
-    "rehype-katex": "^7.0.1",
+    "rehype-katex": "^7.1.0",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "remark-parse": "^11.0.0",
-    "style-loader": "^4.0.0",
+    "remark-parse": "^11.0.5",
+    "style-loader": "^4.0.1",
     "unified": "^11.0.5",
     "zod": "^4.3.6"
   },
