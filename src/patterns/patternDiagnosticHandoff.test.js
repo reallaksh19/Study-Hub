@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { validateKaniQuestion } from '../integration/contracts/kaniContracts.js';
 import { buildPatternDiagnosticPlacement } from './patternDiagnosticPlacement.js';
 import {
   PATTERN_DIAGNOSTIC_ACTIVITY_ID,
@@ -24,8 +25,15 @@ const publication = createPatternDiagnosticPublicationEnvelope();
 assert.equal(publication.schemaVersion, '1.0');
 assert.equal(publication.activityId, PATTERN_DIAGNOSTIC_ACTIVITY_ID);
 assert.equal(publication.sourceApp, 'study-hub');
-assert.equal(publication.questions, PATTERN_DIAGNOSTIC_QUESTIONS);
 assert.equal(publication.questions.length, 26);
+assert.deepEqual(
+  publication.questions,
+  PATTERN_DIAGNOSTIC_QUESTIONS.map((question) => validateKaniQuestion(question).data)
+);
+publication.questions.forEach((question) => {
+  assert.equal(validateKaniQuestion(question).success, true);
+  assert.deepEqual(question.curriculumTags, []);
+});
 
 const route = encodePatternDiagnosticHandoff(selected);
 assert.ok(route.startsWith(`${PATTERN_DIAGNOSTIC_HANDOFF_ROUTE}?payload=`));
