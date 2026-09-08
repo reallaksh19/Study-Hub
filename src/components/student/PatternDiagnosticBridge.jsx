@@ -52,7 +52,7 @@ export function PatternDiagnosticBridge({ route }) {
           This plan uses only the {attempts.length} attempts from the diagnostic run you just handed over from Kani. It is placement evidence, not a mastery score or ability label.
         </p>
         <div className="mt-4 rounded-2xl bg-indigo-50 p-4 text-sm text-indigo-950">
-          No support or capacity profile was inferred from correctness. M004 passes an empty support profile into the existing M001 planner.
+          No support profile was inferred from correctness. This pilot uses one fixed delivery baseline for everyone: standard instructions, on-request hints, mixed representation, four answer choices, up to six visible items and a six-item session size.
         </div>
       </header>
 
