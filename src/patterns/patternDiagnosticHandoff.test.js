@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { validateKaniQuestion } from '../integration/contracts/kaniContracts.js';
 import { buildPatternDiagnosticPlacement } from './patternDiagnosticPlacement.js';
 import {
@@ -109,6 +110,13 @@ assert.throws(
 const selectedSnapshot = JSON.stringify(selected);
 buildPatternDiagnosticBridgeFromRoute(route);
 assert.equal(JSON.stringify(selected), selectedSnapshot);
+
+const bridgeSource = fs.readFileSync(
+  new URL('../components/student/PatternDiagnosticBridge.jsx', import.meta.url),
+  'utf8'
+);
+assert.doesNotMatch(bridgeSource, /localStorage|sessionStorage|indexedDB|recordAttempt|save[A-Z]/);
+assert.doesNotMatch(bridgeSource, /fetch\s*\(/);
 
 console.log('patternDiagnosticHandoff tests passed');
 
