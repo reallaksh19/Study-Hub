@@ -12,6 +12,14 @@ import {
 export const PATTERN_DIAGNOSTIC_HANDOFF_ROUTE = '#/patterns/diagnostic-bridge';
 export const PATTERN_DIAGNOSTIC_MAX_ATTEMPTS = 26;
 export const PATTERN_DIAGNOSTIC_MAX_PAYLOAD_BYTES = 64 * 1024;
+export const PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE = Object.freeze({
+  instructionLength: 'standard',
+  maxVisibleItems: 6,
+  answerChoiceLoad: 4,
+  hintAvailability: 'on_request',
+  preferredRepresentation: 'mixed',
+  recommendedSessionSize: 6
+});
 
 export function createPatternDiagnosticPublicationEnvelope() {
   const questions = PATTERN_DIAGNOSTIC_QUESTIONS.map((question) => {
@@ -64,7 +72,7 @@ export function buildPatternDiagnosticBridgeFromRoute(route) {
     studentId,
     activityId: PATTERN_DIAGNOSTIC_ACTIVITY_ID,
     attempts: payload.attempts,
-    capacityProfile: {}
+    capacityProfile: PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE
   });
   return Object.freeze({
     studentId,
