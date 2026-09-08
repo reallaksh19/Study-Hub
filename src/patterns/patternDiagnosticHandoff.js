@@ -1,4 +1,7 @@
-import { validateKaniAttempt } from '../integration/contracts/kaniContracts.js';
+import {
+  validateKaniAttempt,
+  validateKaniQuestion
+} from '../integration/contracts/kaniContracts.js';
 import { buildPatternDiagnosticPlacement } from './patternDiagnosticPlacement.js';
 import {
   PATTERN_DIAGNOSTIC_ACTIVITY_ID,
@@ -11,11 +14,16 @@ export const PATTERN_DIAGNOSTIC_MAX_ATTEMPTS = 26;
 export const PATTERN_DIAGNOSTIC_MAX_PAYLOAD_BYTES = 64 * 1024;
 
 export function createPatternDiagnosticPublicationEnvelope() {
+  const questions = PATTERN_DIAGNOSTIC_QUESTIONS.map((question) => {
+    const parsed = validateKaniQuestion(question);
+    if (!parsed.success) fail('invalid_published_question', question.id);
+    return Object.freeze(parsed.data);
+  });
   return Object.freeze({
     schemaVersion: '1.0',
     activityId: PATTERN_DIAGNOSTIC_ACTIVITY_ID,
     sourceApp: 'study-hub',
-    questions: PATTERN_DIAGNOSTIC_QUESTIONS
+    questions: Object.freeze(questions)
   });
 }
 
