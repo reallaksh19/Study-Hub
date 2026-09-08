@@ -7,6 +7,7 @@ import {
 } from './patternDiagnosticQuestions.js';
 import {
   PATTERN_DIAGNOSTIC_HANDOFF_ROUTE,
+  PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE,
   buildPatternDiagnosticBridgeFromRoute,
   createPatternDiagnosticPublicationEnvelope,
   decodePatternDiagnosticHandoff,
@@ -20,6 +21,16 @@ const selected = Object.freeze([
   Object.freeze(attempt(first, { attemptId: 'm004_a' })),
   Object.freeze(attempt(second, { attemptId: 'm004_b', hintsUsed: 1 }))
 ]);
+
+assert.deepEqual(PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE, {
+  instructionLength: 'standard',
+  maxVisibleItems: 6,
+  answerChoiceLoad: 4,
+  hintAvailability: 'on_request',
+  preferredRepresentation: 'mixed',
+  recommendedSessionSize: 6
+});
+assert.equal(Object.isFrozen(PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE), true);
 
 const publication = createPatternDiagnosticPublicationEnvelope();
 assert.equal(publication.schemaVersion, '1.0');
@@ -46,13 +57,13 @@ const direct = buildPatternDiagnosticPlacement({
   studentId: STUDENT_ID,
   activityId: PATTERN_DIAGNOSTIC_ACTIVITY_ID,
   attempts: selected,
-  capacityProfile: {}
+  capacityProfile: PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE
 });
 const bridge = buildPatternDiagnosticBridgeFromRoute(route);
 assert.equal(bridge.studentId, STUDENT_ID);
 assert.deepEqual(bridge.learnerEvidence, direct.learnerEvidence);
 assert.deepEqual(bridge.bridgePlan, direct.bridgePlan);
-assert.deepEqual(bridge.bridgePlan.supportProfile, {});
+assert.deepEqual(bridge.bridgePlan.supportProfile, PATTERN_DIAGNOSTIC_PILOT_SUPPORT_PROFILE);
 
 assert.throws(
   () => decodePatternDiagnosticHandoff('#/patterns/diagnostic-bridge'),
