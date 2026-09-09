@@ -15,6 +15,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 const stableJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
+const stableSchemaJson = (value) => `${JSON.stringify(value)}\n`;
 const gitBlobSha = (bytes) => createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
 
 const fixtureIndex = {
@@ -33,7 +34,7 @@ async function expectedFiles() {
   const contracts = {};
   for (const id of CONTRACT_IDS) {
     const rel = `integration/contracts/${id}.schema.json`;
-    const text = stableJson(schemas[id]);
+    const text = stableSchemaJson(schemas[id]);
     files[rel] = text;
     contracts[id] = { major: 1, schemaVersion: SCHEMA_VERSION, schemaPath: rel, sha256: sha256(text) };
   }
