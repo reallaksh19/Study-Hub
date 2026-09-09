@@ -29,7 +29,7 @@
       "major": 1,
       "schemaVersion": "1.0",
       "schemaPath": "integration/contracts/kani-content-v1.schema.json",
-      "sha256": "b377f2398953fb6f64df9fb1c3600ca0dc8e3208a1e9cb363b552049d29b6550"
+      "sha256": "37bcfdcc45fb959d51971b3fe1532501a5cbdef2ce32df8a98b6881c2b0ee72d"
     },
     "kani-catalog-v1": {
       "major": 1,
