@@ -1,0 +1,54 @@
+{
+  "manifestVersion": "1.0",
+  "contractAuthority": "reallaksh19/Study-Hub",
+  "contractSource": {
+    "path": "src/integration/contracts/kaniContracts.js",
+    "gitBlobSha": "3a820dfd3b379720e59ee4e17fe92b6fe2c340b9"
+  },
+  "owners": {
+    "content": "reallaksh19/Study-Hub",
+    "learnerRuntime": "reallaksh19/Kani-Game-App",
+    "worksheetAuthoring": null
+  },
+  "worksheetOnboarding": {
+    "status": "unresolved",
+    "governingIssue": 13,
+    "rule": "Do not guess the authoritative Worksheet repository."
+  },
+  "certifiedBaselines": {
+    "studyHub": "8d07b5070832e43894c36817bc558467270249cb",
+    "kaniGameApp": "c48688c0653a1d84f15c35a18b3115112af1fd4e"
+  },
+  "productionGates": {
+    "learn": true,
+    "practice": false,
+    "authenticatedSync": false
+  },
+  "contracts": {
+    "kani-content-v1": {
+      "major": 1,
+      "schemaVersion": "1.0",
+      "schemaPath": "integration/contracts/kani-content-v1.schema.json",
+      "sha256": "37bcfdcc45fb959d51971b3fe1532501a5cbdef2ce32df8a98b6881c2b0ee72d"
+    },
+    "kani-catalog-v1": {
+      "major": 1,
+      "schemaVersion": "1.0",
+      "schemaPath": "integration/contracts/kani-catalog-v1.schema.json",
+      "sha256": "feefe05cddeea324d3bd7ac9a0f9da76162fae18ff9903a08f0666b137d33351"
+    },
+    "kani-activity-v1": {
+      "major": 1,
+      "schemaVersion": "1.0",
+      "schemaPath": "integration/contracts/kani-activity-v1.schema.json",
+      "sha256": "22d7500b866118af4c991a2b3a4bcdc73dde59056f5942e731a21fc356622812"
+    },
+    "kani-attempt-v1": {
+      "major": 1,
+      "schemaVersion": "1.0",
+      "schemaPath": "integration/contracts/kani-attempt-v1.schema.json",
+      "sha256": "90ab244536cd3ae6dcc180f1a365e2df8870387b3327bd5fdeefb871a052f1a6"
+    }
+  },
+  "fixtureIndex": "integration/fixtures/index.json"
+}

@@ -1,0 +1,8 @@
+# Architecture-sensitive integration/control-plane files require deliberate review.
+/integration/ @reallaksh19
+/src/integration/contracts/ @reallaksh19
+/scripts/build-platform-contract-registry.mjs @reallaksh19
+/scripts/platformContractSchemas.mjs @reallaksh19
+/scripts/verify-platform-contract-fixtures.mjs @reallaksh19
+/.github/workflows/ @reallaksh19
+/docs/integration/ @reallaksh19
