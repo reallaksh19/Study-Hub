@@ -2,20 +2,36 @@
   "manifestVersion": "1.0",
   "fixtures": {
     "kani-content-v1": {
-      "valid": ["integration/fixtures/valid/kani-content-v1.json"],
-      "invalid": ["integration/fixtures/invalid/kani-content-v1.json"]
+      "valid": [
+        "integration/fixtures/valid/kani-content-v1.json"
+      ],
+      "invalid": [
+        "integration/fixtures/invalid/kani-content-v1.json"
+      ]
     },
     "kani-catalog-v1": {
-      "valid": ["integration/fixtures/valid/kani-catalog-v1.json"],
-      "invalid": ["integration/fixtures/invalid/kani-catalog-v1.json"]
+      "valid": [
+        "integration/fixtures/valid/kani-catalog-v1.json"
+      ],
+      "invalid": [
+        "integration/fixtures/invalid/kani-catalog-v1.json"
+      ]
     },
     "kani-activity-v1": {
-      "valid": ["integration/fixtures/valid/kani-activity-v1.json"],
-      "invalid": ["integration/fixtures/invalid/kani-activity-v1.json"]
+      "valid": [
+        "integration/fixtures/valid/kani-activity-v1.json"
+      ],
+      "invalid": [
+        "integration/fixtures/invalid/kani-activity-v1.json"
+      ]
     },
     "kani-attempt-v1": {
-      "valid": ["integration/fixtures/valid/kani-attempt-v1.json"],
-      "invalid": ["integration/fixtures/invalid/kani-attempt-v1.json"]
+      "valid": [
+        "integration/fixtures/valid/kani-attempt-v1.json"
+      ],
+      "invalid": [
+        "integration/fixtures/invalid/kani-attempt-v1.json"
+      ]
     }
   }
 }
