@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import {
   COMMON_PRIMARY_AUTHORITY,
   COMMON_PRIMARY_SCHEMA_PATH,
@@ -12,12 +13,23 @@ import {
   validatePrimaryAttemptEvidenceTransport,
 } from './primaryTransportContracts.js';
 
+const semanticLock = JSON.parse(await readFile(
+  new URL('../../../integration/primary/common-semantic.lock.json', import.meta.url),
+  'utf8',
+));
+
+assert.equal(semanticLock.semanticAuthority, COMMON_PRIMARY_AUTHORITY, 'transport authority must match Common semantic lock');
+assert.equal(semanticLock.semanticVersion, COMMON_PRIMARY_SEMANTIC_VERSION, 'transport semantic version must match Common lock');
+assert.equal(semanticLock.schemaPath, COMMON_PRIMARY_SCHEMA_PATH, 'transport schema path must match Common lock');
+assert.match(semanticLock.sourceCommit, /^[0-9a-f]{40}$/, 'Common semantic lock must pin an immutable commit');
+assert.match(semanticLock.schemaGitBlobSha, /^[0-9a-f]{40}$/, 'Common semantic lock must pin the schema Git blob');
+
 const semanticRef = {
-  semanticAuthority: COMMON_PRIMARY_AUTHORITY,
-  semanticVersion: COMMON_PRIMARY_SEMANTIC_VERSION,
-  sourceCommit: 'b558d33238b5edbc4dc37b7701edab2c5109242d',
-  schemaPath: COMMON_PRIMARY_SCHEMA_PATH,
-  schemaGitBlobSha: '2f6d95c1cdc8801205afef41beff3e818ae92be1',
+  semanticAuthority: semanticLock.semanticAuthority,
+  semanticVersion: semanticLock.semanticVersion,
+  sourceCommit: semanticLock.sourceCommit,
+  schemaPath: semanticLock.schemaPath,
+  schemaGitBlobSha: semanticLock.schemaGitBlobSha,
 };
 
 const learningObjectId = 'MATH-FRAC-EQUIVALENCE';
