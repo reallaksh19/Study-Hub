@@ -1,7 +1,7 @@
 export const SCHEMA_VERSION = '1.0';
 export const CONTRACT_IDS = ['kani-content-v1', 'kani-catalog-v1', 'kani-activity-v1', 'kani-attempt-v1'];
 export const CANONICAL_SOURCE_PATH = 'src/integration/contracts/kaniContracts.js';
-export const CANONICAL_SOURCE_GIT_BLOB_SHA = '3a820dfd3b379720e59ee4e17fe92b6fe2c340b9';
+export const CANONICAL_SOURCE_GIT_BLOB_SHA = '7230364cf822caf9092f1fc233e26486dfc17680';
 export const CERTIFIED_BASELINES = {
   studyHub: '8d07b5070832e43894c36817bc558467270249cb',
   kaniGameApp: 'c48688c0653a1d84f15c35a18b3115112af1fd4e',
@@ -103,13 +103,48 @@ export function getContractSchemas() {
     ],
   };
 
+  const primaryEvidence = {
+    type: 'object',
+    properties: {
+      semanticVersion: { const: '1.0' },
+      learningEpisodeId: s,
+      learningObjectIds: { type: 'array', minItems: 1, items: s },
+      questionFamilyId: s,
+      selfCorrected: { type: 'boolean' },
+      confidenceBefore: { enum: ['LOW', 'MEDIUM', 'HIGH', 'NOT_OBSERVED'] },
+      confidenceAfter: { enum: ['LOW', 'MEDIUM', 'HIGH', 'NOT_OBSERVED'] },
+      conceptualSupport: {
+        type: 'object',
+        properties: { level: s, type: s },
+        required: ['level', 'type'],
+        additionalProperties: false,
+      },
+      accessAdjustments: { type: 'array', items: s },
+      representation: {
+        type: 'object',
+        properties: { type: s, role: s },
+        required: ['type', 'role'],
+        additionalProperties: false,
+      },
+      responseMode: s,
+      errorSignature: {
+        type: 'object',
+        properties: { source: { const: 'AUTHORED_RESPONSE_CLASSIFICATION' }, code: s },
+        required: ['source', 'code'],
+        additionalProperties: false,
+      },
+    },
+    required: ['semanticVersion'],
+    additionalProperties: false,
+  };
+
   const attempt = {
     ...schemaHeader('kani-attempt-v1', 'Kani immutable attempt evidence v1'), type: 'object',
     properties: {
       schemaVersion: { const: SCHEMA_VERSION }, attemptId: s, studentId: s, activityId: s, activityType, sourceApp,
       subjectId: s, topicId: s, pageId: s, questionId: s, roundId: s, skillIds: sa, difficulty,
       correct: { type: 'boolean' }, partialCredit: { type: 'number', minimum: 0, maximum: 1 }, responseTimeMs: nn,
-      hintsUsed: nni, score: num, startedAt: dt, completedAt: dt,
+      hintsUsed: nni, score: num, primaryEvidence, startedAt: dt, completedAt: dt,
     },
     required: ['schemaVersion', 'attemptId', 'studentId', 'activityId', 'activityType', 'sourceApp', 'skillIds', 'difficulty', 'completedAt'], additionalProperties: true,
   };
