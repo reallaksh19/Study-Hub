@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { PrimaryAttemptEvidenceTransportSchema } from './primaryTransportContracts.js';
 
 export const KANI_SCHEMA_VERSION = '1.0';
 
@@ -248,6 +249,7 @@ export const KaniAttemptSchema = z.object({
   responseTimeMs: z.number().nonnegative().optional(),
   hintsUsed: z.number().int().nonnegative().optional(),
   score: z.number().finite().optional(),
+  primaryEvidence: PrimaryAttemptEvidenceTransportSchema.optional(),
   startedAt: IsoDateTimeSchema.optional(),
   completedAt: IsoDateTimeSchema
 });

@@ -3,7 +3,7 @@
   "contractAuthority": "reallaksh19/Study-Hub",
   "contractSource": {
     "path": "src/integration/contracts/kaniContracts.js",
-    "gitBlobSha": "3a820dfd3b379720e59ee4e17fe92b6fe2c340b9"
+    "gitBlobSha": "7230364cf822caf9092f1fc233e26486dfc17680"
   },
   "owners": {
     "content": "reallaksh19/Study-Hub",
@@ -47,7 +47,7 @@
       "major": 1,
       "schemaVersion": "1.0",
       "schemaPath": "integration/contracts/kani-attempt-v1.schema.json",
-      "sha256": "90ab244536cd3ae6dcc180f1a365e2df8870387b3327bd5fdeefb871a052f1a6"
+      "sha256": "433da6d7a0d7f9541bf1ac77b0ff7d4e09092c7a8353f8b2faa3321e548c46dd"
     }
   },
   "fixtureIndex": "integration/fixtures/index.json"
