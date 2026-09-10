@@ -1,0 +1,12 @@
+{
+  "lockVersion": "1.0",
+  "semanticAuthority": "reallaksh19/Common",
+  "semanticVersion": "1.0",
+  "sourceCommit": "b558d33238b5edbc4dc37b7701edab2c5109242d",
+  "schemaPath": "Primary/Architecture/contracts/v1/primary-learning-semantics.schema.json",
+  "schemaGitBlobSha": "2f6d95c1cdc8801205afef41beff3e818ae92be1",
+  "architecturePath": "Primary/Architecture/PRIMARY_INTEGRATED_ARCHITECTURE.md",
+  "teacherRuntimePath": "Primary/Architecture/PRIMARY_TEACHER_RUNTIME.md",
+  "governingIssue": "https://github.com/reallaksh19/Common/issues/162",
+  "rule": "Common owns educational meaning. Study-Hub transport must preserve these semantics without redefining them."
+}
