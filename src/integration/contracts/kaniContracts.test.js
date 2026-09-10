@@ -93,4 +93,39 @@ assert.equal(validateKaniAttempt({ ...validAttempt, studentId: '' }).success, fa
 assert.equal(validateKaniAttempt({ ...validAttempt, partialCredit: 1.2 }).success, false, 'partial credit above 1 should fail');
 assert.equal(validateKaniAttempt({ ...validAttempt, completedAt: 'yesterday' }).success, false, 'invalid timestamp should fail');
 
+const validPrimaryAttempt = {
+  ...validAttempt,
+  attemptId: 'attempt_primary_1',
+  primaryEvidence: {
+    semanticVersion: '1.0',
+    learningEpisodeId: 'EP-G4-FRAC-EQUIV-001',
+    learningObjectIds: ['MATH-FRAC-EQUIVALENCE'],
+    questionFamilyId: 'fraction-equiv-visual-family',
+    selfCorrected: true,
+    conceptualSupport: { level: 'H1', type: 'PROMPT' },
+    accessAdjustments: ['REDUCED_LANGUAGE'],
+    representation: { type: 'FRACTION_MODEL', role: 'CHILD_SELECTED' },
+    responseMode: 'DRAWN'
+  }
+};
+const parsedPrimaryAttempt = validateKaniAttempt(validPrimaryAttempt);
+assert.equal(parsedPrimaryAttempt.success, true, 'kani-attempt-v1 should accept bounded Primary evidence');
+assert.equal(
+  parsedPrimaryAttempt.success && parsedPrimaryAttempt.data.primaryEvidence?.representation?.role,
+  'CHILD_SELECTED',
+  'Primary evidence must survive runtime parsing rather than being silently stripped'
+);
+assert.equal(
+  validateKaniAttempt({
+    ...validPrimaryAttempt,
+    attemptId: 'attempt_primary_invalid',
+    primaryEvidence: {
+      ...validPrimaryAttempt.primaryEvidence,
+      diagnosis: 'fraction misconception'
+    }
+  }).success,
+  false,
+  'kani-attempt-v1 must reject Teacher Runtime diagnosis from raw Primary evidence'
+);
+
 console.log('Kani integration contract tests passed');
