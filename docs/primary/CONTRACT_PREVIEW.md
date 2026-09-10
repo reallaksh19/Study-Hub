@@ -1,38 +1,78 @@
-# Phase 2 minimum contract candidate
+# Phase 2 Common-backed transport contract candidate
 
 Tracking: Study-Hub #43  
-Prerequisites: #41 and #42 complete  
-Backend/provider track: #39
+Canonical education semantics: Common #162 / PR #163 + #164  
+Backend/provider track: Study-Hub #39
 
-The first executable candidate lives in:
+## Authority correction
+
+The earlier Phase-2 prototype defined `LearningEpisode` and other educational semantics directly in Study-Hub. That was useful for exploration, but it is **not the final ownership model**.
+
+Canonical meaning now lives in `reallaksh19/Common`:
 
 ```text
-src/integration/contracts/primaryLearningContracts.js
-src/integration/contracts/primaryLearningContracts.test.js
+Common
+  Primary educational semantics
+        ↓
+Study-Hub
+  transport / orchestration adapters
+        ↓
+Kani
+  game runtime / immutable observations
 ```
 
-This phase deliberately keeps the surface small. It does not create a second question schema or put Teacher Runtime judgement into Kani attempts.
+Study-Hub pins Common through:
 
-## 1. `primary-learning-episode-v1`
+```text
+integration/primary/common-semantic.lock.json
+```
 
-`LearningEpisode` is the pedagogical plan for one target encounter. It owns:
+The executable transport candidate lives in:
 
-- stable `episodeId`;
-- canonical `learningObjectIds`;
-- teaching purpose (`ACQUIRE`, `REPAIR`, `INDEPENDENT`, `RETAIN`, `TRANSFER`, `STRETCH`);
-- prerequisite assumptions;
-- evidence goals;
-- ordered semantic steps;
-- required independent check;
-- optional delayed-retrieval obligation.
+```text
+src/integration/contracts/primaryTransportContracts.js
+src/integration/contracts/primaryTransportContracts.test.js
+```
 
-Each step states what the **child must do**, not only what the system displays.
+## 1. Common semantic lock
 
-The validator requires `independentCheck.stepId` to reference an `INDEPENDENT_CHECK` step. If delayed retrieval is required, its step must reference a `RETRIEVAL` step.
+The lock records:
 
-## 2. `primary-experience-manifest-v1`
+- semantic authority repository;
+- semantic version;
+- immutable Common commit;
+- canonical schema path;
+- schema Git blob SHA;
+- architecture and Teacher Runtime paths.
 
-`ExperienceManifest` maps LearningEpisode steps to concrete renderers:
+Study-Hub transport must fail closed when two payloads reference different Common semantic authorities/versions/commits.
+
+## 2. `CommonLearningEpisodeProjection`
+
+Study-Hub does **not** redefine `LearningEpisode`.
+
+It consumes a minimal routing projection of the canonical Common episode:
+
+```yaml
+transportVersion: '1.0'
+semanticRef: ...
+episodeId: EP-G4-FRAC-EQUIV-001
+teachingTargetId: TT-G4-FRAC-EQUIV-001
+learningObjectIds:
+  - MATH-FRAC-EQUIVALENCE
+steps:
+  - stepId: STEP-1
+    role: TEACH
+  - stepId: STEP-4
+    role: INDEPENDENT_CHECK
+independentCheckRequired: true
+```
+
+The projection carries only enough information to route the experience while preserving canonical IDs and obligations. It deliberately omits child profile, SkillState, diagnosis, TeacherDecision, TeacherMove content, canonical explanations and answer truth.
+
+## 3. `ExperienceManifest`
+
+`ExperienceManifest` is Study-Hub-owned operational orchestration. It maps Common episode step IDs to renderers:
 
 ```text
 STUDY_HUB
@@ -42,25 +82,30 @@ ORAL
 DELAYED_RETRIEVAL
 ```
 
-It is orchestration metadata, not curriculum truth.
+A Kani-rendered step must reference a `missionId`; other steps use an `activityId` or source artifact.
 
-A Kani-rendered step references a `missionId`; other steps reference an `activityId` or source artifact. Cross-document validation requires the manifest `learningEpisodeId` and step IDs to resolve against the episode.
+Cross-document validation requires:
 
-## 3. `kani-mission-v1`
+- exact Common semantic-ref match;
+- matching `learningEpisodeId`;
+- every manifest step to exist in the Common episode projection.
 
-`KaniMissionV1` is deliberately small. It carries:
+The manifest is not curriculum truth and does not define pedagogical semantics.
 
-- `missionId`;
-- `learningEpisodeId`;
+## 4. `KaniMissionV1`
+
+`KaniMissionV1` is a small renderer hand-off. It carries:
+
+- exact Common semantic ref;
+- `missionId` and `learningEpisodeId`;
 - canonical `learningObjectIds`;
-- mission purpose;
-- evidence goals;
-- canonical question or question-family references;
+- purpose/evidence-goal references;
+- canonical question IDs or question-family references;
 - renderer preference;
-- support/timer policy;
+- support/timer policy transport;
 - launch/completion/return policy.
 
-Required semantics:
+Required app semantics:
 
 ```yaml
 launchPolicy:
@@ -74,25 +119,20 @@ returnPolicy:
   endlessGameChain: false
 ```
 
-Mission payloads must not embed:
+Mission payloads reject learner identity, answer truth, child/SkillState, diagnosis, TeacherDecision/TeacherMove, explanation content and mastery judgement, including when those values are nested.
 
-- `studentId`;
-- answer truth;
-- child profile;
-- curriculum ontology;
-- mastery/durable learning judgement.
+Learner identity binds at Kani runtime through the existing activity/attempt path.
 
-Learner identity binds at runtime through the existing Kani activity/attempt flow.
+## 5. Primary evidence transport envelope
 
-## 4. Primary attempt evidence envelope
-
-Rather than adding many unrelated top-level fields to `kani-attempt-v1`, the candidate defines one bounded observable-evidence object that can later be added as an optional envelope, e.g.:
+The candidate keeps Primary-specific observable evidence in one bounded envelope intended for later optional addition to `kani-attempt-v1`:
 
 ```yaml
 primaryEvidence:
-  learningEpisodeId: episode-g4-fraction-equivalence-001
+  semanticVersion: '1.0'
+  learningEpisodeId: EP-G4-FRAC-EQUIV-001
   learningObjectIds:
-    - MATH-FRACTION-EQUIVALENCE
+    - MATH-FRAC-EQUIVALENCE
   questionFamilyId: fraction-equiv-visual-family
   selfCorrected: true
 
@@ -111,81 +151,64 @@ primaryEvidence:
   responseMode: DRAWN
 ```
 
-### Why an envelope
+The meanings of `H1`, `REDUCED_LANGUAGE`, `CHILD_SELECTED`, etc. are owned by the pinned Common semantic contract. Study-Hub transports these tokens; it does not redefine their educational meaning.
 
-It gives Primary evidence one explicit semantic boundary, avoids top-level contract sprawl, and allows later additive fields without confusing canonical attempt identity with Teacher Runtime judgement.
+Known pedagogical judgement fields such as `diagnosis`, `teacherDecision`, `teacherMove`, `masteryState`, `nextLearningAction`, `childProfile`, and `skillState` are rejected from the raw evidence envelope.
 
-The envelope may contain only observable or authored response evidence. It rejects known interpretation fields such as:
+`errorSignature`, when present, must be explicitly authored/observable response classification, not speculative Teacher Runtime diagnosis.
 
-```text
-diagnosis
-teacherDecision
-masteryState
-nextLearningAction
-```
+## 6. Existing `kani-*` contracts remain Study-Hub-owned transport
 
-`errorSignature`, when present, is explicitly an `AUTHORED_RESPONSE_CLASSIFICATION`, not a tutor diagnosis.
-
-## 5. Conceptual help and access support remain separate
-
-```yaml
-conceptualSupport:
-  level: H1
-  type: PROMPT
-
-accessAdjustments:
-  - REDUCED_LANGUAGE
-  - ORAL_RESPONSE_ALLOWED
-```
-
-A child succeeding after shorter wording must not be recorded as requiring a mathematical hint merely because an access adjustment was used.
-
-## 6. Representation role is evidence
-
-```yaml
-representation:
-  type: BAR_MODEL
-  role: PROVIDED | CHILD_SELECTED | CHILD_PRODUCED
-```
-
-Being shown a representation is not equivalent to independently choosing or producing it.
-
-## 7. Longitudinal evidence is NOT raw attempt evidence
-
-Teacher Runtime may later derive independent dimensions such as:
+This ownership correction does not move the existing integration registry out of Study-Hub:
 
 ```text
-acquisition
-independent use
-delayed retention
-transfer
-stretch
+kani-content-v1
+kani-catalog-v1
+kani-activity-v1
+kani-attempt-v1
 ```
 
-Those judgements are intentionally absent from `primaryEvidence` and from `KaniMissionV1`.
+Those remain cross-application transport/version contracts. Common owns the educational meaning referenced by new Primary fields; Study-Hub owns serialization and compatibility locking.
 
-## Versioning decision
+No second canonical question schema is introduced.
 
-Candidate contract IDs:
+## 7. Versioning direction
+
+The Common semantic version is independently pinned from the Study-Hub transport version.
 
 ```text
-primary-learning-episode-v1
-primary-experience-manifest-v1
-kani-mission-v1
+Common semantic version: 1.0
+Study-Hub Primary transport: 1.0
 ```
 
-All start at schema version `1.0`.
+A transport-only serialization change need not change Common semantics. A change in the educational meaning of learning state, support, diagnosis, evidence dimensions or TeacherMove must land in Common first.
 
-For `kani-attempt-v1`, the preferred compatibility path is **one optional additive `primaryEvidence` envelope**, because the existing JSON contract permits additive properties. The existing canonical identity fields and immutable/idempotent `attemptId` semantics do not change.
+For `kani-attempt-v1`, the preferred path remains one backward-compatible optional `primaryEvidence` envelope if runtime-validator and cross-repo compatibility tests confirm it. Existing attempt identity and idempotency semantics do not change.
 
-Before production consumption, the accepted schemas must be added to the machine-readable Study-Hub platform registry and the Kani immutable upstream lock must be updated to the exact Study-Hub commit/schema hashes. No consumer may track `main` implicitly.
+## 8. Grade 4 fractions prototype
 
-## Phase-2 registration gate
+The transport test mirrors the canonical Common Grade 4 fraction-equivalence fixture:
 
-The current executable module is a reviewable candidate. #43 is not complete until:
+```text
+Common episode
+→ Study-Hub teaching route
+→ print guided route
+→ Kani representation-shift mission
+→ Study-Hub independent return
+→ delayed retrieval marker
+```
 
-1. candidate semantics pass CI and review;
-2. machine-readable schemas/fixtures are registered deterministically;
-3. `kani-attempt-v1` receives the accepted optional `primaryEvidence` envelope in its canonical validator/schema;
-4. Kani updates its upstream contract lock and local validator/types without changing learner identity or persistence semantics;
-5. the Grade 4 fraction fixture resolves across Episode → Manifest → Mission → Attempt evidence.
+The same canonical learning object and episode identity survive the routing path.
+
+## Phase-2 completion gate
+
+#43 is not complete until:
+
+1. Common semantic authority is pinned and verified;
+2. Study-Hub transport/adapters no longer define canonical Primary pedagogy;
+3. ExperienceManifest and KaniMission transport candidates pass tests;
+4. bounded `primaryEvidence` is deliberately added to the canonical `kani-attempt-v1` validator/schema or a versioned alternative is justified;
+5. machine-readable transport fixtures/registry are deterministic;
+6. Kani updates its immutable upstream lock and local validation/types;
+7. the Common fraction episode resolves through Study-Hub transport into Kani attempt evidence and required return-to-learning;
+8. backend/provider profile #39 has no effect on semantics.
