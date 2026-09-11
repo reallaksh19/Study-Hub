@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "observationId": "OBS-GATE-PRIMARY-001",
+  "guardianSupervised": true,
+  "grade": 4,
+  "experiences": [
+    "MATH-FRACTION-EQUIVALENCE",
+    "ENGLISH-INFERENCE-INVESTIGATOR"
+  ],
+  "interactionChecks": {
+    "studyHubOrPrintAttempted": "AMBIGUOUS",
+    "qrRushing": "AMBIGUOUS",
+    "returnedToNonGameTask": "AMBIGUOUS",
+    "gameClarifiedOrPractisedTarget": "AMBIGUOUS",
+    "hintsPreservedThinking": "AMBIGUOUS",
+    "mechanicsCausedCarelessResponding": "AMBIGUOUS",
+    "instructionsUnderstoodWithoutRepeatedTranslation": "AMBIGUOUS",
+    "independentReturnProducedInterpretableEvidence": "AMBIGUOUS"
+  },
+  "delayedRetrieval": {
+    "status": "NOT_YET_TESTED"
+  },
+  "findings": [],
+  "interpretation": {
+    "gateStatus": "IN_PROGRESS",
+    "generalEffectivenessClaim": false,
+    "durableChildTraitClaim": false
+  }
+}
