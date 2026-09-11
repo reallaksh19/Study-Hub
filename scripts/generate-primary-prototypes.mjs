@@ -28,6 +28,10 @@ import {
 } from '../src/integration/primary/english/englishPrototypeArtifacts.js';
 import { buildEnglishInferenceReturnPageHtml } from '../src/integration/primary/english/englishInferencePublication.js';
 import {
+  buildEnglishDelayedRetrievalPageHtml,
+  buildFractionDelayedRetrievalPageHtml,
+} from '../src/integration/primary/observation/delayedRetrievalPublication.js';
+import {
   primaryMissionResolverArtifact,
   validatePrimaryMissionResolverArtifact,
 } from '../src/integration/primary/primaryPrototypeArtifacts.js';
@@ -89,6 +93,8 @@ const jsonOutputs = new Map([
 const textOutputs = new Map([
   ['public/primary/return.html', `${buildFractionReturnPageHtml()}\n`],
   ['public/primary/english/inference-return.html', `${buildEnglishInferenceReturnPageHtml()}\n`],
+  ['public/primary/fractions/delayed-retrieval.html', `${buildFractionDelayedRetrievalPageHtml()}\n`],
+  ['public/primary/english/inference-delayed-retrieval.html', `${buildEnglishDelayedRetrievalPageHtml()}\n`],
 ]);
 
 const mismatches = [];
