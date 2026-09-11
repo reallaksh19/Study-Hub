@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureId": "PRIMARY-MATH-NOTEBOOK-DIVISION-REPLAY-001",
+  "purpose": "Regression fixture for preserving mathematical work evidence before Teacher Runtime diagnosis.",
+  "sourceContext": {
+    "type": "PHOTOGRAPHED_CLASSWORK",
+    "grade": 4,
+    "subject": "MATHEMATICS",
+    "sourceStatus": "VERIFIED",
+    "note": "Synthetic semantic transcription of observed work patterns; not a learner profile. Ambiguous handwriting is intentionally not reconstructed as fact."
+  },
+  "schoolScopeObservations": [
+    {
+      "learningObjectId": "DIV-M6",
+      "feature": "MULTI_DIGIT_DIVISOR",
+      "status": "OBSERVED_IN_SCHOOL_CLASSWORK",
+      "examples": [12, 13, 15, 23]
+    }
+  ],
+  "workEvidence": [
+    {
+      "workEvidenceId": "MWE-WP-3150-15",
+      "learningObjectIds": ["DIV-M8.1", "DIV-M8.6"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "promptStructure": {
+        "total": 3150,
+        "numberOfGroups": 15,
+        "unknown": "AMOUNT_IN_EACH_GROUP",
+        "expectedOperation": "DIVISION"
+      },
+      "selectedOperation": "MULTIPLICATION",
+      "finalResponse": {
+        "correctness": "INCORRECT"
+      },
+      "workSteps": [
+        {
+          "stepId": "WS-WP-3150-15-1",
+          "sequence": 1,
+          "kind": "OPERATION_SELECTION",
+          "observedValue": "3150 × 15",
+          "status": "INCORRECT"
+        }
+      ],
+      "candidateErrorSignatures": ["WORD_PROBLEM_WRONG_OPERATION"]
+    },
+    {
+      "workEvidenceId": "MWE-DOZEN-COST",
+      "learningObjectIds": ["MUL-WORD-PROBLEM", "QUANTITY-UNIT-RELATIONSHIP"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "quantityStructure": {
+        "quantities": [
+          { "quantityId": "Q1", "value": 23, "unit": "DOZEN_EGGS", "role": "GIVEN" },
+          { "quantityId": "Q2", "value": 12, "unit": "EGGS_PER_DOZEN", "role": "CONVERSION_FACTOR" },
+          { "quantityId": "Q3", "value": 6, "unit": "RUPEES_PER_EGG", "role": "RATE" }
+        ],
+        "unknown": { "unit": "RUPEES" },
+        "requiredRelationships": ["CONVERT_GROUPED_UNIT", "MULTIPLY_QUANTITY_BY_RATE"]
+      },
+      "selectedOperation": "MULTIPLICATION",
+      "workSteps": [
+        {
+          "stepId": "WS-DOZEN-COST-1",
+          "sequence": 1,
+          "kind": "PARTIAL_PRODUCT",
+          "observedValue": "23 × 6 = 138",
+          "status": "PARTIAL"
+        }
+      ],
+      "finalResponse": {
+        "value": 138,
+        "correctness": "INCORRECT"
+      },
+      "candidateErrorSignatures": ["UNIT_GROUP_NOT_EXPANDED", "UNIT_RATE_CHAIN_MISSED"]
+    },
+    {
+      "workEvidenceId": "MWE-DIV-366-12",
+      "learningObjectIds": ["DIV-M6.5", "DIV-M6.6"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "selectedOperation": "DIVISION",
+      "workSteps": [
+        {
+          "stepId": "WS-366-1",
+          "sequence": 1,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "36 ÷ 12 = 3",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-366-2",
+          "sequence": 2,
+          "kind": "SUBTRACTION",
+          "observedValue": "36 - 36 = 0",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-366-3",
+          "sequence": 3,
+          "kind": "BRING_DOWN",
+          "observedValue": 6,
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-366-4",
+          "sequence": 4,
+          "kind": "PLACE_VALUE_WRITE",
+          "observedValue": "quotient zero place not represented reliably",
+          "status": "INCORRECT"
+        }
+      ],
+      "finalResponse": {
+        "correctness": "INCORRECT"
+      },
+      "candidateErrorSignatures": ["DIV_QUOTIENT_ZERO_PLACE_VALUE"]
+    },
+    {
+      "workEvidenceId": "MWE-DIV-7843-13",
+      "learningObjectIds": ["DIV-M6.5", "DIV-M6.6"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "selectedOperation": "DIVISION",
+      "strategySupports": [
+        {
+          "type": "MULTIPLES_TABLE",
+          "role": "CHILD_PRODUCED",
+          "value": [13, 26, 39, 52, 65, 78, 91, 104, 117, 130]
+        }
+      ],
+      "workSteps": [
+        {
+          "stepId": "WS-7843-1",
+          "sequence": 1,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "78 ÷ 13 = 6",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-7843-2",
+          "sequence": 2,
+          "kind": "SUBTRACTION",
+          "observedValue": "78 - 78 = 0",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-7843-3",
+          "sequence": 3,
+          "kind": "BRING_DOWN",
+          "observedValue": 4,
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-7843-4",
+          "sequence": 4,
+          "kind": "PLACE_VALUE_WRITE",
+          "observedValue": "required quotient zero place not represented reliably",
+          "status": "INCORRECT"
+        },
+        {
+          "stepId": "WS-7843-5",
+          "sequence": 5,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "later work uses 43 and multiples of 13",
+          "status": "PARTIAL"
+        }
+      ],
+      "finalResponse": {
+        "correctness": "INCORRECT"
+      },
+      "candidateErrorSignatures": ["DIV_QUOTIENT_ZERO_PLACE_VALUE"]
+    },
+    {
+      "workEvidenceId": "MWE-DIV-3496-23",
+      "learningObjectIds": ["DIV-M6.5", "DIV-M6.7"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "selectedOperation": "DIVISION",
+      "strategySupports": [
+        {
+          "type": "MULTIPLES_TABLE",
+          "role": "CHILD_PRODUCED",
+          "value": [23, 46, 69, 92, 115, 138, 161, 184, 207, 230]
+        }
+      ],
+      "workSteps": [
+        {
+          "stepId": "WS-3496-1",
+          "sequence": 1,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "34 ÷ 23 = 1",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-3496-2",
+          "sequence": 2,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "119 uses 23 × 5 = 115",
+          "status": "CORRECT"
+        },
+        {
+          "stepId": "WS-3496-3",
+          "sequence": 3,
+          "kind": "PARTIAL_QUOTIENT",
+          "observedValue": "46 uses 23 × 2 = 46",
+          "status": "CORRECT"
+        }
+      ],
+      "finalResponse": {
+        "value": 152,
+        "correctness": "CORRECT"
+      },
+      "candidateErrorSignatures": []
+    },
+    {
+      "workEvidenceId": "MWE-ROUNDING-SET",
+      "learningObjectIds": ["ROUNDING-ESTIMATION"],
+      "provenance": "TEACHER_TRANSCRIPTION",
+      "selectedOperation": "MULTIPLICATION",
+      "workSteps": [
+        { "stepId": "WS-ROUND-1", "sequence": 1, "kind": "ESTIMATE", "observedValue": "96 → 100", "status": "CORRECT" },
+        { "stepId": "WS-ROUND-2", "sequence": 2, "kind": "ESTIMATE", "observedValue": "286 → 300", "status": "CORRECT" },
+        { "stepId": "WS-ROUND-3", "sequence": 3, "kind": "ESTIMATE", "observedValue": "689 → 700", "status": "CORRECT" },
+        { "stepId": "WS-ROUND-4", "sequence": 4, "kind": "ESTIMATE", "observedValue": "420 → 400", "status": "CORRECT" }
+      ],
+      "finalResponse": {
+        "correctness": "PARTIAL"
+      }
+    }
+  ],
+  "contrastSets": [
+    {
+      "contrastSetId": "CONTRAST-DIV-ZERO-QUOTIENT-001",
+      "targetLearningObjectId": "DIV-M6.6",
+      "evidenceRefs": ["MWE-DIV-366-12", "MWE-DIV-7843-13", "MWE-DIV-3496-23"],
+      "contrastDimension": "ZERO_IN_QUOTIENT_REQUIRED",
+      "boundedHypothesis": {
+        "diagnosisCode": "PROCEDURAL_ERROR",
+        "errorSignature": "DIV_QUOTIENT_ZERO_PLACE_VALUE",
+        "confidence": "MEDIUM",
+        "informationNeeded": ["Can the learner correctly place a zero in the quotient when the current partial dividend is smaller than the divisor?"]
+      }
+    }
+  ],
+  "requiredNextProbe": {
+    "purpose": "DISCRIMINATE_ZERO_QUOTIENT_PLACE_VALUE",
+    "constraints": [
+      "LOW_LANGUAGE_LOAD",
+      "NO_NEW_CONTEXT",
+      "AGE_APPROPRIATE_FACTS",
+      "ONE_MECHANISM_AT_A_TIME"
+    ],
+    "example": "Use a short division item or partially completed algorithm where a zero quotient digit is required, and ask only for the next quotient digit before continuing."
+  },
+  "falsifiers": [
+    "DO_NOT_LABEL_WEAK_IN_DIVISION",
+    "DO_NOT_RETEACH_WHOLE_ALGORITHM_FROM_FINAL_ANSWER_ONLY",
+    "DO_NOT_COUNT_CHILD_PRODUCED_MULTIPLES_TABLE_AS_TEACHER_HINT",
+    "DO_NOT_IGNORE_UNIT_CONVERSION_IN_DOZEN_PROBLEM",
+    "DO_NOT_DISCARD_SUCCESSFUL_ROUNDING_EVIDENCE",
+    "DO_NOT_TREAT_TEACHER_CORRECTION_AS_CHILD_INDEPENDENT_WORK"
+  ]
+}
