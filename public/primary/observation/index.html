@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Primary supervised observation · Gate #50</title>
+  <style>
+    :root { font-family: ui-rounded, "Nunito", system-ui, sans-serif; color: #17324d; background: #eef6ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(180deg, #f8fcff 0%, #eef6ff 50%, #f6f0ff 100%); }
+    main { width: min(980px, calc(100% - 28px)); margin: 0 auto; padding: 28px 0 60px; }
+    h1 { margin: 6px 0 10px; font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; }
+    h2 { margin: 0 0 14px; }
+    p, li { line-height: 1.5; }
+    .eyebrow { color: #6e57d9; font-weight: 900; text-transform: uppercase; letter-spacing: .13em; font-size: .78rem; }
+    .card { background: rgba(255,255,255,.97); border: 2px solid #d9e8f8; border-radius: 26px; padding: clamp(18px, 4vw, 30px); margin: 18px 0; box-shadow: 0 14px 45px rgba(42,75,118,.10); }
+    .notice { background: #ecfbf5; border-color: #a9dfce; }
+    .warning { background: #fff8d9; border-color: #f1cf70; }
+    .danger { background: #fff0f0; border-color: #f0b3b3; }
+    .grid { display: grid; gap: 14px; }
+    .two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    label { font-weight: 800; display: block; margin-bottom: 6px; }
+    select, textarea, input[type="text"], input[type="number"] { width: 100%; border: 2px solid #bdd3ea; border-radius: 14px; padding: 11px 12px; font: inherit; background: #fff; }
+    textarea { min-height: 92px; resize: vertical; }
+    select:focus, textarea:focus, input:focus { outline: 4px solid rgba(81,135,255,.18); border-color: #568cf5; }
+    .check { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border: 2px solid #dce8f3; border-radius: 15px; background: #fff; }
+    .check input { margin-top: 4px; }
+    .check label { margin: 0; }
+    .mission { border: 2px solid #d8e4f5; border-radius: 18px; padding: 16px; background: #fff; }
+    .mission a { display: inline-block; margin: 8px 8px 0 0; border-radius: 999px; padding: 10px 14px; background: #765eea; color: #fff; text-decoration: none; font-weight: 900; }
+    .mission a.secondary { background: #2a8d83; }
+    button { border: 0; border-radius: 999px; padding: 12px 18px; font: inherit; font-weight: 900; cursor: pointer; }
+    .primary { background: #2f8f83; color: white; }
+    .secondary-btn { background: #725be4; color: white; }
+    .ghost { background: #edf3f9; color: #23415f; }
+    .finding { border: 2px solid #dbe7f1; border-radius: 18px; padding: 16px; margin: 12px 0; background: #fbfdff; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .status { display: none; margin-top: 15px; padding: 14px 16px; border-radius: 14px; font-weight: 750; }
+    .status.ok { display: block; background: #e9f8ee; border: 2px solid #9bd4aa; }
+    .status.err { display: block; background: #ffeaea; border: 2px solid #efa7a7; }
+    .small { color: #63778c; font-size: .9rem; }
+    code { background: #eff3f8; padding: 2px 6px; border-radius: 7px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Study-Hub · Gate #50</div>
+  <h1>Supervised observation capture</h1>
+  <p>This page helps a guardian/supervising adult record only the minimum product-interaction evidence needed for the Primary real-child gate.</p>
+
+  <section class="card notice">
+    <h2>Privacy boundary</h2>
+    <p><strong>No data is sent anywhere by this page.</strong> The record is created only in this browser tab and is downloaded to your device when you choose <em>Download JSON</em>.</p>
+    <p>Do not type the child’s name, school, student ID, address, contact details, medical information, diagnosis, religion, race/ethnicity, or other sensitive profile information into findings.</p>
+  </section>
+
+  <section class="card warning">
+    <h2>1. Choose the experience</h2>
+    <div class="grid two">
+      <div class="mission">
+        <strong>Grade 4 Math · Fraction equivalence</strong><br />
+        <span class="small">Mission token <code>P4FE7K2Q</code>. Use the mission only when the Study-Hub/print action reaches the QR step.</span><br />
+        <a target="_blank" rel="noopener" href="https://reallaksh19.github.io/Kani-Game-App/#/primary/m/P4FE7K2Q">Open Math mission</a>
+        <a class="secondary" target="_blank" rel="noopener" href="../return.html?mission=P4FE7K2Q">Open Math return</a>
+      </div>
+      <div class="mission">
+        <strong>Grade 4 English · Inference Investigator</strong><br />
+        <span class="small">Mission token <code>P4EI7Q2K</code>. Return evidence must preserve answer + text clue + connection.</span><br />
+        <a target="_blank" rel="noopener" href="https://reallaksh19.github.io/Kani-Game-App/#/primary/m/P4EI7Q2K">Open English mission</a>
+        <a class="secondary" target="_blank" rel="noopener" href="../english/inference-return.html?mission=P4EI7Q2K">Open English return</a>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:14px">
+      <div class="check"><input id="exp-math" type="checkbox" checked /><label for="exp-math">Observe Math fraction experience</label></div>
+      <div class="check"><input id="exp-eng" type="checkbox" /><label for="exp-eng">Observe English inference experience</label></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2. Record what was actually observed</h2>
+    <p class="small">Use <strong>OBSERVED</strong>, <strong>NOT_OBSERVED</strong>, <strong>AMBIGUOUS</strong>, or <strong>NOT_APPLICABLE</strong>. Avoid personality labels or explanations of why the child behaved that way.</p>
+    <div id="checks" class="grid two"></div>
+  </section>
+
+  <section class="card">
+    <h2>3. Findings and remediation</h2>
+    <p class="small">Example: “Child opened QR before reading the one-line task.” → “Move child action above QR and reduce QR visual dominance.”</p>
+    <div id="findings"></div>
+    <button id="add-finding" class="ghost" type="button">+ Add finding</button>
+  </section>
+
+  <section class="card">
+    <h2>4. Delayed retrieval</h2>
+    <p>The gate cannot pass until a fresh retrieval check is actually completed <strong>3–7 days after</strong> the initial session.</p>
+    <div class="grid two">
+      <div><label for="delayed-status">Status</label><select id="delayed-status"><option>NOT_YET_TESTED</option><option>COMPLETED</option></select></div>
+      <div><label for="delayed-days">Days after initial</label><input id="delayed-days" type="number" min="3" max="7" placeholder="3–7" /></div>
+    </div>
+    <div style="margin-top:14px"><label for="delayed-result">Fresh retrieval result</label><textarea id="delayed-result" placeholder="Brief factual description of what happened on the fresh retrieval item."></textarea></div>
+  </section>
+
+  <section class="card">
+    <h2>5. Gate status and export</h2>
+    <div class="grid two">
+      <div><label for="gate-status">Gate status</label><select id="gate-status"><option>IN_PROGRESS</option><option>BLOCKED</option><option>PASS</option></select></div>
+      <div><label for="observation-id">Observation ID</label><input id="observation-id" type="text" value="OBS-GATE-PRIMARY-001" /></div>
+    </div>
+    <div class="actions">
+      <button id="download" class="primary" type="button">Download JSON</button>
+      <button id="preview" class="secondary-btn" type="button">Preview JSON</button>
+    </div>
+    <pre id="json-preview" style="display:none; overflow:auto; white-space:pre-wrap; background:#f3f6fa; padding:16px; border-radius:14px; margin-top:14px"></pre>
+    <div id="status" class="status" role="status"></div>
+  </section>
+
+  <section class="card danger">
+    <strong>Interpretation rule:</strong> one supervised session is a product-loop falsifier, not proof of general educational effectiveness. Do not convert the observation into a durable child trait.
+  </section>
+</main>
+
+<script>
+(() => {
+  const STATES = ['OBSERVED', 'NOT_OBSERVED', 'AMBIGUOUS', 'NOT_APPLICABLE'];
+  const CHECKS = [
+    ['studyHubOrPrintAttempted', 'Study-Hub / print action was attempted'],
+    ['qrRushing', 'QR/game appeared to cause rushing'],
+    ['returnedToNonGameTask', 'Child returned to the non-game task'],
+    ['gameClarifiedOrPractisedTarget', 'Game clarified or practised the target'],
+    ['hintsPreservedThinking', 'Hints preserved thinking rather than revealing the answer'],
+    ['mechanicsCausedCarelessResponding', 'Game mechanics appeared to cause careless responding'],
+    ['instructionsUnderstoodWithoutRepeatedTranslation', 'Instructions were understood without repeated adult translation'],
+    ['independentReturnProducedInterpretableEvidence', 'Independent return produced interpretable evidence'],
+  ];
+  const checksRoot = document.getElementById('checks');
+  for (const [key, label] of CHECKS) {
+    const wrap = document.createElement('div');
+    const lab = document.createElement('label');
+    lab.htmlFor = `check-${key}`;
+    lab.textContent = label;
+    const select = document.createElement('select');
+    select.id = `check-${key}`;
+    select.dataset.key = key;
+    for (const state of STATES) {
+      const option = document.createElement('option');
+      option.textContent = state;
+      option.value = state;
+      if (state === 'AMBIGUOUS') option.selected = true;
+      select.appendChild(option);
+    }
+    wrap.append(lab, select);
+    checksRoot.appendChild(wrap);
+  }
+
+  const findingsRoot = document.getElementById('findings');
+  function addFinding() {
+    const row = document.createElement('div');
+    row.className = 'finding';
+    row.innerHTML = `
+      <div class="grid two">
+        <div><label>Severity</label><select data-field="severity"><option>LOW</option><option>MEDIUM</option><option>HIGH</option><option>BLOCKER</option></select></div>
+        <div><label>Status</label><select data-field="status"><option>OPEN</option><option>REMEDIATED</option><option>ACCEPTED_FOR_NEXT_TEST</option></select></div>
+      </div>
+      <div style="margin-top:12px"><label>Observation</label><textarea data-field="observation" placeholder="Only what was seen/heard. No child identifiers or trait labels."></textarea></div>
+      <div style="margin-top:12px"><label>Remediation</label><textarea data-field="remediation" placeholder="Concrete product/teaching change to try."></textarea></div>
+      <div class="actions"><button type="button" class="ghost remove">Remove finding</button></div>`;
+    row.querySelector('.remove').addEventListener('click', () => row.remove());
+    findingsRoot.appendChild(row);
+  }
+  document.getElementById('add-finding').addEventListener('click', addFinding);
+
+  function record() {
+    const experiences = [];
+    if (document.getElementById('exp-math').checked) experiences.push('MATH-FRACTION-EQUIVALENCE');
+    if (document.getElementById('exp-eng').checked) experiences.push('ENGLISH-INFERENCE-INVESTIGATOR');
+    const interactionChecks = {};
+    for (const select of checksRoot.querySelectorAll('select[data-key]')) interactionChecks[select.dataset.key] = select.value;
+    const findings = [...findingsRoot.querySelectorAll('.finding')].map((row) => ({
+      severity: row.querySelector('[data-field="severity"]').value,
+      status: row.querySelector('[data-field="status"]').value,
+      observation: row.querySelector('[data-field="observation"]').value.trim(),
+      remediation: row.querySelector('[data-field="remediation"]').value.trim(),
+    }));
+    const delayedStatus = document.getElementById('delayed-status').value;
+    const delayedRetrieval = { status: delayedStatus };
+    if (delayedStatus === 'COMPLETED') {
+      delayedRetrieval.daysAfterInitial = Number(document.getElementById('delayed-days').value);
+      delayedRetrieval.result = document.getElementById('delayed-result').value.trim();
+    }
+    return {
+      schemaVersion: '1.0',
+      observationId: document.getElementById('observation-id').value.trim(),
+      guardianSupervised: true,
+      grade: 4,
+      experiences,
+      interactionChecks,
+      delayedRetrieval,
+      findings,
+      interpretation: {
+        gateStatus: document.getElementById('gate-status').value,
+        generalEffectivenessClaim: false,
+        durableChildTraitClaim: false,
+      },
+    };
+  }
+
+  function validate(value) {
+    if (!value.observationId) throw new Error('Observation ID is required.');
+    if (!value.experiences.length) throw new Error('Choose at least one experience.');
+    for (const finding of value.findings) {
+      if (!finding.observation || !finding.remediation) throw new Error('Every finding needs both an observation and a remediation.');
+    }
+    if (value.delayedRetrieval.status === 'COMPLETED') {
+      if (!Number.isInteger(value.delayedRetrieval.daysAfterInitial) || value.delayedRetrieval.daysAfterInitial < 3 || value.delayedRetrieval.daysAfterInitial > 7) throw new Error('Completed delayed retrieval must be 3–7 days after the initial session.');
+      if (!value.delayedRetrieval.result) throw new Error('Describe the fresh delayed-retrieval result.');
+    }
+    if (value.interpretation.gateStatus === 'PASS') {
+      if (value.delayedRetrieval.status !== 'COMPLETED') throw new Error('Gate cannot PASS before delayed retrieval is completed.');
+      if (value.interactionChecks.returnedToNonGameTask !== 'OBSERVED') throw new Error('Gate cannot PASS unless return-to-learning was observed.');
+      if (value.interactionChecks.independentReturnProducedInterpretableEvidence !== 'OBSERVED') throw new Error('Gate cannot PASS without interpretable independent-return evidence.');
+      if (value.findings.some((finding) => finding.severity === 'BLOCKER' && finding.status === 'OPEN')) throw new Error('Gate cannot PASS with an unresolved BLOCKER finding.');
+    }
+    return value;
+  }
+
+  function show(message, ok) {
+    const box = document.getElementById('status');
+    box.textContent = message;
+    box.className = `status ${ok ? 'ok' : 'err'}`;
+  }
+
+  document.getElementById('preview').addEventListener('click', () => {
+    try {
+      const value = validate(record());
+      const pre = document.getElementById('json-preview');
+      pre.textContent = JSON.stringify(value, null, 2);
+      pre.style.display = 'block';
+      show('Record is structurally ready to save locally. This does not mean Gate #50 has passed.', true);
+    } catch (error) {
+      show(error.message, false);
+    }
+  });
+
+  document.getElementById('download').addEventListener('click', () => {
+    try {
+      const value = validate(record());
+      const blob = new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${value.observationId}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      show('JSON downloaded locally. Review it before sharing or committing any observation evidence.', true);
+    } catch (error) {
+      show(error.message, false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
