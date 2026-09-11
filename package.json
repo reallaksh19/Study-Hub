@@ -47,10 +47,10 @@
     "react-hook-form": "^7.72.1",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.14.1",
-    "rehype-katex": "^0.16.45",
+    "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "remark-parse": "^11.0.5",
+    "remark-parse": "^11.0.0",
     "style-loader": "^4.0.0",
     "unified": "^11.0.5",
     "zod": "^4.3.6"
