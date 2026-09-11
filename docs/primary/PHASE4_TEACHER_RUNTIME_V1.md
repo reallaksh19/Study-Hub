@@ -21,10 +21,12 @@ Kani remains an evidence producer. Teacher diagnosis and pedagogical next action
 
 ## Executable runtime
 
-The Phase-4 implementation now exercises:
+The Phase-4 implementation exercises:
 
 ```text
-observable attempt/work evidence
+serialized attempt/work evidence
+        ↓
+validated ingestion boundary
         ↓
 Observation
         ↓
@@ -48,8 +50,11 @@ Implementation:
 ```text
 src/integration/primary/teacherRuntime/primaryTeacherRuntime.js
 src/integration/primary/teacherRuntime/primaryTeacherRuntimeReplays.js
+src/integration/primary/teacherRuntime/primaryTeacherRuntimeIngestion.js
+src/integration/primary/teacherRuntime/primaryTeacherRuntimeClosure.js
 src/integration/primary/teacherRuntime/primaryTeacherRuntime.test.js
 src/integration/primary/teacherRuntime/primaryTeacherRuntimeReplays.test.js
+src/integration/primary/teacherRuntime/primaryTeacherRuntimeClosure.test.js
 ```
 
 ## Common semantic lock
@@ -66,20 +71,20 @@ The newer canonical diagnostic-reasoning companion is pinned independently to Co
 eaa548033d1daa398bcf35a60d1873d1ed3c5df3
 ```
 
-This avoids needlessly changing the already-deployed Phase-3 fraction semantic reference while still requiring the Phase-4 runtime to consume:
+This keeps the deployed Phase-3 fraction semantic reference stable while requiring the Phase-4 runtime to consume:
 
 ```text
 Primary/Architecture/PRIMARY_DIAGNOSTIC_REASONING.md
 Primary/Architecture/contracts/v1/primary-diagnostic-reasoning.schema.json
 ```
 
-The companion schema Git blob is pinned as:
+Diagnostic companion schema Git blob:
 
 ```text
 52689b92ea095c318ed66f9b6b37f6232e43ba2e
 ```
 
-Core diagnostic invariants consumed here are:
+Core invariants:
 
 ```text
 CHILD_PRODUCED != CHILD_INITIATED != INDEPENDENT
@@ -89,48 +94,36 @@ teacher correction != child independent evidence
 renderer evidence != invented work trace
 ```
 
-## Real Phase-3 fraction replay
+## Real Phase-3 fraction replay and ingestion
 
-The replay consumes actual Phase-3 fraction attempt structures produced by `makeFractionGameAttempt(...)` and proves:
+The runtime consumes actual Phase-3 fraction attempt structures produced by `makeFractionGameAttempt(...)`. The closure increment adds an explicit serialized evidence boundary that:
 
-- Common learning-object identity survives into the Teacher Runtime;
-- immediate Kani accuracy updates recent/acquisition evidence but does not create a mastery claim;
-- one wrong answer with insufficient causal evidence produces `DIAGNOSE_BEFORE_RETEACH`, not mechanical reteaching;
-- a fresh independent return item is represented separately from game practice;
-- successful independent return evidence still leaves delayed retention at `NOT_YET_TESTED`;
-- the next move can therefore be `SCHEDULE_RETRIEVAL` rather than declaring durable learning.
+- validates each payload as `kani-attempt-v1` before projection;
+- rejects diagnosis, TeacherDecision/TeacherMove, mastery and profile/state leakage in raw evidence;
+- preserves identical `attemptId` replay as idempotent and rejects conflicting immutable payloads;
+- combines Kani attempts with the non-game Study-Hub return observation;
+- keeps SQLite/Firebase provider profile as transport metadata only;
+- produces the same educational trace for the same canonical evidence under both profiles.
+
+The replay proves immediate Kani accuracy updates recent/acquisition evidence without a mastery claim, a wrong answer with insufficient causal evidence causes probing rather than mechanical reteaching, and successful independent return still leaves delayed retention at `NOT_YET_TESTED`.
 
 ## Common notebook and diagnostic replays
 
-The Common-owned notebook fixture remains vendored byte-for-byte for deterministic offline CI:
+Pinned Common fixtures:
 
 ```text
 Primary/Architecture/contracts/v1/examples/division-notebook-work-replay.example.json
 Git blob: ab815dd59564c960e01d3eae4206a1bda2f1c353
-```
 
-The first-class diagnostic reasoning fixture is also vendored byte-for-byte:
-
-```text
 Primary/Architecture/contracts/v1/examples/division-zero-place-diagnostic-probe.example.json
 Git blob: 2beb4c1d32a2490a109001321c493e5da888fa59
 ```
 
-`integration/primary/common-fixtures.lock.json` records the source commit and blob for each snapshot. CI recomputes the Git blob SHA so Study-Hub cannot silently redefine Common semantics.
+`integration/primary/common-fixtures.lock.json` records source commit and blob per snapshot. CI recomputes the Git blobs so Study-Hub cannot silently redefine Common semantics.
 
-The notebook replay preserves:
+The notebook replay preserves ordered work steps, zero-in-quotient failures, the stronger `3496 ÷ 23` contrast, child-produced multiples tables, the dozen/rate `QuantityStructure`, wrong-operation evidence, successful rounding evidence, teacher provenance, and ambiguity.
 
-- ordered work steps, including correct substeps before an incorrect final response;
-- the two zero-in-quotient-place failures (`366 ÷ 12`, `7843 ÷ 13`);
-- the stronger contrasting division item (`3496 ÷ 23`);
-- child-produced multiples tables as child-produced strategy evidence rather than conceptual-hint dependence;
-- the dozen/rate `QuantityStructure` and its required unit-conversion chain;
-- the wrong-operation word-problem observation;
-- successful rounding evidence as a strength alongside other errors;
-- teacher annotations with separate provenance;
-- `AMBIGUOUS` work without reconstruction.
-
-The bounded notebook hypothesis remains:
+The bounded hypothesis is:
 
 ```text
 PROCEDURAL_ERROR
@@ -138,115 +131,80 @@ PROCEDURAL_ERROR
 + MEDIUM confidence
 ```
 
-The diagnostic companion then compares controlled cases around:
-
-```text
-focal feature: QUOTIENT_ZERO_REQUIRED
-controlled load: LOW language / LOW novelty / LOW fact retrieval / SMALL step count
-```
-
-For the canonical controlled result:
-
-```text
-84 ÷ 4   → CORRECT
-408 ÷ 4  → INCORRECT
-```
-
-confidence increases for `H-DIV-ZERO-PLACE`, the runtime repairs only that mechanism, and a fresh independent retry is required.
+The controlled Common probe compares `84 ÷ 4` with `408 ÷ 4` while keeping language, novelty and fact-retrieval load low. Correct no-zero plus incorrect zero-required performance increases `H-DIV-ZERO-PLACE`; unresolved probe results keep competing hypotheses open rather than inventing certainty.
 
 ## Synthetic learner replay matrix A–H
 
-The deterministic fixture lives at:
+Fixture:
 
 ```text
 integration/primary/replays/primary-teacher-runtime-synthetic-v1.json
 ```
 
-Golden decision traces live at:
+Golden trace:
 
 ```text
 integration/primary/replays/primary-teacher-runtime-synthetic-v1.golden.json
 ```
 
-The matrix covers:
-
-| Replay | Required distinction | Expected runtime behavior |
+| Replay | Distinction | Runtime behavior |
 | --- | --- | --- |
-| A | genuine concept confusion across representations | change representation; do not merely repeat explanation |
+| A | genuine concept confusion across representations | change representation; do not repeat the same explanation |
 | B | isolated lapse after prior success/self-correction | fresh independent retry, not broad reteach |
 | C | language bottleneck | reduce language as access support while conceptual support remains H0 |
 | D | repeated “I don't know” through one route | materially change representation/route |
-| E | fast unsupported independence + secure delayed evidence | transfer/stretch with bounded learner choice |
-| F | immediate success vs delayed failure | schedule retrieval first; later failure becomes separate retention evidence |
+| E | fast unsupported independence + secure delayed evidence | transfer with bounded learner choice |
+| F | immediate success vs delayed failure | schedule retrieval; later failure becomes separate retention evidence |
 | G | notebook contrast + first-class DiagnosticProbe | update competing hypothesis and repair only confirmed zero-place mechanism |
-| H | grouped-unit/rate chain failure | expose quantity → unit → conversion → rate structure before arithmetic repair |
+| H | grouped-unit/rate chain failure | expose quantity → unit → conversion → rate before arithmetic repair |
 
-The replay runner also includes explicit auxiliary checks for:
+Auxiliary replays cover explicit support fading, learner-reported fatigue stop behavior, specific teacher voice, and prohibition of a single mastery score/fixed learner label.
 
-- support fading (`H2 → H1 → next H0 independent turn`);
-- learner-reported fatigue stop rule;
-- feedback that preserves usable thinking and requests an observable next action;
-- no single mastery score or fixed learner label.
+## Independent retry after repair
+
+Phase 4 now observes the repair verification step directly rather than merely emitting a follow-up marker:
+
+```text
+confirmed narrow mechanism
+→ one brief repair/model
+→ fresh zero-place item
+→ H0 conceptual support
+→ INDEPENDENT_RETRY_AFTER_REPAIR
+→ correct response
+→ CONFIRMED_IN_SESSION
+→ durability NOT_ESTABLISHED
+→ delayed retention NOT_YET_TESTED
+→ SCHEDULE_RETRIEVAL
+```
+
+A supported retry (H1+) is rejected as independent repair verification.
 
 ## Read-model policy
 
-`SkillState` is long-lived evidence summary material. `CurrentLearningState` is session-scoped only.
+`SkillState` is long-lived evidence-summary material. `CurrentLearningState` is session-scoped only. No session signal is automatically promoted into a durable learner trait.
 
-The runtime carries:
-
-```text
-SkillState
-- learningObjectId
-- multidimensional learning evidence
-- evidenceRefs
-- recentEvidence
-- priorIndependentEvidence
-- retentionEvidence
-- transferEvidence
-- supportDependency
-- evidenceConfidence
-
-CurrentLearningState
-- sessionId
-- learningObjectIds
-- current conceptual support
-- current access adjustments
-- recent observations
-- repeated errors
-- repeated-question signal
-- same-route failure count
-- repeated I-don't-know signal when observable
-- recent successes
-- learner-reported fatigue signal
-```
-
-No session signal is automatically promoted into a durable learner trait.
-
-## Teacher-move invariants now exercised
+## Teacher-move invariants exercised
 
 - wrong answer ≠ automatic reteach;
-- two same-route failures require a meaningful variation;
-- repeated “I don't know” cannot trigger the identical prompt indefinitely;
+- two same-route failures require meaningful variation;
+- repeated “I don't know” cannot trigger the same prompt indefinitely;
 - work trace is preserved before diagnosis;
-- contrasting successful work narrows hypotheses;
-- diagnostic probes manipulate a declared feature while holding unrelated load low;
-- unresolved probe outcomes keep competing hypotheses open;
+- contrasting success narrows hypotheses;
+- diagnostic probes manipulate a declared feature while controlling unrelated load;
+- unresolved probes keep uncertainty open;
 - access support remains separate from conceptual support;
-- child-produced strategy support is not automatically independent strategy selection;
+- child-produced strategy support does not imply independent initiation;
 - quantity/unit structure can drive diagnosis independently of final arithmetic;
-- repair requires a later independent retry;
+- repair is followed by a fresh unsupported retry;
 - support can fade explicitly;
-- immediate independent success does not imply retention;
-- fast independence receives bounded agency and transfer rather than repetitive drills;
-- learner-reported fatigue can end the episode without becoming a durable trait;
-- feedback names usable thinking and asks for the next observable action rather than using fixed-ability labels.
+- immediate success does not imply delayed retention;
+- fast independence receives bounded agency and transfer;
+- learner-reported fatigue can end the episode without creating a durable trait;
+- backend/provider choice has zero semantic effect;
+- feedback preserves usable thinking and requests the next observable action.
 
-## Still required before #45 closes
+## Acceptance traceability
 
-The deterministic core and replay matrix are now in place, but #45 should remain open until the remaining integration/closure checks are completed:
+See `docs/primary/PHASE4_ACCEPTANCE_MATRIX.md` for the deliverable-by-deliverable and criterion-by-criterion executable evidence map.
 
-- prove an explicit deployed evidence → runtime ingestion seam rather than fixture construction only;
-- add a direct independent-retry-after-repair replay result, not only the required follow-up marker;
-- confirm diagnostic reasoning remains backend/provider independent under #39 profiles;
-- review issue #45 acceptance items against executable tests and close any uncovered gaps;
-- only then mark Phase 4 complete and advance #46.
+Phase #45 may close only after the exact closure PR head passes unit/contract tests, content audits and production build. After that, the roadmap advances to #46 Grade 4 English.
