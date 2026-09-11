@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureId": "PRIMARY-G4-ENGLISH-PHASE5-001",
+  "grade": 4,
+  "subject": "ENGLISH",
+  "learningObjects": [
+    {
+      "learningObjectId": "ENG-INFERENCE-TEXT-EVIDENCE",
+      "domain": "READING",
+      "skills": ["INFERENCE", "TEXT_EVIDENCE"],
+      "evidenceModel": ["ANSWER", "TEXT_CLUE", "CONNECTION"]
+    },
+    {
+      "learningObjectId": "ENG-ADJECTIVE-ORDER-RECOGNITION",
+      "domain": "GRAMMAR",
+      "skills": ["ADJECTIVE", "APPLICATION"],
+      "sourceBoundaryRequired": true
+    }
+  ],
+  "inferenceFixture": {
+    "textId": "TEXT-G4-INF-001",
+    "text": "Maya looked at the dark clouds and hurried to bring the clothes in from the line. A few minutes later, raindrops tapped the window.",
+    "question": "Why did Maya hurry to bring the clothes inside?",
+    "defensibleResponse": {
+      "answer": "She thought it was going to rain.",
+      "textClues": ["dark clouds", "raindrops tapped the window"],
+      "connection": "Dark clouds can signal rain, so bringing the clothes in would keep them dry."
+    },
+    "responseEvidence": {
+      "answerOnly": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "candidateErrorSignature": "EVIDENCE_NOT_PROVIDED"
+      },
+      "answerWithRelevantClue": {
+        "status": "DEVELOPING",
+        "candidateErrorSignature": null
+      }
+    },
+    "responseModes": ["ORAL", "WRITTEN"],
+    "teacherMoves": {
+      "missingEvidence": {
+        "diagnosisCode": "INSUFFICIENT_EVIDENCE",
+        "move": "ASK_TO_SHOW",
+        "childPrompt": "What words in the text helped you think that?"
+      },
+      "unsupportedGuess": {
+        "diagnosisCode": "INFERENCE_ERROR",
+        "move": "COMPARE",
+        "childPrompt": "Which answer fits the clue in the text better? Show me the clue."
+      }
+    },
+    "independentReturn": {
+      "text": "Arun put his library book into his bag before breakfast. At school, his teacher announced that library books were due that morning.",
+      "question": "Why did Arun put the book in his bag?",
+      "requiredEvidence": ["ANSWER", "TEXT_CLUE", "CONNECTION"],
+      "conceptualSupport": { "level": "H0", "type": "NONE" }
+    }
+  },
+  "adjectiveSourceBoundaryFixture": {
+    "sourceModelId": "SRCMODEL-G4-ADJ-ORDER-001",
+    "sourceStatus": "VERIFIED",
+    "sourceOrder": [
+      "NUMBER",
+      "OPINION",
+      "SIZE",
+      "AGE",
+      "SHAPE",
+      "COLOUR",
+      "ORIGIN",
+      "MATERIAL",
+      "PURPOSE"
+    ],
+    "classificationQuestions": {
+      "NUMBER": "How many?",
+      "OPINION": "What do you think of it?",
+      "SIZE": "How big or small?",
+      "AGE": "How old or new?",
+      "SHAPE": "What shape?",
+      "COLOUR": "What colour?",
+      "ORIGIN": "Where is it from?",
+      "MATERIAL": "What is it made of?",
+      "PURPOSE": "What is it used for?"
+    },
+    "cleanExamples": [
+      { "word": "three", "category": "NUMBER" },
+      { "word": "beautiful", "category": "OPINION" },
+      { "word": "large", "category": "SIZE", "recognitionCue": "Large tells how big something is." },
+      { "word": "old", "category": "AGE" },
+      { "word": "round", "category": "SHAPE" },
+      { "word": "red", "category": "COLOUR" },
+      { "word": "Indian", "category": "ORIGIN" },
+      { "word": "wooden", "category": "MATERIAL" },
+      { "word": "sleeping", "category": "PURPOSE" }
+    ],
+    "boundaryExamples": [
+      { "word": "heavy", "status": "SOURCE_MODEL_BOUNDARY", "sourceCategory": null },
+      { "word": "handmade", "status": "SOURCE_MODEL_BOUNDARY", "sourceCategory": null },
+      { "word": "broken", "status": "SOURCE_MODEL_BOUNDARY", "sourceCategory": null }
+    ],
+    "forbiddenInventedCategories": ["QUALITY", "PHYSICAL_QUALITY", "QUALITY_TYPE", "CONDITION"],
+    "tutorRoutine": [
+      "IDENTIFY_NOUN",
+      "FIND_DESCRIBING_WORDS",
+      "CLASSIFY_USING_SOURCE_QUESTIONS",
+      "ORDER_USING_SOURCE_MODEL",
+      "READ_ALOUD",
+      "MARK_SOURCE_BOUNDARY_IF_NO_CLEAN_MATCH"
+    ],
+    "clarificationRegression": {
+      "childInput": "Large?",
+      "teacherResponse": "Large tells us how big something is. Words that tell how big go under SIZE.",
+      "tinyCheck": "Where would tiny go?",
+      "expectedAnswer": "SIZE"
+    },
+    "crossTurnInvariant": "The source category for a word must not change across turns unless new source evidence or an explicit correction is supplied."
+  },
+  "falsifiers": [
+    "DO_NOT_TREAT_PLAUSIBLE_INFERENCE_WITHOUT_TEXT_SUPPORT_AS_SECURE_EVIDENCE",
+    "DO_NOT_COLLAPSE_ORAL_AND_WRITTEN_RESPONSE_MODES",
+    "DO_NOT_INVENT_ADJECTIVE_CATEGORIES_TO_FORCE_FIT_SOURCE_BOUNDARY_WORDS",
+    "DO_NOT_CHANGE_SOURCE_CLASSIFICATION_ACROSS_TURNS_WITHOUT_EXPLANATION",
+    "AFTER_CLARIFICATION_REQUIRE_TINY_CHECK_FOR_UNDERSTANDING"
+  ]
+}
