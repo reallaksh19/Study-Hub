@@ -16,12 +16,15 @@ import {
   fractionLaunchArtifact,
   fractionMissionResolverArtifact,
 } from '../src/integration/primary/fractions/fractionPrototypeArtifacts.js';
+import {
+  buildFractionReturnPageHtml,
+} from '../src/integration/primary/fractions/fractionPhase3Publication.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
 const stable = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
-const outputs = new Map([
+const jsonOutputs = new Map([
   ['public/primary/fractions/grade4-fraction-equivalence.content.json', {
     schemaVersion: '1.0',
     id: 'page_grade4-fractions-primary-equivalence',
@@ -45,10 +48,13 @@ const outputs = new Map([
   ['public/primary/missions/P4FE7K2Q.launch.json', fractionLaunchArtifact],
 ]);
 
+const textOutputs = new Map([
+  ['public/primary/return.html', `${buildFractionReturnPageHtml()}\n`],
+]);
+
 const mismatches = [];
-for (const [relativePath, value] of outputs) {
+async function writeOrCheck(relativePath, expected) {
   const target = path.join(root, relativePath);
-  const expected = stable(value);
   if (checkOnly) {
     let actual = null;
     try {
@@ -57,17 +63,32 @@ for (const [relativePath, value] of outputs) {
       // handled below
     }
     if (actual !== expected) mismatches.push(relativePath);
-    continue;
+    return;
   }
 
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, expected, 'utf8');
 }
 
-if (checkOnly && mismatches.length) {
-  throw new Error(`Primary fraction prototype artifacts are stale: ${mismatches.join(', ')}`);
+for (const [relativePath, value] of jsonOutputs) {
+  await writeOrCheck(relativePath, stable(value));
+}
+for (const [relativePath, value] of textOutputs) {
+  await writeOrCheck(relativePath, value);
+}
+
+const qrRelativePath = 'public/primary/fractions/P4FE7K2Q-qr.svg';
+try {
+  const qr = await readFile(path.join(root, qrRelativePath), 'utf8');
+  if (!qr.includes('<svg') || !qr.includes('P4FE7K2Q')) mismatches.push(qrRelativePath);
+} catch {
+  mismatches.push(qrRelativePath);
+}
+
+if (mismatches.length) {
+  throw new Error(`Primary fraction prototype artifacts are stale or incomplete: ${mismatches.join(', ')}`);
 }
 
 console.log(checkOnly
   ? 'Primary fraction prototype artifacts match canonical fixture.'
-  : `Generated ${outputs.size} Primary fraction prototype artifacts.`);
+  : `Generated ${jsonOutputs.size + textOutputs.size} Primary fraction prototype artifacts and verified printable QR.`);
