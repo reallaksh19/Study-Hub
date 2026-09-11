@@ -32,8 +32,9 @@ function gitBlobSha(content) {
     .digest('hex');
 }
 
-// Phase 4 consumes the Common diagnostic reasoning refinement, not the older pre-probe lock.
-assert.equal(semanticLock.sourceCommit, 'eaa548033d1daa398bcf35a60d1873d1ed3c5df3');
+// Keep the Phase-3 primary semantic ref stable while pinning the newer diagnostic companion independently.
+assert.equal(semanticLock.sourceCommit, '00ef138bfc69c9ec062c7cddcc53a8f40a1a4f08');
+assert.equal(semanticLock.diagnosticReasoningSourceCommit, 'eaa548033d1daa398bcf35a60d1873d1ed3c5df3');
 assert.equal(semanticLock.diagnosticReasoningPath, 'Primary/Architecture/PRIMARY_DIAGNOSTIC_REASONING.md');
 assert.equal(semanticLock.diagnosticReasoningSchemaPath, 'Primary/Architecture/contracts/v1/primary-diagnostic-reasoning.schema.json');
 assert.equal(semanticLock.diagnosticReasoningSchemaGitBlobSha, '52689b92ea095c318ed66f9b6b37f6232e43ba2e');
@@ -41,6 +42,8 @@ assert.equal(fixtureLock.sourceCommit, semanticLock.sourceCommit);
 
 const notebookLock = fixtureLock.fixtures.find((item) => item.fixtureId === 'PRIMARY-MATH-NOTEBOOK-DIVISION-REPLAY-001');
 const diagnosticLock = fixtureLock.fixtures.find((item) => item.fixtureId === 'PRIMARY-DIAGNOSTIC-DIVISION-ZERO-PLACE-001');
+assert.equal(notebookLock.sourceCommit, semanticLock.sourceCommit);
+assert.equal(diagnosticLock.sourceCommit, semanticLock.diagnosticReasoningSourceCommit);
 assert.equal(gitBlobSha(notebookSource), notebookLock.sourceGitBlobSha);
 assert.equal(gitBlobSha(diagnosticSource), diagnosticLock.sourceGitBlobSha);
 assert.equal(diagnosticLock.sourceGitBlobSha, '2beb4c1d32a2490a109001321c493e5da888fa59');
