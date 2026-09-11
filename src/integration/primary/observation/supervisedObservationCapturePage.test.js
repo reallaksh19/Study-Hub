@@ -21,6 +21,16 @@ assert.match(html, /durableChildTraitClaim:\s*false/);
 assert.match(html, /new Blob/);
 assert.match(html, /URL\.createObjectURL/);
 
+// The delayed-retrieval handoff must use the canonical fresh tasks and remain locked outside the window.
+assert.match(html, /id="initial-session-date"/);
+assert.match(html, /not included in exported JSON/);
+assert.match(html, /\.\.\/fractions\/delayed-retrieval\.html/);
+assert.match(html, /\.\.\/english\/inference-delayed-retrieval\.html/);
+assert.match(html, /setDelayedLinksUnlocked/);
+assert.match(html, /daysAfter >= 3 && daysAfter <= 7/);
+assert.match(html, /Do not rehearse them during the initial session/);
+assert.match(html, /plan a valid rerun rather than backfilling retention evidence/);
+
 // The capture page must remain local-only: no network submission path or telemetry API.
 for (const forbidden of [
   'fetch(',
@@ -38,4 +48,4 @@ for (const phrase of ['child’s name', 'school', 'student ID', 'address', 'medi
   assert.equal(html.includes(phrase), true, `privacy notice must mention ${phrase}`);
 }
 
-console.log('Supervised observation capture page privacy and gate invariants passed.');
+console.log('Supervised observation capture page privacy, delayed-window handoff and gate invariants passed.');
