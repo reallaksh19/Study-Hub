@@ -1,0 +1,134 @@
+{
+  "strategySupportEvidence": {
+    "strategyType": "MULTIPLES_TABLE",
+    "producedBy": "CHILD",
+    "initiation": {
+      "actor": "CHILD",
+      "mode": "SPONTANEOUS"
+    },
+    "conceptualSupport": {
+      "level": "H0",
+      "type": "NONE"
+    },
+    "value": [23, 46, 69, 92, 115, 138]
+  },
+  "workStepProvenance": {
+    "actor": "CHILD",
+    "productionState": "SELF_CORRECTED",
+    "supportState": "AFTER_GENERAL_PROMPT",
+    "transcriptionCertainty": "HIGH"
+  },
+  "contrastSet": {
+    "contrastSetId": "CS-DIV-ZERO-001",
+    "targetLearningObjectIds": ["DIV-M6.6"],
+    "focalFeature": {
+      "id": "QUOTIENT_ZERO_REQUIRED",
+      "description": "A zero digit is required in the quotient to preserve place value."
+    },
+    "controlledSharedFeatures": [
+      "TWO_DIGIT_DIVISOR",
+      "MULTI_DIGIT_DIVIDEND",
+      "STANDARD_WRITTEN_DIVISION"
+    ],
+    "cases": [
+      {
+        "evidenceRef": "MWE-366-DIV-12",
+        "focalFeatureValue": true
+      },
+      {
+        "evidenceRef": "MWE-7843-DIV-13",
+        "focalFeatureValue": true
+      },
+      {
+        "evidenceRef": "MWE-3496-DIV-23",
+        "focalFeatureValue": false
+      }
+    ]
+  },
+  "competingHypotheses": [
+    {
+      "hypothesisId": "H-DIV-GENERAL-PROCEDURE",
+      "diagnosisCode": "PROCEDURAL_ERROR",
+      "errorSignature": "DIV_GENERAL_LONG_DIVISION_PROCEDURE",
+      "confidence": "LOW",
+      "evidenceRefs": [
+        "MWE-366-DIV-12",
+        "MWE-7843-DIV-13",
+        "MWE-3496-DIV-23"
+      ]
+    },
+    {
+      "hypothesisId": "H-DIV-ZERO-PLACE",
+      "diagnosisCode": "PROCEDURAL_ERROR",
+      "errorSignature": "DIV_QUOTIENT_ZERO_PLACE_VALUE",
+      "confidence": "MEDIUM",
+      "evidenceRefs": [
+        "MWE-366-DIV-12",
+        "MWE-7843-DIV-13",
+        "MWE-3496-DIV-23"
+      ]
+    }
+  ],
+  "diagnosticProbe": {
+    "probeId": "DP-DIV-ZERO-001",
+    "hypothesisIds": [
+      "H-DIV-GENERAL-PROCEDURE",
+      "H-DIV-ZERO-PLACE"
+    ],
+    "manipulatedFeature": {
+      "id": "QUOTIENT_ZERO_REQUIRED",
+      "description": "Compare performance with and without a required zero quotient place."
+    },
+    "controlledLoad": {
+      "language": "LOW",
+      "representationNovelty": "LOW",
+      "factRetrievalDemand": "LOW",
+      "stepCount": "SMALL"
+    },
+    "items": [
+      {
+        "itemId": "DP-DIV-NOZERO",
+        "featureValue": false,
+        "prompt": "84 ÷ 4 = ?"
+      },
+      {
+        "itemId": "DP-DIV-ZERO",
+        "featureValue": true,
+        "prompt": "408 ÷ 4 = ?"
+      }
+    ],
+    "outcomeRules": [
+      {
+        "when": {
+          "DP-DIV-NOZERO": "CORRECT",
+          "DP-DIV-ZERO": "INCORRECT"
+        },
+        "increasesHypothesis": "H-DIV-ZERO-PLACE"
+      },
+      {
+        "when": {
+          "DP-DIV-NOZERO": "INCORRECT",
+          "DP-DIV-ZERO": "INCORRECT"
+        },
+        "keepOpen": [
+          "H-DIV-GENERAL-PROCEDURE",
+          "H-DIV-ZERO-PLACE"
+        ],
+        "informationNeeded": [
+          "FACT_RETRIEVAL",
+          "PLACE_VALUE"
+        ]
+      },
+      {
+        "when": {
+          "DP-DIV-NOZERO": "CORRECT",
+          "DP-DIV-ZERO": "CORRECT"
+        },
+        "consider": [
+          "PERFORMANCE_LAPSE",
+          "RECENT_REPAIR"
+        ]
+      }
+    ]
+  }
+}

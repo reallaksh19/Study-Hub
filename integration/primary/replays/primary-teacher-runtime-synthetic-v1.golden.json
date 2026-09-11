@@ -1,0 +1,81 @@
+{
+  "scenarios": {
+    "A_CONCEPT_CONFUSION": {
+      "diagnosisCode": "CONCEPTUAL_MISCONCEPTION",
+      "errorSignature": "FRAC_EQUIV_RELATIONSHIP_CONFUSION",
+      "independentUse": "NOT_OBSERVED",
+      "delayedRetention": "NOT_YET_TESTED",
+      "decisionStrategy": "CHANGE_REPRESENTATION",
+      "moveType": "CHANGE_REPRESENTATION"
+    },
+    "B_PERFORMANCE_LAPSE": {
+      "diagnosisCode": "PERFORMANCE_LAPSE",
+      "errorSignature": null,
+      "independentUse": "NOT_OBSERVED",
+      "delayedRetention": "NOT_YET_TESTED",
+      "decisionStrategy": "GIVE_INDEPENDENT_RETRY",
+      "moveType": "GIVE_INDEPENDENT_TURN"
+    },
+    "C_LANGUAGE_BOTTLENECK": {
+      "diagnosisCode": "LANGUAGE_COMPREHENSION_ERROR",
+      "errorSignature": null,
+      "independentUse": "NOT_OBSERVED",
+      "delayedRetention": "NOT_YET_TESTED",
+      "decisionStrategy": "REDUCE_ACCESS_LOAD",
+      "moveType": "REDUCE_LANGUAGE"
+    },
+    "D_REPEATED_DONT_KNOW": {
+      "diagnosisCode": "INSUFFICIENT_EVIDENCE",
+      "errorSignature": null,
+      "independentUse": "NOT_OBSERVED",
+      "delayedRetention": "NOT_YET_TESTED",
+      "decisionStrategy": "CHANGE_REPRESENTATION",
+      "moveType": "CHANGE_REPRESENTATION"
+    },
+    "E_FAST_INDEPENDENCE": {
+      "diagnosisCode": null,
+      "errorSignature": null,
+      "independentUse": "SECURE",
+      "delayedRetention": "SECURE",
+      "decisionStrategy": "EXTEND_TO_TRANSFER",
+      "moveType": "OFFER_BOUNDED_CHOICE"
+    },
+    "F_DELAYED_RETENTION": {
+      "immediate": {
+        "delayedRetention": "NOT_YET_TESTED",
+        "decisionStrategy": "SCHEDULE_RETRIEVAL",
+        "moveType": "SCHEDULE_RETRIEVAL"
+      },
+      "delayed": {
+        "diagnosisCode": "MEMORY_RETRIEVAL_FAILURE",
+        "delayedRetention": "EMERGING",
+        "decisionStrategy": "REPAIR_PREREQUISITE",
+        "moveType": "RETRIEVE_PRIOR_KNOWLEDGE"
+      }
+    },
+    "G_NOTEBOOK_CONTRAST_PROBE": {
+      "diagnosisCode": "PROCEDURAL_ERROR",
+      "errorSignature": "DIV_QUOTIENT_ZERO_PLACE_VALUE",
+      "probeId": "DP-DIV-ZERO-001",
+      "increasedHypothesis": "H-DIV-ZERO-PLACE",
+      "decisionStrategy": "MODEL_ONE_STEP",
+      "moveType": "MODEL"
+    },
+    "H_QUANTITY_UNIT_CHAIN": {
+      "diagnosisCode": "TASK_INTERPRETATION_ERROR",
+      "errorSignature": "UNIT_GROUP_NOT_EXPANDED",
+      "independentUse": "NOT_OBSERVED",
+      "delayedRetention": "NOT_YET_TESTED",
+      "decisionStrategy": "CHANGE_REPRESENTATION",
+      "moveType": "CHANGE_REPRESENTATION"
+    }
+  },
+  "supportFading": {
+    "decisionStrategy": "FADE_SUPPORT",
+    "moveType": "FADE_SUPPORT"
+  },
+  "stopRule": {
+    "decisionStrategy": "END_EPISODE",
+    "moveType": "END_SESSION"
+  }
+}

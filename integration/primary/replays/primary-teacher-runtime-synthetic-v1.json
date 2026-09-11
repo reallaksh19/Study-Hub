@@ -1,0 +1,134 @@
+{
+  "fixtureVersion": "1.0",
+  "purpose": "Deterministic synthetic learner replays for Study-Hub #45. No real learner data.",
+  "scenarios": [
+    {
+      "scenarioId": "A_CONCEPT_CONFUSION",
+      "description": "Repeated conceptual error across different representations.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        {
+          "observationId": "OBS-A-1",
+          "correctness": "INCORRECT",
+          "routeSignature": "FRACTION:AREA_MODEL",
+          "errorSignature": "FRAC_EQUIV_RELATIONSHIP_CONFUSION",
+          "evidenceRole": "PRACTICE",
+          "conceptualSupport": { "level": "H0", "type": "NONE" }
+        },
+        {
+          "observationId": "OBS-A-2",
+          "correctness": "INCORRECT",
+          "routeSignature": "FRACTION:NUMBER_LINE",
+          "errorSignature": "FRAC_EQUIV_RELATIONSHIP_CONFUSION",
+          "evidenceRole": "PRACTICE",
+          "conceptualSupport": { "level": "H0", "type": "NONE" }
+        }
+      ]
+    },
+    {
+      "scenarioId": "B_PERFORMANCE_LAPSE",
+      "description": "Prior independent success plus a self-corrected isolated error.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        { "observationId": "OBS-B-1", "correctness": "CORRECT", "routeSignature": "FRACTION:AREA_MODEL", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H0", "type": "NONE" } },
+        { "observationId": "OBS-B-2", "correctness": "CORRECT", "routeSignature": "FRACTION:SYMBOLIC", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H0", "type": "NONE" } },
+        { "observationId": "OBS-B-3", "correctness": "INCORRECT", "routeSignature": "FRACTION:SYMBOLIC", "evidenceRole": "PRACTICE", "selfCorrected": true, "conceptualSupport": { "level": "H0", "type": "NONE" } }
+      ]
+    },
+    {
+      "scenarioId": "C_LANGUAGE_BOTTLENECK",
+      "description": "Same mathematics fails with heavy wording and succeeds when language load is reduced.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        { "observationId": "OBS-C-1", "correctness": "INCORRECT", "routeSignature": "FRACTION:WORD_PROBLEM:FULL_LANGUAGE", "languageLoad": "HIGH", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H0", "type": "NONE" } },
+        { "observationId": "OBS-C-2", "correctness": "CORRECT", "routeSignature": "FRACTION:WORD_PROBLEM:REDUCED_LANGUAGE", "languageLoad": "LOW", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H0", "type": "NONE" }, "accessAdjustments": ["REDUCED_LANGUAGE"] }
+      ]
+    },
+    {
+      "scenarioId": "D_REPEATED_DONT_KNOW",
+      "description": "Repeated I-don't-know responses through the same route require a meaningful route change.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        { "observationId": "OBS-D-1", "correctness": "INCORRECT", "routeSignature": "FRACTION:SYMBOLIC:ASK_EXPLAIN", "responseKind": "DONT_KNOW", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H1", "type": "PROMPT" } },
+        { "observationId": "OBS-D-2", "correctness": "INCORRECT", "routeSignature": "FRACTION:SYMBOLIC:ASK_EXPLAIN", "responseKind": "DONT_KNOW", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H1", "type": "PROMPT" } }
+      ]
+    },
+    {
+      "scenarioId": "E_FAST_INDEPENDENCE",
+      "description": "Repeated unsupported independent success should extend rather than drill.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "delayedRetention": "SECURE",
+      "observations": [
+        { "observationId": "OBS-E-1", "correctness": "CORRECT", "routeSignature": "FRACTION:AREA_MODEL", "evidenceRole": "INDEPENDENT_RETURN", "conceptualSupport": { "level": "H0", "type": "NONE" } },
+        { "observationId": "OBS-E-2", "correctness": "CORRECT", "routeSignature": "FRACTION:SYMBOLIC", "evidenceRole": "INDEPENDENT_RETURN", "conceptualSupport": { "level": "H0", "type": "NONE" } },
+        { "observationId": "OBS-E-3", "correctness": "CORRECT", "routeSignature": "FRACTION:EXPLAIN", "evidenceRole": "INDEPENDENT_RETURN", "conceptualSupport": { "level": "H0", "type": "NONE" } }
+      ]
+    },
+    {
+      "scenarioId": "F_DELAYED_RETENTION",
+      "description": "Immediate independent success schedules later retrieval; a later failure is not overwritten by the earlier success.",
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        { "observationId": "OBS-F-1", "correctness": "CORRECT", "routeSignature": "FRACTION:RETURN", "evidenceRole": "INDEPENDENT_RETURN", "observedAt": "2026-09-11T08:00:00.000Z", "conceptualSupport": { "level": "H0", "type": "NONE" } }
+      ],
+      "delayedObservation": {
+        "observationId": "OBS-F-2",
+        "correctness": "INCORRECT",
+        "routeSignature": "FRACTION:DELAYED_RETRIEVAL",
+        "evidenceRole": "DELAYED_RETRIEVAL",
+        "observedAt": "2026-09-15T08:00:00.000Z",
+        "conceptualSupport": { "level": "H0", "type": "NONE" }
+      }
+    },
+    {
+      "scenarioId": "G_NOTEBOOK_CONTRAST_PROBE",
+      "description": "Notebook work trace uses controlled contrast and a first-class diagnostic probe for zero-in-quotient place value.",
+      "mode": "COMMON_NOTEBOOK_AND_DIAGNOSTIC",
+      "probeResults": {
+        "DP-DIV-NOZERO": "CORRECT",
+        "DP-DIV-ZERO": "INCORRECT"
+      }
+    },
+    {
+      "scenarioId": "H_QUANTITY_UNIT_CHAIN",
+      "description": "Grouped-unit conversion failure must be diagnosed from quantity structure rather than final arithmetic alone.",
+      "learningObjectId": "QUANTITY-UNIT-RELATIONSHIP",
+      "workEvidence": {
+        "workEvidenceId": "MWE-H-DOZEN",
+        "learningObjectIds": ["QUANTITY-UNIT-RELATIONSHIP"],
+        "provenance": "TEACHER_TRANSCRIPTION",
+        "selectedOperation": "MULTIPLICATION",
+        "quantityStructure": {
+          "quantities": [
+            { "quantityId": "Q1", "value": 23, "unit": "DOZEN_EGGS", "role": "GIVEN" },
+            { "quantityId": "Q2", "value": 12, "unit": "EGGS_PER_DOZEN", "role": "CONVERSION_FACTOR" },
+            { "quantityId": "Q3", "value": 6, "unit": "RUPEES_PER_EGG", "role": "RATE" }
+          ],
+          "unknown": { "unit": "RUPEES" },
+          "requiredRelationships": ["CONVERT_GROUPED_UNIT", "MULTIPLY_QUANTITY_BY_RATE"]
+        },
+        "workSteps": [
+          { "stepId": "WS-H-1", "sequence": 1, "kind": "PARTIAL_PRODUCT", "observedValue": "23 × 6 = 138", "status": "PARTIAL" }
+        ],
+        "finalResponse": { "value": 138, "correctness": "INCORRECT" },
+        "candidateErrorSignatures": ["UNIT_GROUP_NOT_EXPANDED"]
+      }
+    }
+  ],
+  "auxiliaryReplays": {
+    "supportFading": {
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "observations": [
+        { "observationId": "OBS-FADE-1", "correctness": "CORRECT", "routeSignature": "FRACTION:AREA_MODEL", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H2", "type": "HINT" } },
+        { "observationId": "OBS-FADE-2", "correctness": "CORRECT", "routeSignature": "FRACTION:AREA_MODEL", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H1", "type": "PROMPT" } }
+      ]
+    },
+    "stopRule": {
+      "learningObjectId": "MATH-FRAC-EQUIVALENCE",
+      "learnerReportedFatigue": true,
+      "observations": [
+        { "observationId": "OBS-STOP-1", "correctness": "CORRECT", "routeSignature": "FRACTION:AREA_MODEL", "evidenceRole": "PRACTICE", "conceptualSupport": { "level": "H0", "type": "NONE" } }
+      ]
+    }
+  }
+}
