@@ -33,8 +33,9 @@ assert.equal(gameOnly.teacherMove.type, 'GIVE_INDEPENDENT_TURN');
 assert.match(gameOnly.teacherMove.expectedChildAction, /answer.*text clue.*connection/i);
 assert.equal(JSON.stringify(gameOnly).toLowerCase().includes('masteryscore'), false);
 
-// Fresh H0 non-game answer + clue + connection creates independent evidence, not durable mastery.
-const writtenReturn = makeInferenceIndependentReturnObservation(fixture, {
+// A complete open response is observable evidence, but its interpretive correctness
+// is NOT fabricated from free-text matching. Without explicit judgement it remains TEACHER_JUDGMENT.
+const rawWrittenReturn = makeInferenceIndependentReturnObservation(fixture, {
   responseMode: 'WRITTEN',
   answer: 'He needed to return the library book.',
   textClue: 'library books were due that morning',
@@ -42,7 +43,25 @@ const writtenReturn = makeInferenceIndependentReturnObservation(fixture, {
 }, {
   observedAt: '2026-09-11T09:10:00.000Z',
 });
+const unjudged = runEnglishTeacherRuntimeFromEvidenceEnvelope({
+  providerProfile: 'SQLITE',
+  attempts,
+  nonGameObservations: [rawWrittenReturn],
+}, fixture);
+assert.equal(unjudged.evaluatedReturn.evidenceStatus, 'TEACHER_JUDGMENT');
+assert.equal(unjudged.learningEvidence.independentUse, 'TEACHER_JUDGMENT');
+assert.equal(unjudged.diagnosis.code, 'INSUFFICIENT_EVIDENCE');
+assert.equal(unjudged.teacherDecision.strategy, 'REVIEW_EVIDENCE');
+assert.notEqual(unjudged.teacherMove.type, 'SCHEDULE_RETRIEVAL');
 
+// A teacher/source-grounded judgement can confirm the independent return, after which
+// retrieval is scheduled while durability remains explicitly untested.
+const writtenReturn = structuredClone(rawWrittenReturn);
+writtenReturn.value.evaluation = {
+  status: 'SUPPORTED',
+  provenance: 'TEACHER',
+  rationale: 'The cited due-date clue supports the inference that Arun brought the book to return it.',
+};
 const returned = runEnglishTeacherRuntimeFromEvidenceEnvelope({
   providerProfile: 'SQLITE',
   attempts,
@@ -67,6 +86,10 @@ const oralReturn = makeInferenceIndependentReturnObservation(fixture, {
   observationId: 'OBS-ENG-INF-RETURN-ORAL',
   observedAt: '2026-09-11T09:11:00.000Z',
 });
+oralReturn.value.evaluation = {
+  status: 'SUPPORTED',
+  provenance: 'SUPERVISED_OBSERVER',
+};
 const oralTrace = runEnglishTeacherRuntimeFromEvidenceEnvelope({
   providerProfile: 'SQLITE',
   attempts,
@@ -74,11 +97,12 @@ const oralTrace = runEnglishTeacherRuntimeFromEvidenceEnvelope({
 }, fixture);
 assert.equal(oralTrace.evaluatedReturn.observation.value.responseMode, 'ORAL');
 assert.equal(oralTrace.learningObjectId, returned.learningObjectId);
+assert.equal(oralTrace.learningEvidence.independentUse, 'DEVELOPING');
 
-// A plausible/canonical answer without a clue remains insufficient evidence.
+// A response missing clue/connection remains insufficient regardless of a plausible answer.
 const answerOnlyReturn = makeInferenceIndependentReturnObservation(fixture, {
   responseMode: 'WRITTEN',
-  answer: fixture.inferenceFixture.defensibleResponse.answer,
+  answer: 'He needed to return the library book.',
   textClue: '',
   connection: '',
 }, {
@@ -93,6 +117,22 @@ const answerOnlyTrace = runEnglishTeacherRuntimeFromEvidenceEnvelope({
 assert.equal(answerOnlyTrace.diagnosis.code, 'INSUFFICIENT_EVIDENCE');
 assert.equal(answerOnlyTrace.teacherMove.type, 'ASK_TO_SHOW');
 assert.notEqual(answerOnlyTrace.teacherDecision.strategy, 'SCHEDULE_RETRIEVAL');
+
+// Explicit NOT_SUPPORTED judgement triggers repair rather than silent binary matching.
+const unsupportedReturn = structuredClone(rawWrittenReturn);
+unsupportedReturn.observationId = 'OBS-ENG-INF-RETURN-UNSUPPORTED';
+unsupportedReturn.value.evaluation = {
+  status: 'NOT_SUPPORTED',
+  provenance: 'TEACHER',
+};
+const unsupportedTrace = runEnglishTeacherRuntimeFromEvidenceEnvelope({
+  providerProfile: 'SQLITE',
+  attempts,
+  nonGameObservations: [unsupportedReturn],
+}, fixture);
+assert.equal(unsupportedTrace.learningEvidence.independentUse, 'EMERGING');
+assert.equal(unsupportedTrace.diagnosis.code, 'INFERENCE_ERROR');
+assert.equal(unsupportedTrace.teacherMove.type, 'COMPARE');
 
 // Persistence profile is transport metadata only; educational trace is identical.
 const firebaseTrace = runEnglishTeacherRuntimeFromEvidenceEnvelope({
@@ -154,11 +194,13 @@ assert.equal(plan.inferenceJourney.timerPolicy, 'OFF');
 assert.equal(plan.inferenceJourney.gameEvidenceMeaning, 'RECENT_PRACTICE_NOT_MASTERY');
 assert.deepEqual(plan.inferenceJourney.returnRequiredEvidence, ['ANSWER', 'TEXT_CLUE', 'CONNECTION']);
 assert.deepEqual(plan.inferenceJourney.responseModeChoice, ['ORAL', 'WRITTEN']);
+assert.equal(plan.inferenceJourney.openResponseEvaluation, 'EXPLICIT_TEACHER_OR_SOURCE_JUDGMENT_REQUIRED');
 assert.equal(plan.inferenceJourney.delayedRetrieval.status, 'NOT_YET_TESTED');
 assert.equal(plan.adjectiveBoundaryJourney.boundaryWord, 'heavy');
 assert.equal(plan.adjectiveBoundaryJourney.repeatedConfusionPolicy, 'TWO_SAME_ROUTE_FAILURES_REQUIRE_VARIATION');
 assert.ok(plan.supervisedObservationChecks.some((item) => /rush/i.test(item)));
 assert.ok(plan.supervisedObservationChecks.some((item) => /return/i.test(item)));
+assert.ok(plan.supervisedObservationChecks.some((item) => /teacher.*supports/i.test(item)));
 assert.ok(plan.supervisedObservationChecks.some((item) => /heavy.*SOURCE_MODEL_BOUNDARY/i.test(item)));
 
 console.log('Grade 4 English Phase-5 closure + observation-readiness replay passed.');
