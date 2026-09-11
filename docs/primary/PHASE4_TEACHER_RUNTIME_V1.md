@@ -54,13 +54,19 @@ src/integration/primary/teacherRuntime/primaryTeacherRuntimeReplays.test.js
 
 ## Common semantic lock
 
-Phase 4 consumes Common commit:
+The Phase-3 primary semantic reference remains pinned to:
+
+```text
+00ef138bfc69c9ec062c7cddcc53a8f40a1a4f08
+```
+
+The newer canonical diagnostic-reasoning companion is pinned independently to Common commit:
 
 ```text
 eaa548033d1daa398bcf35a60d1873d1ed3c5df3
 ```
 
-This includes the canonical diagnostic-reasoning companion:
+This avoids needlessly changing the already-deployed Phase-3 fraction semantic reference while still requiring the Phase-4 runtime to consume:
 
 ```text
 Primary/Architecture/PRIMARY_DIAGNOSTIC_REASONING.md
@@ -110,7 +116,7 @@ Primary/Architecture/contracts/v1/examples/division-zero-place-diagnostic-probe.
 Git blob: 2beb4c1d32a2490a109001321c493e5da888fa59
 ```
 
-`integration/primary/common-fixtures.lock.json` pins both snapshots. CI recomputes the Git blob SHA so Study-Hub cannot silently redefine Common semantics.
+`integration/primary/common-fixtures.lock.json` records the source commit and blob for each snapshot. CI recomputes the Git blob SHA so Study-Hub cannot silently redefine Common semantics.
 
 The notebook replay preserves:
 
