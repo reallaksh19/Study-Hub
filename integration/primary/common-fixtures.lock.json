@@ -1,13 +1,19 @@
 {
   "lockVersion": "1.0",
   "semanticAuthority": "reallaksh19/Common",
-  "sourceCommit": "00ef138bfc69c9ec062c7cddcc53a8f40a1a4f08",
+  "sourceCommit": "eaa548033d1daa398bcf35a60d1873d1ed3c5df3",
   "fixtures": [
     {
       "fixtureId": "PRIMARY-MATH-NOTEBOOK-DIVISION-REPLAY-001",
       "sourcePath": "Primary/Architecture/contracts/v1/examples/division-notebook-work-replay.example.json",
       "sourceGitBlobSha": "ab815dd59564c960e01d3eae4206a1bda2f1c353",
       "vendoredPath": "integration/primary/common-fixtures/division-notebook-work-replay.example.json"
+    },
+    {
+      "fixtureId": "PRIMARY-DIAGNOSTIC-DIVISION-ZERO-PLACE-001",
+      "sourcePath": "Primary/Architecture/contracts/v1/examples/division-zero-place-diagnostic-probe.example.json",
+      "sourceGitBlobSha": "2beb4c1d32a2490a109001321c493e5da888fa59",
+      "vendoredPath": "integration/primary/common-fixtures/division-zero-place-diagnostic-probe.example.json"
     }
   ],
   "rule": "Vendored fixtures are immutable transport snapshots of Common-owned semantics and must not be edited independently."
