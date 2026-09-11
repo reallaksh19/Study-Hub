@@ -1,0 +1,14 @@
+{
+  "lockVersion": "1.0",
+  "semanticAuthority": "reallaksh19/Common",
+  "sourceCommit": "00ef138bfc69c9ec062c7cddcc53a8f40a1a4f08",
+  "fixtures": [
+    {
+      "fixtureId": "PRIMARY-MATH-NOTEBOOK-DIVISION-REPLAY-001",
+      "sourcePath": "Primary/Architecture/contracts/v1/examples/division-notebook-work-replay.example.json",
+      "sourceGitBlobSha": "ab815dd59564c960e01d3eae4206a1bda2f1c353",
+      "vendoredPath": "integration/primary/common-fixtures/division-notebook-work-replay.example.json"
+    }
+  ],
+  "rule": "Vendored fixtures are immutable transport snapshots of Common-owned semantics and must not be edited independently."
+}
