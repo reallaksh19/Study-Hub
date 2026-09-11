@@ -16,6 +16,13 @@
       "sourcePath": "Primary/Architecture/contracts/v1/examples/division-zero-place-diagnostic-probe.example.json",
       "sourceGitBlobSha": "2beb4c1d32a2490a109001321c493e5da888fa59",
       "vendoredPath": "integration/primary/common-fixtures/division-zero-place-diagnostic-probe.example.json"
+    },
+    {
+      "fixtureId": "PRIMARY-G4-ENGLISH-PHASE5-001",
+      "sourceCommit": "c2a4a32335f6e26fc0b9359c2a6bdb640d2b4831",
+      "sourcePath": "Primary/Architecture/contracts/v1/examples/grade4-english-phase5.example.json",
+      "sourceGitBlobSha": "d6255d7cb2e49e859245fbb9adedd02524c47339",
+      "vendoredPath": "integration/primary/common-fixtures/grade4-english-phase5.example.json"
     }
   ],
   "rule": "Vendored fixtures are immutable transport snapshots of Common-owned semantics and must not be edited independently."
