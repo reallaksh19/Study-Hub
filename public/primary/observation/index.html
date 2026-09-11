@@ -20,7 +20,7 @@
     .grid { display: grid; gap: 14px; }
     .two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
     label { font-weight: 800; display: block; margin-bottom: 6px; }
-    select, textarea, input[type="text"], input[type="number"] { width: 100%; border: 2px solid #bdd3ea; border-radius: 14px; padding: 11px 12px; font: inherit; background: #fff; }
+    select, textarea, input[type="text"], input[type="number"], input[type="date"] { width: 100%; border: 2px solid #bdd3ea; border-radius: 14px; padding: 11px 12px; font: inherit; background: #fff; }
     textarea { min-height: 92px; resize: vertical; }
     select:focus, textarea:focus, input:focus { outline: 4px solid rgba(81,135,255,.18); border-color: #568cf5; }
     .check { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border: 2px solid #dce8f3; border-radius: 15px; background: #fff; }
@@ -40,6 +40,13 @@
     .status.err { display: block; background: #ffeaea; border: 2px solid #efa7a7; }
     .small { color: #63778c; font-size: .9rem; }
     code { background: #eff3f8; padding: 2px 6px; border-radius: 7px; }
+    .window-box { margin-top: 14px; padding: 14px 16px; border: 2px solid #d6e2ee; border-radius: 16px; background: #f8fbfe; }
+    .window-box.ready { background: #e9f8ee; border-color: #9bd4aa; }
+    .window-box.wait { background: #fff8d9; border-color: #f1cf70; }
+    .window-box.closed { background: #fff0f0; border-color: #f0b3b3; }
+    .delayed-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .delayed-links a { border-radius: 999px; padding: 11px 15px; background: #2a8d83; color: #fff; text-decoration: none; font-weight: 900; }
+    .delayed-links a.locked { pointer-events: none; opacity: .42; filter: grayscale(.5); }
   </style>
 </head>
 <body>
@@ -93,10 +100,23 @@
     <h2>4. Delayed retrieval</h2>
     <p>The gate cannot pass until a fresh retrieval check is actually completed <strong>3–7 days after</strong> the initial session.</p>
     <div class="grid two">
+      <div>
+        <label for="initial-session-date">Initial session date</label>
+        <input id="initial-session-date" type="date" />
+        <div class="small">Local scheduling helper only; this date is <strong>not included in exported JSON</strong>.</div>
+      </div>
       <div><label for="delayed-status">Status</label><select id="delayed-status"><option>NOT_YET_TESTED</option><option>COMPLETED</option></select></div>
-      <div><label for="delayed-days">Days after initial</label><input id="delayed-days" type="number" min="3" max="7" placeholder="3–7" /></div>
     </div>
-    <div style="margin-top:14px"><label for="delayed-result">Fresh retrieval result</label><textarea id="delayed-result" placeholder="Brief factual description of what happened on the fresh retrieval item."></textarea></div>
+    <div id="delayed-window" class="window-box wait" role="status">Choose the initial-session date to see the allowed 3–7 day retrieval window.</div>
+    <div class="delayed-links" aria-label="Fresh delayed retrieval tasks">
+      <a id="math-delayed-link" class="locked" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener" href="../fractions/delayed-retrieval.html">Open fresh Math retrieval</a>
+      <a id="english-delayed-link" class="locked" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener" href="../english/inference-delayed-retrieval.html">Open fresh English retrieval</a>
+    </div>
+    <p class="small">These fresh tasks stay locked on this helper until the device date is inside the 3–7 day window. Do not rehearse them during the initial session.</p>
+    <div class="grid two">
+      <div><label for="delayed-days">Days after initial</label><input id="delayed-days" type="number" min="3" max="7" placeholder="3–7" /></div>
+      <div><label for="delayed-result">Fresh retrieval result</label><textarea id="delayed-result" placeholder="Brief factual description of what happened on the fresh retrieval item."></textarea></div>
+    </div>
   </section>
 
   <section class="card">
@@ -167,6 +187,74 @@
     findingsRoot.appendChild(row);
   }
   document.getElementById('add-finding').addEventListener('click', addFinding);
+
+  function localIsoDate(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  function utcDayFromIso(value) {
+    const [year, month, day] = value.split('-').map(Number);
+    return Date.UTC(year, month - 1, day);
+  }
+
+  function formatUtcDay(ms) {
+    return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(ms));
+  }
+
+  const initialDateInput = document.getElementById('initial-session-date');
+  const delayedWindow = document.getElementById('delayed-window');
+  const delayedLinks = [document.getElementById('math-delayed-link'), document.getElementById('english-delayed-link')];
+  initialDateInput.max = localIsoDate();
+
+  function setDelayedLinksUnlocked(unlocked) {
+    for (const link of delayedLinks) {
+      link.classList.toggle('locked', !unlocked);
+      link.setAttribute('aria-disabled', unlocked ? 'false' : 'true');
+      link.tabIndex = unlocked ? 0 : -1;
+    }
+  }
+
+  function updateDelayedWindow() {
+    const value = initialDateInput.value;
+    if (!value) {
+      setDelayedLinksUnlocked(false);
+      delayedWindow.className = 'window-box wait';
+      delayedWindow.textContent = 'Choose the initial-session date to see the allowed 3–7 day retrieval window.';
+      return;
+    }
+
+    const initialMs = utcDayFromIso(value);
+    const todayMs = utcDayFromIso(localIsoDate());
+    const dayMs = 24 * 60 * 60 * 1000;
+    const daysAfter = Math.round((todayMs - initialMs) / dayMs);
+    const earliestMs = initialMs + (3 * dayMs);
+    const latestMs = initialMs + (7 * dayMs);
+    const windowLabel = `${formatUtcDay(earliestMs)} – ${formatUtcDay(latestMs)}`;
+    const inWindow = daysAfter >= 3 && daysAfter <= 7;
+
+    setDelayedLinksUnlocked(inWindow);
+    if (inWindow) {
+      delayedWindow.className = 'window-box ready';
+      delayedWindow.textContent = `Delayed-retrieval window is open today (day ${daysAfter}). Allowed window: ${windowLabel}.`;
+      if (!document.getElementById('delayed-days').value) document.getElementById('delayed-days').value = String(daysAfter);
+    } else if (daysAfter < 3) {
+      delayedWindow.className = 'window-box wait';
+      delayedWindow.textContent = `Too early for the fresh retrieval. Allowed window: ${windowLabel}.`;
+    } else {
+      delayedWindow.className = 'window-box closed';
+      delayedWindow.textContent = `The 3–7 day window has passed. Allowed window was ${windowLabel}. Keep Gate #50 IN_PROGRESS or BLOCKED and plan a valid rerun rather than backfilling retention evidence.`;
+    }
+  }
+
+  initialDateInput.addEventListener('change', updateDelayedWindow);
+  for (const link of delayedLinks) {
+    link.addEventListener('click', (event) => {
+      if (link.getAttribute('aria-disabled') === 'true') event.preventDefault();
+    });
+  }
 
   function record() {
     const experiences = [];
@@ -257,6 +345,8 @@
       show(error.message, false);
     }
   });
+
+  updateDelayedWindow();
 })();
 </script>
 </body>
