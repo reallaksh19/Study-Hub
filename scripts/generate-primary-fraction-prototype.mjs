@@ -9,11 +9,13 @@ import {
   fractionEpisodeProjection,
   fractionExperienceManifest,
   fractionKaniMission,
-  fractionMissionResolver,
   fractionPrototypeScopeBasis,
-  fractionQrLaunch,
   fractionReturnTask,
 } from '../src/integration/primary/fractions/fractionEquivalenceJourney.js';
+import {
+  fractionLaunchArtifact,
+  fractionMissionResolverArtifact,
+} from '../src/integration/primary/fractions/fractionPrototypeArtifacts.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const checkOnly = process.argv.includes('--check');
@@ -39,8 +41,8 @@ const outputs = new Map([
   ['public/primary/fractions/return-task.json', fractionReturnTask],
   ['public/primary/fractions/delayed-retrieval-task.json', fractionDelayedRetrievalTask],
   ['public/primary/missions/KM-G4-FRAC-EQUIV-001.json', fractionKaniMission],
-  ['public/primary/missions/resolver.json', fractionMissionResolver],
-  ['public/primary/missions/P4FE7K2Q.launch.json', fractionQrLaunch],
+  ['public/primary/missions/resolver.json', fractionMissionResolverArtifact],
+  ['public/primary/missions/P4FE7K2Q.launch.json', fractionLaunchArtifact],
 ]);
 
 const mismatches = [];

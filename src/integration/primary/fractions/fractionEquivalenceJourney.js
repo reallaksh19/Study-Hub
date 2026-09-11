@@ -20,9 +20,9 @@ import {
 export const FRACTION_COMMON_SEMANTIC_REF = {
   semanticAuthority: COMMON_PRIMARY_AUTHORITY,
   semanticVersion: COMMON_PRIMARY_SEMANTIC_VERSION,
-  sourceCommit: 'b558d33238b5edbc4dc37b7701edab2c5109242d',
+  sourceCommit: '00ef138bfc69c9ec062c7cddcc53a8f40a1a4f08',
   schemaPath: COMMON_PRIMARY_SCHEMA_PATH,
-  schemaGitBlobSha: '2f6d95c1cdc8801205afef41beff3e818ae92be1',
+  schemaGitBlobSha: 'df84bc3ae4545bff2fff7b52fb1538779f00c55c',
 };
 
 export const fractionPrototypeScopeBasis = {
