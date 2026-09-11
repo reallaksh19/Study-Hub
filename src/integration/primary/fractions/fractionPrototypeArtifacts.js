@@ -3,6 +3,11 @@ import {
   fractionMissionResolver,
   fractionQrLaunch,
 } from './fractionEquivalenceJourney.js';
+import {
+  FRACTION_QR_ASSET_PATH,
+  FRACTION_RETURN_LEARNER_PATH,
+  fractionKaniLaunchUrl,
+} from './fractionPhase3Publication.js';
 
 export const FRACTION_CONTENT_PATH = '/primary/fractions/grade4-fraction-equivalence.content.json';
 export const FRACTION_MISSION_PATH = `/primary/missions/${fractionKaniMission.missionId}.json`;
@@ -20,10 +25,14 @@ export const fractionMissionResolverArtifact = Object.fromEntries(
     contentPath: FRACTION_CONTENT_PATH,
     returnTaskPath: FRACTION_RETURN_TASK_PATH,
     delayedRetrievalTaskPath: FRACTION_DELAYED_TASK_PATH,
+    returnLearnerPath: FRACTION_RETURN_LEARNER_PATH,
   }]),
 );
 
 export const fractionLaunchArtifact = {
   ...fractionQrLaunch,
   resolverPath: '/primary/missions/resolver.json',
+  targetUrl: fractionKaniLaunchUrl,
+  qrAssetPath: FRACTION_QR_ASSET_PATH,
+  returnLearnerPath: FRACTION_RETURN_LEARNER_PATH,
 };
