@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Primary supervised observation · Gate #50</title>
+  <style>
+    :root { font-family: ui-rounded, "Nunito", system-ui, sans-serif; color: #17324d; background: #eef6ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(180deg, #f8fcff 0%, #eef6ff 50%, #f6f0ff 100%); }
+    main { width: min(900px, calc(100% - 28px)); margin: 0 auto; padding: 28px 0 60px; }
+    h1 { margin: 6px 0 10px; font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.05; }
+    h2 { margin: 0 0 14px; }
+    p, li { line-height: 1.5; }
+    .eyebrow { color: #6e57d9; font-weight: 900; text-transform: uppercase; letter-spacing: .13em; font-size: .78rem; }
+    .card { background: rgba(255,255,255,.97); border: 2px solid #d9e8f8; border-radius: 24px; padding: clamp(18px, 4vw, 28px); margin: 18px 0; box-shadow: 0 14px 45px rgba(42,75,118,.10); }
+    .notice { background: #ecfbf5; border-color: #a9dfce; }
+    .warning { background: #fff8d9; border-color: #f1cf70; }
+    .danger { background: #fff0f0; border-color: #f0b3b3; }
+    .grid { display: grid; gap: 14px; }
+    .two { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    label { font-weight: 800; display: block; margin-bottom: 6px; }
+    input[type="file"], input[type="date"], input[type="number"], select, textarea { width: 100%; border: 2px solid #bdd3ea; border-radius: 14px; padding: 11px 12px; font: inherit; background: #fff; }
+    textarea { min-height: 94px; resize: vertical; }
+    button, .pill-link { border: 0; border-radius: 999px; padding: 12px 18px; font: inherit; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-block; }
+    .primary { background: #2f8f83; color: white; }
+    .secondary { background: #725be4; color: white; }
+    .ghost { background: #edf3f9; color: #23415f; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .small { color: #63778c; font-size: .9rem; }
+    .status { display: none; margin-top: 15px; padding: 14px 16px; border-radius: 14px; font-weight: 750; }
+    .status.ok { display: block; background: #e9f8ee; border: 2px solid #9bd4aa; }
+    .status.err { display: block; background: #ffeaea; border: 2px solid #efa7a7; }
+    .summary { margin: 10px 0 0; padding: 14px 16px; border-radius: 15px; background: #f3f7fb; }
+    .finding { border: 2px solid #dbe7f1; border-radius: 18px; padding: 15px; margin: 12px 0; background: #fbfdff; }
+    .window { margin-top: 14px; padding: 14px 16px; border: 2px solid #d6e2ee; border-radius: 16px; background: #f8fbfe; }
+    .window.ready { background: #e9f8ee; border-color: #9bd4aa; }
+    .window.wait { background: #fff8d9; border-color: #f1cf70; }
+    .window.closed { background: #fff0f0; border-color: #f0b3b3; }
+    .delayed-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .delayed-links a { border-radius: 999px; padding: 11px 15px; background: #2a8d83; color: #fff; text-decoration: none; font-weight: 900; }
+    .delayed-links a.locked { pointer-events: none; opacity: .42; filter: grayscale(.5); }
+    [hidden] { display: none !important; }
+    code { background: #eff3f8; padding: 2px 6px; border-radius: 7px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Study-Hub · Gate #50</div>
+  <h1>Resume an observation</h1>
+  <p>Use this page on the delayed-retrieval day to reopen the JSON exported from the initial supervised session. The file stays in this browser tab only.</p>
+
+  <section class="card notice">
+    <h2>Local-only continuity</h2>
+    <p><strong>No imported record is uploaded or stored by this page.</strong> It uses the browser file reader, keeps the record in memory, and creates a new local JSON download when you finish.</p>
+    <p class="small">The initial-session date remains a local scheduling helper and is not inserted into the observation record.</p>
+  </section>
+
+  <section class="card warning">
+    <h2>1. Import the initial-session JSON</h2>
+    <label for="record-file">Observation JSON file</label>
+    <input id="record-file" type="file" accept="application/json,.json" />
+    <div id="import-status" class="status" role="status"></div>
+    <div id="record-summary" class="summary" hidden></div>
+    <div class="actions">
+      <a class="pill-link ghost" href="./">Back to initial-session capture</a>
+    </div>
+  </section>
+
+  <section id="followup" class="card" hidden>
+    <h2>2. Run the fresh delayed retrieval</h2>
+    <p>Use the fresh task only <strong>3–7 days after</strong> the initial session. Enter the initial-session date below only to unlock the correct window; it is not exported.</p>
+    <div class="grid two">
+      <div>
+        <label for="initial-session-date">Initial session date</label>
+        <input id="initial-session-date" type="date" />
+      </div>
+      <div>
+        <label for="delayed-days">Days after initial</label>
+        <input id="delayed-days" type="number" min="3" max="7" placeholder="3–7" />
+      </div>
+    </div>
+    <div id="delayed-window" class="window wait" role="status">Choose the initial-session date to see the allowed 3–7 day window.</div>
+    <div class="delayed-links">
+      <a id="math-delayed-link" class="locked" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener" href="../fractions/delayed-retrieval.html">Open fresh Math retrieval</a>
+      <a id="english-delayed-link" class="locked" aria-disabled="true" tabindex="-1" target="_blank" rel="noopener" href="../english/inference-delayed-retrieval.html">Open fresh English retrieval</a>
+    </div>
+    <p class="small">Do not rehearse these items before the valid window. If the window is missed, plan a new valid observation/retrieval cycle rather than backfilling retention evidence.</p>
+    <div class="grid two" style="margin-top:14px">
+      <div>
+        <label for="delayed-status">Delayed retrieval status</label>
+        <select id="delayed-status"><option>NOT_YET_TESTED</option><option>COMPLETED</option></select>
+      </div>
+      <div>
+        <label for="gate-status">Gate status</label>
+        <select id="gate-status"><option>IN_PROGRESS</option><option>BLOCKED</option><option>PASS</option></select>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <label for="delayed-result">Fresh retrieval result</label>
+      <textarea id="delayed-result" placeholder="Brief factual description of what happened on the fresh item. Do not add child identifiers or trait labels."></textarea>
+    </div>
+  </section>
+
+  <section id="finding-section" class="card" hidden>
+    <h2>3. Resolve prior findings</h2>
+    <p class="small">Initial observations remain unchanged. You may update each finding’s status after remediation; BLOCKER findings must not remain OPEN for a PASS.</p>
+    <div id="findings"></div>
+  </section>
+
+  <section id="export-section" class="card" hidden>
+    <h2>4. Validate and export the continued record</h2>
+    <div class="actions">
+      <button id="validate" class="secondary" type="button">Validate gate status</button>
+      <button id="download" class="primary" type="button">Download updated JSON</button>
+    </div>
+    <pre id="json-preview" hidden style="overflow:auto; white-space:pre-wrap; background:#f3f6fa; padding:16px; border-radius:14px; margin-top:14px"></pre>
+    <div id="gate-message" class="status" role="status"></div>
+  </section>
+
+  <section class="card danger">
+    <strong>Interpretation rule:</strong> this remains one product-loop observation. A successful delayed item is not a general effectiveness claim and must not become a durable child trait label.
+  </section>
+</main>
+
+<script>
+(() => {
+  const FORBIDDEN_KEYS = new Set([
+    'name', 'childName', 'fullName', 'dateOfBirth', 'dob', 'address', 'email', 'phone',
+    'school', 'studentId', 'medical', 'diagnosis', 'disability', 'religion', 'race',
+    'ethnicity', 'political', 'password', 'accountId',
+  ]);
+  const OBSERVATION_STATES = new Set(['OBSERVED', 'NOT_OBSERVED', 'AMBIGUOUS', 'NOT_APPLICABLE']);
+  const EXPERIENCE_IDS = new Set(['MATH-FRACTION-EQUIVALENCE', 'ENGLISH-INFERENCE-INVESTIGATOR']);
+  let record = null;
+
+  const fileInput = document.getElementById('record-file');
+  const importStatus = document.getElementById('import-status');
+  const summary = document.getElementById('record-summary');
+  const followup = document.getElementById('followup');
+  const findingSection = document.getElementById('finding-section');
+  const exportSection = document.getElementById('export-section');
+  const findingsRoot = document.getElementById('findings');
+  const initialDate = document.getElementById('initial-session-date');
+  const delayedDays = document.getElementById('delayed-days');
+  const delayedStatus = document.getElementById('delayed-status');
+  const delayedResult = document.getElementById('delayed-result');
+  const gateStatus = document.getElementById('gate-status');
+  const delayedWindow = document.getElementById('delayed-window');
+  const mathLink = document.getElementById('math-delayed-link');
+  const englishLink = document.getElementById('english-delayed-link');
+  const gateMessage = document.getElementById('gate-message');
+  const preview = document.getElementById('json-preview');
+
+  function setStatus(element, kind, text) {
+    element.className = `status ${kind}`;
+    element.textContent = text;
+  }
+
+  function isObject(value) {
+    return value && typeof value === 'object' && !Array.isArray(value);
+  }
+
+  function findForbiddenKey(value, path = []) {
+    if (Array.isArray(value)) {
+      for (let i = 0; i < value.length; i += 1) {
+        const found = findForbiddenKey(value[i], [...path, String(i)]);
+        if (found) return found;
+      }
+      return null;
+    }
+    if (!isObject(value)) return null;
+    for (const [key, child] of Object.entries(value)) {
+      if (FORBIDDEN_KEYS.has(key)) return [...path, key].join('.');
+      const found = findForbiddenKey(child, [...path, key]);
+      if (found) return found;
+    }
+    return null;
+  }
+
+  function validateImportedRecord(candidate) {
+    if (!isObject(candidate)) throw new Error('Observation JSON must contain one object.');
+    const forbidden = findForbiddenKey(candidate);
+    if (forbidden) throw new Error(`Record contains forbidden personal/sensitive field: ${forbidden}`);
+    if (candidate.schemaVersion !== '1.0') throw new Error('Only Gate #50 schemaVersion 1.0 is supported.');
+    if (typeof candidate.observationId !== 'string' || !candidate.observationId.trim()) throw new Error('observationId is missing.');
+    if (candidate.guardianSupervised !== true || candidate.grade !== 4) throw new Error('Record is not a Grade 4 guardian-supervised Gate #50 record.');
+    if (!Array.isArray(candidate.experiences) || candidate.experiences.length === 0 || candidate.experiences.some((id) => !EXPERIENCE_IDS.has(id))) {
+      throw new Error('Record contains an unsupported or missing experience id.');
+    }
+    if (!isObject(candidate.interactionChecks)) throw new Error('interactionChecks is missing.');
+    for (const key of [
+      'studyHubOrPrintAttempted', 'qrRushing', 'returnedToNonGameTask', 'gameClarifiedOrPractisedTarget',
+      'hintsPreservedThinking', 'mechanicsCausedCarelessResponding', 'instructionsUnderstoodWithoutRepeatedTranslation',
+      'independentReturnProducedInterpretableEvidence',
+    ]) {
+      if (!OBSERVATION_STATES.has(candidate.interactionChecks[key])) throw new Error(`interactionChecks.${key} is invalid.`);
+    }
+    if (!isObject(candidate.delayedRetrieval) || !['NOT_YET_TESTED', 'COMPLETED'].includes(candidate.delayedRetrieval.status)) {
+      throw new Error('delayedRetrieval is invalid.');
+    }
+    if (!Array.isArray(candidate.findings)) throw new Error('findings must be an array.');
+    if (!isObject(candidate.interpretation) || !['IN_PROGRESS', 'BLOCKED', 'PASS'].includes(candidate.interpretation.gateStatus)) {
+      throw new Error('interpretation.gateStatus is invalid.');
+    }
+    if (candidate.interpretation.generalEffectivenessClaim !== false || candidate.interpretation.durableChildTraitClaim !== false) {
+      throw new Error('Record violates the one-child interpretation boundary.');
+    }
+  }
+
+  function unlockLinks(unlocked) {
+    for (const link of [mathLink, englishLink]) {
+      link.classList.toggle('locked', !unlocked);
+      link.setAttribute('aria-disabled', String(!unlocked));
+      link.tabIndex = unlocked ? 0 : -1;
+    }
+  }
+
+  function localIsoDate(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  function utcDay(value) {
+    const [year, month, day] = value.split('-').map(Number);
+    return Date.UTC(year, month - 1, day);
+  }
+
+  function formatDay(ms) {
+    return new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(ms));
+  }
+
+  function updateWindow() {
+    unlockLinks(false);
+    delayedWindow.className = 'window wait';
+    if (!initialDate.value) {
+      delayedWindow.textContent = 'Choose the initial-session date to see the allowed 3–7 day window.';
+      return;
+    }
+    const start = utcDay(initialDate.value);
+    const day3 = start + 3 * 86400000;
+    const day7 = start + 7 * 86400000;
+    const today = utcDay(localIsoDate());
+    const days = Math.round((today - start) / 86400000);
+    delayedDays.value = days >= 0 ? String(days) : '';
+    if (today < day3) {
+      delayedWindow.className = 'window wait';
+      delayedWindow.textContent = `Fresh retrieval opens ${formatDay(day3)} and closes ${formatDay(day7)}. Do not rehearse it early.`;
+      return;
+    }
+    if (today > day7) {
+      delayedWindow.className = 'window closed';
+      delayedWindow.textContent = `The valid window ended ${formatDay(day7)}. Do not backfill retention evidence; plan a new valid cycle.`;
+      return;
+    }
+    delayedWindow.className = 'window ready';
+    delayedWindow.textContent = `Valid retrieval window: ${formatDay(day3)}–${formatDay(day7)}. Fresh task is unlocked today.`;
+    unlockLinks(true);
+  }
+
+  function renderFindings() {
+    findingsRoot.replaceChildren();
+    record.findings.forEach((finding, index) => {
+      const box = document.createElement('div');
+      box.className = 'finding';
+      const observation = document.createElement('p');
+      observation.textContent = finding.observation;
+      const remediation = document.createElement('p');
+      remediation.textContent = `Remediation: ${finding.remediation}`;
+      const severity = document.createElement('p');
+      severity.innerHTML = `<strong>Severity:</strong> ${finding.severity}`;
+      const label = document.createElement('label');
+      label.htmlFor = `finding-status-${index}`;
+      label.textContent = 'Current status';
+      const select = document.createElement('select');
+      select.id = `finding-status-${index}`;
+      for (const value of ['OPEN', 'REMEDIATED', 'ACCEPTED_FOR_NEXT_TEST']) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        if (finding.status === value) option.selected = true;
+        select.appendChild(option);
+      }
+      select.addEventListener('change', () => { record.findings[index].status = select.value; });
+      box.append(severity, observation, remediation, label, select);
+      findingsRoot.appendChild(box);
+    });
+    if (record.findings.length === 0) findingsRoot.textContent = 'No findings were recorded in the initial session.';
+  }
+
+  function applyImportedRecord() {
+    delayedStatus.value = record.delayedRetrieval.status;
+    delayedDays.value = Number.isInteger(record.delayedRetrieval.daysAfterInitial) ? String(record.delayedRetrieval.daysAfterInitial) : '';
+    delayedResult.value = typeof record.delayedRetrieval.result === 'string' ? record.delayedRetrieval.result : '';
+    gateStatus.value = record.interpretation.gateStatus;
+    summary.hidden = false;
+    summary.textContent = `${record.observationId} · ${record.experiences.join(' + ')} · delayed retrieval: ${record.delayedRetrieval.status}`;
+    followup.hidden = false;
+    findingSection.hidden = false;
+    exportSection.hidden = false;
+    renderFindings();
+  }
+
+  function buildContinuedRecord() {
+    const next = structuredClone(record);
+    next.delayedRetrieval = { status: delayedStatus.value };
+    if (delayedStatus.value === 'COMPLETED') {
+      const days = Number(delayedDays.value);
+      next.delayedRetrieval.daysAfterInitial = Number.isInteger(days) ? days : null;
+      next.delayedRetrieval.result = delayedResult.value.trim();
+    }
+    next.interpretation.gateStatus = gateStatus.value;
+    next.interpretation.generalEffectivenessClaim = false;
+    next.interpretation.durableChildTraitClaim = false;
+    return next;
+  }
+
+  function validateGate(next) {
+    if (next.delayedRetrieval.status === 'COMPLETED') {
+      if (!Number.isInteger(next.delayedRetrieval.daysAfterInitial) || next.delayedRetrieval.daysAfterInitial < 3 || next.delayedRetrieval.daysAfterInitial > 7) {
+        throw new Error('Completed delayed retrieval must be 3–7 days after the initial observation.');
+      }
+      if (!next.delayedRetrieval.result) throw new Error('Completed delayed retrieval needs a factual result.');
+    }
+    if (next.interpretation.gateStatus === 'PASS') {
+      if (next.delayedRetrieval.status !== 'COMPLETED') throw new Error('Gate cannot PASS before delayed retrieval is completed.');
+      if (next.interactionChecks.returnedToNonGameTask !== 'OBSERVED') throw new Error('Gate cannot PASS unless return-to-learning was observed.');
+      if (next.interactionChecks.independentReturnProducedInterpretableEvidence !== 'OBSERVED') throw new Error('Gate cannot PASS without interpretable independent-return evidence.');
+      if (next.findings.some((finding) => String(finding.severity).toUpperCase() === 'BLOCKER' && String(finding.status).toUpperCase() === 'OPEN')) {
+        throw new Error('Gate cannot PASS with an unresolved BLOCKER finding.');
+      }
+    }
+    return next;
+  }
+
+  fileInput.addEventListener('change', () => {
+    importStatus.className = 'status';
+    record = null;
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      try {
+        const candidate = JSON.parse(String(reader.result));
+        validateImportedRecord(candidate);
+        record = candidate;
+        applyImportedRecord();
+        setStatus(importStatus, 'ok', 'Initial-session record loaded locally. Re-enter the initial-session date to unlock the fresh task in its valid window.');
+      } catch (error) {
+        followup.hidden = true;
+        findingSection.hidden = true;
+        exportSection.hidden = true;
+        summary.hidden = true;
+        setStatus(importStatus, 'err', error instanceof Error ? error.message : 'Could not import the record.');
+      }
+    });
+    reader.addEventListener('error', () => setStatus(importStatus, 'err', 'Could not read the selected local file.'));
+    reader.readAsText(file);
+  });
+
+  initialDate.addEventListener('change', updateWindow);
+
+  document.getElementById('validate').addEventListener('click', () => {
+    try {
+      const next = validateGate(buildContinuedRecord());
+      preview.hidden = false;
+      preview.textContent = JSON.stringify(next, null, 2);
+      setStatus(gateMessage, 'ok', `Record is structurally ready to export with gate status ${next.interpretation.gateStatus}. Repository validation remains authoritative.`);
+    } catch (error) {
+      setStatus(gateMessage, 'err', error instanceof Error ? error.message : 'Gate validation failed.');
+    }
+  });
+
+  document.getElementById('download').addEventListener('click', () => {
+    try {
+      const next = validateGate(buildContinuedRecord());
+      const blob = new Blob([JSON.stringify(next, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${next.observationId}-continued.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setStatus(gateMessage, 'ok', 'Updated observation JSON downloaded locally.');
+    } catch (error) {
+      setStatus(gateMessage, 'err', error instanceof Error ? error.message : 'Could not export the continued record.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
